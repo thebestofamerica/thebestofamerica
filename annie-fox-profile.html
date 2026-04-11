@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maj. Annie G. Fox — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --navy-mid: #112240;
+    --crimson: #b31b1b;
+    --crimson-dark: #8f1515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--text-dark);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── SITE NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(6,14,28,0.97);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo span { color: var(--cream); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 8px 18px; transition: background 0.3s, color 0.3s !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ── FOOTER ── */
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: var(--navy);
+    padding-top: 72px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '★';
+    position: absolute;
+    font-size: 600px;
+    color: rgba(201,168,76,0.025);
+    top: 50%;
+    left: -100px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+  }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    filter: sepia(20%) contrast(1.05);
+    border: 1px solid rgba(201,168,76,0.25);
+    display: block;
+  }
+  .hero-portrait-caption {
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.45);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+  /* ── PAGE BODY ── */
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ── SERVICE BAR ── */
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+
+  /* ── DECORATIONS BAR ── */
+  .decorations-bar { background: rgba(179,27,27,0.07); border-top: 1px solid rgba(179,27,27,0.2); border-bottom: 1px solid rgba(179,27,27,0.15); margin: 0 -40px; padding: 20px 40px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .decorations-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); white-space: nowrap; }
+  .decoration-item { display: flex; align-items: flex-start; gap: 10px; }
+  .decoration-star { color: var(--gold); font-size: 13px; margin-top: 2px; }
+  .decoration-text { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+  .decoration-text small { display: block; font-size: 10px; color: rgba(245,240,232,0.45); letter-spacing: 1px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 2px; }
+
+  /* ── STORY SECTIONS ── */
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .section-label-col { position: sticky; top: 100px; }
+  .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+  .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+  .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+  .section-body p em { font-style: italic; color: var(--text-dark); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+  .pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+  .pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+
+  /* ── CALLOUT STATS ── */
+  .callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+  .callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+  .callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+  .callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+  /* ── SOURCES BOX ── */
+  .sources-box { background: var(--cream); border-left: 3px solid var(--gold); padding: 28px 32px; margin-top: 48px; }
+  .sources-box h4 { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .sources-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .sources-box ul li { font-size: 12px; color: var(--text-light); line-height: 1.55; padding-left: 16px; position: relative; }
+  .sources-box ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+
+  /* ── TRIBUTE BLOCK ── */
+  .tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+  .tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+  .tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+    .hero-portrait-col { flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 20px; }
+    .hero-portrait { max-width: 140px; }
+  }
+  @media (max-width: 700px) {
+    .hero-inner { padding: 40px 24px; }
+    .page-body { padding: 0 24px 60px; }
+    .story-section { grid-template-columns: 1fr; gap: 16px; }
+    .section-label-col { position: static; }
+    .section-number { font-size: 48px; margin-bottom: -16px; }
+    .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+    .service-item { border-right: none; padding: 0; min-width: 120px; }
+    .decorations-bar { margin: 0 -24px; padding: 20px 24px; gap: 20px; }
+    .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+    .pull-quote { padding: 28px 24px; }
+    .sources-box { padding: 24px 20px; }
+    .site-footer { padding: 48px 24px 32px; }
+    .footer-links { gap: 32px; }
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span style="color:var(--gold);">The Best <span>of America</span>™</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html" class="active">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#" class="nav-cta">Sign In</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="about.html">About</a>
+  <a href="#">Sign In</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">★ Founding 250 &nbsp;·&nbsp; Veteran Honoree &nbsp;·&nbsp; World War II</div>
+      <h1 class="hero-name">Major Annie G. <em>Fox</em></h1>
+      <div class="hero-rank">Chief Nurse &nbsp;·&nbsp; United States Army Nurse Corps &nbsp;·&nbsp; 1918–1945</div>
+      <p class="hero-tagline">"Worked ceaselessly with coolness and efficiency, and her fine example of calmness, courage, and leadership was of great benefit to the morale of all with whom she came in contact." — Official U.S. Army Citation, Pearl Harbor, 1942</p>
+    </div>
+    <div class="hero-portrait-col">
+      <img class="hero-portrait" src="annie-fox-portrait.jpg" alt="Major Annie G. Fox, U.S. Army Nurse Corps — Official U.S. Army photograph, public domain">
+      <div class="hero-portrait-caption">Maj. Annie G. Fox<br>U.S. Army Nurse Corps<br>Public Domain · U.S. Army</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- SERVICE BAR -->
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Branch</div>
+      <div class="service-value">United States Army</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Corps</div>
+      <div class="service-value">Army Nurse Corps</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Final Rank</div>
+      <div class="service-value">Major</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Years of Service</div>
+      <div class="service-value">1918–1945 · 27 Years</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Theater</div>
+      <div class="service-value">Pacific · Hawaiian Islands</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Born · Died</div>
+      <div class="service-value">Aug. 4, 1893 · Jan. 20, 1987</div>
+    </div>
+  </div>
+
+  <!-- DECORATIONS BAR -->
+  <div class="decorations-bar">
+    <div class="decorations-label">Decorations</div>
+    <div class="decoration-item">
+      <div class="decoration-star">★</div>
+      <div class="decoration-text">
+        Purple Heart
+        <small>Awarded Oct. 26, 1942 — First woman in U.S. history to receive this decoration</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">★</div>
+      <div class="decoration-text">
+        Bronze Star Medal
+        <small>Awarded Oct. 6, 1944 — Issued in lieu of Purple Heart per updated criteria; same citation</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: THE WOMAN -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">01</span>
+      <div class="section-title">The Woman<br>Before the War</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>A Canadian-born nurse who chose to serve an adopted nation — for twenty-seven years.</h3>
+      <p>Annie Gayton Fox was born on August 4, 1893, in East Pubnico, a small fishing community on the southern tip of Nova Scotia, Canada. Her father was Dr. Charles James Fox, a physician — and perhaps it was his example that first showed her what a life in service to others could look like. Little is documented of her early years, but what came after speaks plainly enough.</p>
+      <p>In 1918, near the close of the First World War, Annie Fox made the decision that would define the rest of her life: she enlisted in the United States Army Nurse Corps. She was 24 years old. The Army was desperate for trained nurses, the vetting was rigorous, and the commitment was open-ended. She passed. She would not leave the Corps for 27 years.</p>
+      <p>After her WWI-era service ended in the summer of 1920, she began a long arc of postings that would take her across the continent and around the world — New York, Fort Sam Houston in Texas, Fort Mason in San Diego, Camp John Hay in the Philippines, Manila, and finally, in 1940, to the island of Honolulu, Hawaii. She rose steadily through the ranks, earning the confidence of every command she served under.</p>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-star">★</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- SECTION 2: HICKAM FIELD -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">02</span>
+      <div class="section-title">Chief Nurse<br>at Hickam Field</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>A new post. A small hospital. Less than four weeks before the world changed.</h3>
+      <p>On August 1, 1941, Annie Fox was promoted to Chief Nurse — the natural culmination of over two decades of service and demonstrated leadership. That November, she was transferred to Hickam Field's Station Hospital, a 30-bed facility staffed by six nurses, positioned on the Army's primary airfield in Hawaii, immediately adjacent to Pearl Harbor.</p>
+      <p>She had been at her new post fewer than four weeks. By all accounts it was a happy assignment. Lieutenant Monica E. Conter described the unit as <em>"the happiest group of nurses anywhere, under the grandest chief nurse who enjoys everything as much as we do."</em> A small team, a beautiful island, quiet work. No one knew what was coming.</p>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">82</span>
+          <div class="callout-desc">Army nurses stationed in Hawaii on December 7, 1941</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">6</span>
+          <div class="callout-desc">Nurses under Fox's command at Hickam Station Hospital</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">27</span>
+          <div class="callout-desc">Days Fox had been at Hickam when the attack began</div>
+        </div>
+      </div>
+
+      <p>On the evening of December 6, the nurses of Hickam Field went to bed in peacetime. A fleet of 353 Japanese aircraft was already at sea, heading toward the islands. By morning, everything would be different.</p>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-star">★</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- SECTION 3: DECEMBER 7 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">03</span>
+      <div class="section-title">December 7<br>1941</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>At 7:48 a.m., the bombs fell. She was 47 years old and had never been in combat.</h3>
+      <p>The Japanese aircraft flew so low over Hickam Field that the nurses could see the pilots in their cockpits. One bomb carved a 30-foot crater twenty feet from the hospital wing. Another fell just across the street. Smoke and burning fuel were so thick that the entire staff donned gas masks as they worked. Within minutes of the first wave, American casualties began flooding the 30-bed facility.</p>
+      <p>Annie Fox did not hesitate. She assembled her nurses and immediately organized the wives of military officers and NCOs who had rushed in from the base to volunteer. She set them to work producing hospital dressings by the hundreds. She directed triage — who needed surgery, who could wait, who needed emergency transfer to larger hospitals elsewhere on the island. And she herself went into the operating room and administered anesthesia during the heaviest part of the bombardment, while the building shook and bombs fell around her.</p>
+
+      <div class="pull-quote">
+        <p>During the attack, Lieutenant Fox, in an exemplary manner, performed her duties as head nurse of the Station Hospital… worked ceaselessly with coolness and efficiency, and her fine example of calmness, courage, and leadership was of great benefit to the morale of all with whom she came in contact.</p>
+        <cite>— Official U.S. Army Citation, signed by Brigadier General W.E. Farthing · Pearl Harbor, 1942</cite>
+      </div>
+
+      <p>The attack on Pearl Harbor killed 2,403 Americans and wounded 1,178 more. Through the chaos of that morning — the noise, the smoke, the constant arrival of broken and dying men — Fox's six nurses held their posts without exception. Not one left. Under her command, they received, stabilized, and cared for hundreds of casualties in a facility built for peacetime sick call.</p>
+      <p>Fox was 47 years old. She had served the Army for 23 years and never been in combat. She would later recall no dramatic moment of decision — only the work in front of her, the training in her hands, and a complete inability to watch someone suffer without trying to help.</p>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-star">★</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- SECTION 4: THE PURPLE HEART -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">The First<br>Purple Heart</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>On October 26, 1942, history was made at Hickam Field — quietly, as it often is.</h3>
+      <p>Ten months after the attack, a ceremony was held at the same airfield where the bombs had fallen. Colonel William Boyd, Post Commander, read aloud the citation signed by Brigadier General W.E. Farthing. First Lieutenant Annie G. Fox was awarded the Purple Heart — becoming the first woman in American history to receive the decoration.</p>
+      <p>At that time, the Purple Heart did not require that the recipient be physically wounded. It could be awarded for "any singularly meritorious act of extraordinary fidelity or essential service." Fox had not been hurt in the attack. She had simply refused to stop working, refused to leave her patients, and refused to let fear drown out duty.</p>
+      <p>In 1944, the criteria for the Purple Heart were amended to require wounds received in enemy action. Fox's medal was formally replaced by the Bronze Star Medal — which carried the identical citation language from 1942. The United States Armed Forces has continued to recognize her as the first woman to have received the Purple Heart.</p>
+      <p>She continued to serve after Pearl Harbor — transferring to Letterman General Hospital in San Francisco, then to Camp Phillips, Kansas, where she was promoted to Major. She retired from active duty on December 15, 1945, two years before President Truman would sign the Women's Armed Services Integration Act granting women full military standing across all branches of the Armed Forces.</p>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-star">★</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- SECTION 5: LEGACY -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why She<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>History has a long memory for battles. Archives are for the people who fought them.</h3>
+      <p>Annie Fox never married. After retiring from the Army, she settled in San Diego to be near two of her sisters. She died on January 20, 1987, in San Francisco, at the age of 93 — having outlived the war, the century's midpoint, and most of the women who served beside her.</p>
+      <p>In 2017, Hawaii Magazine recognized her among the most influential women in Hawaiian history. That same year, the U.S. Department of Veterans Affairs named its automated digital health messaging program <em>"Annie"</em> in her honor — a system that today delivers personalized health reminders to veterans across the country.</p>
+      <p>She is held in the permanent record of TheBestofAmerica.org because an archive's purpose is to make the forgetting impossible. Every generation that comes after this one deserves to know her name and to understand that courage, in its truest form, looks nothing like a movie poster. It looks like a 47-year-old nurse in a gas mask, administering anesthesia in a 30-bed hospital, while bombs fall twenty feet away, because someone needs her and she is there.</p>
+      <p>Major Annie Gayton Fox. United States Army Nurse Corps. Twenty-seven years of service. The first woman in American history to receive the Purple Heart. She was magnificent.</p>
+
+      <div class="sources-box">
+        <h4>Verified Sources</h4>
+        <ul>
+          <li>U.S. National Archives and Records Administration — <em>A People at War: Women Who Served, Annie G. Fox</em></li>
+          <li>National Women's History Museum — <em>The Bravery of Army Nurse Annie G. Fox at Pearl Harbor</em></li>
+          <li>U.S. Department of Veterans Affairs — <em>Veteran of the Day: Major Nurse Annie G. Fox</em></li>
+          <li>Gilder Lehrman Institute of American History — <em>Annie Fox</em></li>
+          <li>Purple Heart Foundation — <em>Honoring the American Heroine: The Story of Lt. Annie G. Fox</em></li>
+          <li>Wartime Heritage Association — <em>Major Annie Gayton Fox, U.S. Army Nurse Corps</em></li>
+          <li>Pearl Harbor.org — <em>Annie Fox: Pearl Harbor's First Female Purple Heart Recipient</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-body -->
+
+<!-- TRIBUTE BLOCK -->
+<div class="tribute-block">
+  <div class="tribute-eyebrow">Archived in Permanent Honor</div>
+  <p class="tribute-text">"Worked ceaselessly with coolness and efficiency, and her fine example of calmness, courage, and leadership was of great benefit to the morale of all with whom she came in contact."</p>
+  <div class="tribute-name">Major Annie G. Fox &nbsp;·&nbsp; 1893–1987 &nbsp;·&nbsp; United States Army Nurse Corps</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America™</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="honorees.html?filter=founding">The Founding 250</a></li>
+            <li><a href="honorees.html?filter=veteran">Veterans</a></li>
+            <li><a href="honorees.html?filter=institution">Historic Places</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — The Best of America™ National Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital@0;1&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root { --navy:#0a1628; --deep-navy:#060e1c; --crimson:#b31b1b; --gold:#c9a84c; --gold-light:#e8c97a; --cream:#f5f0e8; --white:#ffffff; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Libre Baskerville',Georgia,serif;background:var(--deep-navy);color:var(--cream);overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.35;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(6,14,28,0.98) 0%,rgba(6,14,28,0.0) 100%);backdrop-filter:blur(2px);border-bottom:1px solid rgba(201,168,76,0.15);}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:10px;}
+.nav-logo span{color:var(--cream);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.7);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{color:var(--gold)!important;border:1px solid var(--gold);padding:8px 18px;transition:background 0.3s,color 0.3s!important;}
+.nav-cta:hover{background:var(--gold)!important;color:var(--navy)!important;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}.nav-hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all 0.3s;}.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(6,14,28,0.99);border-bottom:1px solid rgba(201,168,76,0.2);z-index:199;padding:24px 32px;flex-direction:column;gap:20px;}.mobile-menu.open{display:flex;}.mobile-menu a{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.75);text-decoration:none;}.mobile-menu a:hover{color:var(--gold);}
+
+/* PAGE HERO */
+.page-hero{padding:140px 48px 80px;background:linear-gradient(180deg,rgba(6,14,28,0.88) 0%,rgba(13,30,56,0.92) 100%),url('https://images.unsplash.com/photo-1422464804701-7d8356b3a42f?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center 35%;border-bottom:1px solid rgba(201,168,76,0.15);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(179,27,27,0.08) 0%,transparent 70%);pointer-events:none;}
+.page-hero .eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;position:relative;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,80px);font-weight:900;line-height:1;color:var(--cream);margin-bottom:16px;position:relative;}
+.page-hero h1 em{font-style:italic;color:var(--gold);}
+.hero-divider{width:60px;height:2px;background:var(--crimson);margin:24px auto;}
+.page-hero p{font-size:17px;line-height:1.85;color:rgba(245,240,232,0.65);max-width:600px;margin:0 auto;position:relative;}
+
+/* CONTENT */
+.about-content{max-width:800px;margin:0 auto;padding:80px 48px 100px;}
+.about-content h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--cream);margin-bottom:20px;line-height:1.3;}
+.about-content h2 em{font-style:italic;color:var(--gold);}
+.about-content p{font-size:16px;line-height:1.9;color:rgba(245,240,232,0.65);margin-bottom:24px;}
+.about-content .section-label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;margin-top:60px;display:flex;align-items:center;gap:12px;}
+.about-content .section-label::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold);}
+.about-divider{width:60px;height:1px;background:rgba(201,168,76,0.3);margin:48px 0;}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:40px 0;}
+.value-card{background:var(--navy);border:1px solid rgba(201,168,76,0.1);padding:36px 28px;text-align:center;}
+.value-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--cream);margin-bottom:12px;}
+.value-card p{font-size:14px;line-height:1.75;color:rgba(245,240,232,0.5);margin-bottom:0;}
+
+/* FOOTER */
+footer{padding:60px 48px 40px;background:var(--deep-navy);border-top:1px solid rgba(201,168,76,0.1);}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:48px;flex-wrap:wrap;}
+.footer-brand h3{font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.footer-brand p{font-size:13px;color:rgba(245,240,232,0.4);line-height:1.7;max-width:280px;}
+.footer-links{display:flex;gap:60px;flex-wrap:wrap;}
+.footer-col h4{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul a{font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-col ul a:hover{color:var(--cream);}
+.footer-bottom{border-top:1px solid rgba(245,240,232,0.08);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-bottom p{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.15em;color:rgba(245,240,232,0.25);}
+.footer-disc{font-size:11px;color:rgba(245,240,232,0.2);max-width:600px;line-height:1.5;text-align:right;}
+
+@media(max-width:900px){nav{padding:0 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}.about-content{padding:60px 24px 80px;}.values-grid{grid-template-columns:1fr;}footer{padding:48px 24px 32px;}.footer-links{gap:32px;}}
+@media(max-width:600px){.footer-disc{text-align:left;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span style="color:var(--gold);">The Best <span>of America</span>™</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="#" class="nav-cta">Sign In</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="about.html">About</a>
+  <a href="#">Sign In</a>
+</div>
+
+<section class="page-hero">
+  <p class="eyebrow">Our Mission</p>
+  <h1>About <em>The Archive</em></h1>
+  <div class="hero-divider"></div>
+  <p>An independent national archive preserving the stories of Americans who have served, sacrificed, and strengthened the fabric of this nation.</p>
+</section>
+
+<div class="about-content">
+  <div class="section-label">Who We Are</div>
+  <h2>A Permanent Record of <em>American Character</em></h2>
+  <p>The Best of America™ is an independent national archive dedicated to honoring the individuals, institutions, and communities that represent the highest ideals of American life. We believe that every generation produces extraordinary people whose stories deserve to be preserved — not just for today, but in perpetuity.</p>
+  <p>Founded during America's 250th anniversary year, the archive was created to ensure that the quiet acts of courage, service, and sacrifice that define this nation are never forgotten. From veterans and first responders to community leaders and historic institutions, these are the stories that textbooks often miss but that communities carry in their hearts.</p>
+
+  <div class="about-divider"></div>
+
+  <div class="section-label">What We Believe</div>
+  <h2>Built on <em>Three Principles</em></h2>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <h3>Permanence</h3>
+      <p>Every record in this archive is preserved permanently. These stories will endure as long as this nation does.</p>
+    </div>
+    <div class="value-card">
+      <h3>Accessibility</h3>
+      <p>This archive belongs to the American people. Access is free, open, and unrestricted — always.</p>
+    </div>
+    <div class="value-card">
+      <h3>Independence</h3>
+      <p>We are not affiliated with any government entity, political party, or commercial interest. Our only allegiance is to the truth of these stories.</p>
+    </div>
+  </div>
+
+  <div class="about-divider"></div>
+
+  <div class="section-label">The Founding 250</div>
+  <h2>Honoring America's <em>250th Year</em></h2>
+  <p>In recognition of the nation's semiquincentennial, The Best of America Archive has selected 250 founding honorees — individuals and institutions whose stories exemplify the best of what this country has produced over two and a half centuries. These founding records represent every branch of service, every region of the country, and every form of sacrifice that has kept this republic intact.</p>
+  <p>Nominations remain open. If you know an American whose story deserves to be preserved, we invite you to submit their name for consideration.</p>
+
+  <div class="about-divider"></div>
+
+  <div class="section-label">Contact Us</div>
+  <h2>Get in <em>Touch</em></h2>
+  <div style="display:flex;align-items:center;gap:24px;margin-top:24px;flex-wrap:wrap;">
+    <img src="logo.png" alt="The Best of America Seal" style="width:70px;height:70px;object-fit:contain;"/>
+    <div>
+      <p style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--cream);margin-bottom:2px;">William Salisbury</p>
+      <p style="font-size:15px;color:var(--gold);margin-bottom:6px;">Founder &amp; Chief National Archivist</p>
+      <p style="font-size:15px;color:rgba(245,240,232,0.65);margin-bottom:4px;">
+        <a href="tel:6619727544" style="color:var(--gold);text-decoration:none;">661.972.7544</a>
+      </p>
+      <p style="font-size:15px;color:rgba(245,240,232,0.65);margin-bottom:0;">
+        <a href="mailto:Bill@TheBestofAmerica.org" style="color:var(--gold);text-decoration:none;">Bill@TheBestofAmerica.org</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America™</h3>
+        <p>An independent national archive preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="honorees.html?filter=founding">The Founding 250</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

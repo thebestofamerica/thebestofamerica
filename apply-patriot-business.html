@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Apply — Local Patriot Business | TheBestofAmerica.org</title>
+<meta name="description" content="Apply to become a Local Patriot Business sponsor of TheBestofAmerica.org — the independent national archive honoring veterans, first responders, and community leaders."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital@0;1&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0a1628;
+  --deep-navy:#060e1c;
+  --crimson:#b31b1b;
+  --gold:#c9a84c;
+  --gold-light:#e8c97a;
+  --gold-dim:rgba(201,168,76,0.2);
+  --cream:#f5f0e8;
+  --white:#ffffff;
+  --text-muted:rgba(245,240,232,0.55);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Libre Baskerville',Georgia,serif;background:var(--deep-navy);color:var(--cream);overflow-x:hidden;}
+
+/* Noise grain overlay */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.35;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(6,14,28,0.98) 0%,rgba(6,14,28,0.0) 100%);backdrop-filter:blur(2px);border-bottom:1px solid rgba(201,168,76,0.15);}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:10px;}
+.nav-logo span{color:var(--cream);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.7);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{color:var(--gold)!important;border:1px solid var(--gold);padding:8px 18px;transition:background 0.3s,color 0.3s!important;}
+.nav-cta:hover{background:var(--gold)!important;color:var(--navy)!important;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(6,14,28,0.99);border-bottom:1px solid rgba(201,168,76,0.2);z-index:199;padding:24px 32px;flex-direction:column;gap:20px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.75);text-decoration:none;}
+.mobile-menu a:hover{color:var(--gold);}
+
+/* HERO */
+.page-hero{padding:148px 48px 80px;background:linear-gradient(180deg,rgba(6,14,28,0.9) 0%,rgba(13,26,50,0.95) 100%),url('https://images.unsplash.com/photo-1508433957232-3107f5fd5995?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center;border-bottom:1px solid rgba(201,168,76,0.15);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 60%,rgba(179,27,27,0.07) 0%,transparent 70%);pointer-events:none;}
+.page-hero .eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;position:relative;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,72px);font-weight:900;line-height:1.05;color:var(--cream);margin-bottom:16px;position:relative;}
+.page-hero h1 em{font-style:italic;color:var(--gold);}
+.hero-divider{width:60px;height:2px;background:var(--crimson);margin:24px auto;}
+.page-hero p{font-size:17px;line-height:1.85;color:var(--text-muted);max-width:580px;margin:0 auto;position:relative;}
+
+/* LAYOUT */
+.page-body{max-width:1100px;margin:0 auto;padding:80px 48px 120px;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start;}
+
+/* FORM SIDE */
+.form-wrap{}
+.form-section-label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:12px;}
+.form-section-label::before{content:'';display:inline-block;width:28px;height:1px;background:var(--gold);}
+.form-wrap>h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--cream);margin-bottom:8px;line-height:1.3;}
+.form-wrap>h2 em{font-style:italic;color:var(--gold);}
+.form-wrap>.intro{font-size:15px;line-height:1.85;color:var(--text-muted);margin-bottom:40px;max-width:540px;}
+
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.form-field{display:flex;flex-direction:column;gap:7px;}
+.form-field.full{grid-column:1/-1;}
+label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(201,168,76,0.85);}
+label .req{color:var(--crimson);margin-left:3px;}
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=url],
+select,
+textarea{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(201,168,76,0.2);
+  color:var(--cream);
+  font-family:'Libre Baskerville',Georgia,serif;
+  font-size:14px;
+  padding:12px 14px;
+  border-radius:2px;
+  outline:none;
+  transition:border-color 0.25s,background 0.25s;
+  width:100%;
+  appearance:none;
+  -webkit-appearance:none;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+input[type=url]:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--gold);
+  background:rgba(201,168,76,0.06);
+}
+input::placeholder,textarea::placeholder{color:rgba(245,240,232,0.25);font-style:italic;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+select option{background:#0d1a30;color:var(--cream);}
+textarea{resize:vertical;min-height:110px;line-height:1.65;}
+
+/* Checkbox group */
+.check-group{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+.check-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
+.check-item input[type=checkbox]{width:16px;height:16px;min-width:16px;margin-top:2px;accent-color:var(--gold);cursor:pointer;border:1px solid var(--gold-dim);}
+.check-item span{font-size:13px;line-height:1.6;color:rgba(245,240,232,0.7);}
+
+/* Acknowledgement box */
+.ack-box{background:rgba(179,27,27,0.08);border:1px solid rgba(179,27,27,0.25);border-left:3px solid var(--crimson);border-radius:2px;padding:16px 18px;margin-top:8px;}
+.ack-box p{font-size:13px;line-height:1.7;color:rgba(245,240,232,0.7);margin:0;}
+.ack-box strong{color:var(--cream);}
+
+/* Divider */
+.form-divider{height:1px;background:rgba(201,168,76,0.12);grid-column:1/-1;margin:4px 0;}
+
+/* Submit */
+.submit-row{grid-column:1/-1;display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:8px;}
+.btn-submit{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.25em;text-transform:uppercase;padding:18px 44px;background:var(--crimson);color:var(--white);border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.3s,transform 0.2s;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);}
+.btn-submit:hover{background:#8f1515;transform:translateY(-2px);}
+.submit-note{font-size:12px;color:rgba(245,240,232,0.35);font-style:italic;line-height:1.6;max-width:260px;}
+
+/* SUCCESS STATE */
+.success-msg{display:none;background:rgba(10,40,10,0.5);border:1px solid rgba(80,160,80,0.4);border-left:3px solid #4caf50;border-radius:2px;padding:20px 24px;grid-column:1/-1;}
+.success-msg h3{font-family:'Playfair Display',serif;font-size:18px;color:#90ee90;margin-bottom:6px;}
+.success-msg p{font-size:13px;color:rgba(245,240,232,0.7);line-height:1.7;}
+
+/* SIDEBAR */
+.sidebar{}
+.sidebar-card{background:var(--navy);border:1px solid rgba(201,168,76,0.15);padding:32px 28px;margin-bottom:24px;position:relative;overflow:hidden;}
+.sidebar-card::after{content:'★';position:absolute;bottom:-16px;right:12px;font-size:6rem;color:rgba(201,168,76,0.04);pointer-events:none;line-height:1;}
+.sidebar-card h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);margin-bottom:14px;line-height:1.3;}
+.sidebar-card h3 em{font-style:italic;color:var(--gold);}
+.benefit-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.benefit-list li{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.6;color:rgba(245,240,232,0.65);}
+.benefit-list li::before{content:'★';color:var(--gold);font-size:10px;margin-top:3px;flex-shrink:0;}
+.sidebar-price{text-align:center;padding:28px;background:linear-gradient(135deg,rgba(179,27,27,0.15) 0%,rgba(6,14,28,0.9) 100%);border:1px solid rgba(179,27,27,0.25);}
+.sidebar-price .price-label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.sidebar-price .price-amount{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--cream);line-height:1;}
+.sidebar-price .price-period{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-top:6px;margin-bottom:14px;}
+.sidebar-price .price-note{font-size:12px;color:rgba(245,240,232,0.5);line-height:1.6;font-style:italic;}
+.sidebar-contact{background:rgba(255,255,255,0.02);border:1px solid rgba(201,168,76,0.12);padding:24px;}
+.sidebar-contact h4{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.sidebar-contact p{font-size:13px;color:rgba(245,240,232,0.6);line-height:1.65;margin-bottom:8px;}
+.sidebar-contact a{color:var(--gold);text-decoration:none;}
+.sidebar-contact a:hover{text-decoration:underline;}
+
+/* FOOTER */
+footer{padding:60px 48px 40px;background:var(--deep-navy);border-top:1px solid rgba(201,168,76,0.1);}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:48px;flex-wrap:wrap;}
+.footer-brand h3{font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.footer-brand p{font-size:13px;color:rgba(245,240,232,0.4);line-height:1.7;max-width:280px;}
+.footer-links-group{display:flex;gap:60px;flex-wrap:wrap;}
+.footer-col h4{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul a{font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-col ul a:hover{color:var(--cream);}
+.footer-bottom{border-top:1px solid rgba(245,240,232,0.08);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-bottom p{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.15em;color:rgba(245,240,232,0.25);}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:0 24px;}
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  .page-hero{padding:120px 24px 60px;}
+  .page-body{grid-template-columns:1fr;padding:60px 24px 80px;gap:48px;}
+  .sidebar{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .sidebar-price{grid-column:1/-1;}
+  footer{padding:48px 24px 32px;}
+  .footer-links-group{gap:32px;}
+}
+@media(max-width:640px){
+  .form-grid{grid-template-columns:1fr;}
+  .form-field.full{grid-column:1;}
+  .form-divider{grid-column:1;}
+  .submit-row{grid-column:1;}
+  .sidebar{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="The Best of America Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span style="color:var(--gold);">The Best <span>of America</span>™</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="apply-patriot-business.html" class="nav-cta active">Apply</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="about.html">About</a>
+  <a href="apply-patriot-business.html">Apply</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <p class="eyebrow">Local Patriot Business Program</p>
+  <h1>Apply for <em>Recognition</em></h1>
+  <div class="hero-divider"></div>
+  <p>Join the businesses across America that have pledged their support to preserving the stories of those who served, sacrificed, and strengthened this nation.</p>
+</section>
+
+<!-- BODY -->
+<div class="page-body">
+
+  <!-- FORM -->
+  <div class="form-wrap">
+    <div class="form-section-label">Application</div>
+    <h2>Submit Your <em>Application</em></h2>
+    <p class="intro">Complete the form below and William Salisbury will personally review your application. All Local Patriot Business designations are permanent — your record is never removed from the archive.</p>
+
+    <form id="applyForm" onsubmit="handleSubmit(event)" novalidate>
+      <div class="form-grid">
+
+        <!-- Business Info -->
+        <div class="form-field full">
+          <label>Business Name <span class="req">*</span></label>
+          <input type="text" name="business_name" placeholder="Your business name" required/>
+        </div>
+
+        <div class="form-field">
+          <label>Owner / Contact Name <span class="req">*</span></label>
+          <input type="text" name="contact_name" placeholder="Full name" required/>
+        </div>
+
+        <div class="form-field">
+          <label>Business Phone <span class="req">*</span></label>
+          <input type="tel" name="phone" placeholder="(xxx) xxx-xxxx" required/>
+        </div>
+
+        <div class="form-field full">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="your@email.com" required/>
+        </div>
+
+        <div class="form-field full">
+          <label>Business Address <span class="req">*</span></label>
+          <input type="text" name="address" placeholder="Street address, City, State, ZIP" required/>
+        </div>
+
+        <div class="form-field">
+          <label>Website</label>
+          <input type="url" name="website" placeholder="https://"/>
+        </div>
+
+        <div class="form-field">
+          <label>Year Established</label>
+          <input type="text" name="year_est" placeholder="e.g. 1985"/>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Category -->
+        <div class="form-field full">
+          <label>Business Category <span class="req">*</span></label>
+          <select name="category" required>
+            <option value="" disabled selected>— Select a category —</option>
+            <optgroup label="Food &amp; Hospitality">
+              <option>Brewery / Taproom</option>
+              <option>Restaurant / Diner</option>
+              <option>Café / Bakery</option>
+              <option>Catering</option>
+              <option>Hotel / Lodging</option>
+              <option>Other Food &amp; Hospitality</option>
+            </optgroup>
+            <optgroup label="Construction &amp; Trades">
+              <option>General Contractor</option>
+              <option>Electrical</option>
+              <option>Plumbing</option>
+              <option>HVAC</option>
+              <option>Roofing</option>
+              <option>Landscaping</option>
+              <option>Other Trades</option>
+            </optgroup>
+            <optgroup label="Healthcare &amp; Wellness">
+              <option>Medical Practice</option>
+              <option>Physical Therapy / Rehab</option>
+              <option>Mental Health Services</option>
+              <option>Dental</option>
+              <option>Other Healthcare</option>
+            </optgroup>
+            <optgroup label="Legal &amp; Financial">
+              <option>Law Firm</option>
+              <option>Financial Planning</option>
+              <option>Insurance</option>
+              <option>Accounting / Tax</option>
+              <option>Other Legal &amp; Financial</option>
+            </optgroup>
+            <optgroup label="Retail &amp; Services">
+              <option>Retail Store</option>
+              <option>Auto / Transportation</option>
+              <option>Real Estate</option>
+              <option>Technology</option>
+              <option>Agriculture / Farming</option>
+              <option>Education / Tutoring</option>
+              <option>Other Retail &amp; Services</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option>Nonprofit / Charitable Organization</option>
+              <option>Other (describe below)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Patriot Connection -->
+        <div class="form-field full">
+          <label>Connection to Service <span class="req">*</span></label>
+          <div class="check-group">
+            <label class="check-item">
+              <input type="checkbox" name="connection" value="veteran_owned"/>
+              <span>Veteran-Owned Business</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="connection" value="first_responder_owned"/>
+              <span>First Responder–Owned Business</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="connection" value="employs_veterans"/>
+              <span>Actively Employs Veterans or First Responders</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="connection" value="supports_orgs"/>
+              <span>Financially Supports Veterans / First Responder Organizations</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="connection" value="community_pillar"/>
+              <span>Long-Standing Community Institution</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="connection" value="other"/>
+              <span>Other (please describe below)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-field full">
+          <label>Why Does Your Business Qualify? <span class="req">*</span></label>
+          <textarea name="why_qualify" placeholder="Tell us about your business's commitment to American service, community, and values. What makes you a Local Patriot Business?" required></textarea>
+        </div>
+
+        <div class="form-field full">
+          <label>Additional Information</label>
+          <textarea name="additional" placeholder="Awards, programs, affiliations, community initiatives, or anything else you'd like us to know..." style="min-height:80px;"></textarea>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Acknowledgement -->
+        <div class="form-field full">
+          <label>Acknowledgement <span class="req">*</span></label>
+          <div class="ack-box">
+            <p>A <strong>one-time sponsorship fee of $750</strong> is required upon acceptance. This is not a commercial transaction — it is a permanent investment in the archive. Your business record will never be removed. You will be contacted by William Salisbury personally to discuss your application before any payment is requested.</p>
+          </div>
+          <div style="margin-top:12px;">
+            <label class="check-item">
+              <input type="checkbox" name="ack" id="ackCheck" required/>
+              <span>I understand the $750 sponsorship fee is due upon acceptance, and that my business listing in TheBestofAmerica.org archive is permanent.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">Submit Application</button>
+          <p class="submit-note">You will receive a confirmation email. William Salisbury will follow up personally within 2–3 business days.</p>
+        </div>
+
+        <!-- Success message -->
+        <div class="success-msg" id="successMsg">
+          <h3>✓ Application Received</h3>
+          <p>Thank you for applying to the Local Patriot Business program. William Salisbury will review your application and reach out personally within 2–3 business days at the email and phone number you provided.</p>
+        </div>
+
+      </div><!-- /form-grid -->
+    </form>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-price">
+      <div class="price-label">One-Time Sponsorship</div>
+      <div class="price-amount">$750</div>
+      <div class="price-period">Permanent · Never Removed</div>
+      <p class="price-note">Payable only upon acceptance. No payment is collected during the application process.</p>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>What You <em>Receive</em></h3>
+      <ul class="benefit-list">
+        <li>Permanent listing in TheBestofAmerica.org national archive</li>
+        <li>Dedicated full-page recognition profile on the site</li>
+        <li>Local Patriot Business digital seal for your website and storefront</li>
+        <li>Featured placement in the Local Patriot Businesses directory</li>
+        <li>Category sponsorship recognition (e.g. Founding Food &amp; Hospitality Sponsor)</li>
+        <li>Association with America's 250th anniversary Founding 250 initiative</li>
+        <li>Your record is never removed — this is a permanent archive entry</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>Our <em>Standards</em></h3>
+      <ul class="benefit-list">
+        <li>Veteran- or first responder–owned, or actively supports those who served</li>
+        <li>Demonstrated community commitment — not just commerce</li>
+        <li>Good standing in your industry and community</li>
+        <li>Shares the values of service, sacrifice, and American character</li>
+        <li>All applications are personally reviewed — this is not automated</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-contact">
+      <h4>Questions?</h4>
+      <p>Contact William Salisbury directly:</p>
+      <p><a href="tel:6619727544">661.972.7544</a></p>
+      <p><a href="mailto:Bill@TheBestofAmerica.org">Bill@TheBestofAmerica.org</a></p>
+    </div>
+
+  </aside>
+
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America™</h3>
+        <p>An independent national archive preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="honorees.html?filter=founding">The Founding 250</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+            <li><a href="apply-patriot-business.html">Apply</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025–2026 The Best of America™ · All Rights Reserved · Records Are Never Removed</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('applyForm');
+    const ack = document.getElementById('ackCheck');
+
+    // Basic validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    if (!ack.checked) {
+      ack.reportValidity();
+      return;
+    }
+
+    // Collect form data and build mailto
+    const data = new FormData(form);
+    const biz     = data.get('business_name') || '';
+    const contact = data.get('contact_name') || '';
+    const phone   = data.get('phone') || '';
+    const email   = data.get('email') || '';
+    const address = data.get('address') || '';
+    const website = data.get('website') || '';
+    const year    = data.get('year_est') || '';
+    const cat     = data.get('category') || '';
+    const why     = data.get('why_qualify') || '';
+    const add     = data.get('additional') || '';
+    const conns   = data.getAll('connection').join(', ');
+
+    const subject = encodeURIComponent(`Local Patriot Business Application — ${biz}`);
+    const body = encodeURIComponent(
+`LOCAL PATRIOT BUSINESS APPLICATION
+====================================
+
+Business Name:     ${biz}
+Contact Name:      ${contact}
+Phone:             ${phone}
+Email:             ${email}
+Address:           ${address}
+Website:           ${website}
+Year Established:  ${year}
+Category:          ${cat}
+
+Connection to Service:
+${conns}
+
+Why We Qualify:
+${why}
+
+Additional Information:
+${add}
+
+----
+Submitted via TheBestofAmerica.org application form.`
+    );
+
+    window.location.href = `mailto:Bill@TheBestofAmerica.org?subject=${subject}&body=${body}`;
+
+    // Show success message
+    document.getElementById('successMsg').style.display = 'block';
+    form.querySelector('.submit-row').style.opacity = '0.4';
+    form.querySelector('.submit-row').style.pointerEvents = 'none';
+    document.getElementById('successMsg').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+</script>
+
+</body>
+</html>
