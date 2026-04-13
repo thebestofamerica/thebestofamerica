@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script>
+ <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
   window.netlifyIdentity.on("init", user => {
     if (!user) {
       window.netlifyIdentity.on("login", () => {
@@ -8,6 +9,12 @@
       });
     }
   });
+
+  // Handle recovery and confirmation tokens
+  if (window.location.hash.includes('recovery_token') || 
+      window.location.hash.includes('confirmation_token')) {
+    window.netlifyIdentity.open();
+  }
 </script>
 <head>
 <meta charset="UTF-8"/>
