@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital@0;1&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root { --navy:#0a1628; --deep-navy:#060e1c; --crimson:#b31b1b; --gold:#c9a84c; --gold-light:#e8c97a; --cream:#f5f0e8; --warm-white:#faf8f4; --white:#ffffff; --text-dark:#1a1a1a; --text-mid:#3a3530; --text-light:#6b6058; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Libre Baskerville',Georgia,serif;background:var(--warm-white);color:var(--text-dark);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,14,28,0.97);backdrop-filter:blur(4px);border-bottom:1px solid rgba(201,168,76,0.2);}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:10px;}
+.nav-logo span{color:var(--cream);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.7);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(6,14,28,0.99);border-bottom:1px solid rgba(201,168,76,0.2);z-index:199;padding:24px 32px;flex-direction:column;gap:20px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.75);text-decoration:none;}
+.mobile-menu a:hover{color:var(--gold);}
+
+/* PAGE HERO */
+.page-hero{padding:120px 48px 60px;background:var(--deep-navy);border-bottom:1px solid rgba(201,168,76,0.15);text-align:center;}
+.page-hero .eyebrow{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);font-weight:900;color:var(--cream);margin-bottom:16px;}
+.page-hero h1 em{font-style:italic;color:var(--gold);}
+.hero-divider{width:60px;height:2px;background:var(--crimson);margin:24px auto;}
+.page-hero p{font-size:15px;color:rgba(245,240,232,0.5);font-family:'Oswald',sans-serif;letter-spacing:0.1em;}
+
+/* CONTENT */
+.legal-body{max-width:860px;margin:0 auto;padding:72px 48px 100px;}
+
+/* TABLE OF CONTENTS */
+.toc{background:var(--cream);border-left:3px solid var(--gold);padding:28px 32px;margin-bottom:56px;}
+.toc-title{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.toc ol{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
+.toc ol li{counter-increment:toc;}
+.toc ol a{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color 0.2s;}
+.toc ol a:hover{color:var(--crimson);}
+.toc ol a::before{content:counter(toc,decimal-leading-zero) " — ";color:var(--gold);font-size:10px;}
+
+/* SECTIONS */
+.legal-section{margin-bottom:52px;padding-top:8px;}
+.legal-section h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.25);}
+.legal-section p{font-size:15px;line-height:1.9;color:var(--text-mid);margin-bottom:16px;}
+.legal-section p:last-child{margin-bottom:0;}
+.legal-section a{color:var(--crimson);text-decoration:none;}
+.legal-section a:hover{text-decoration:underline;}
+
+/* EFFECTIVE DATE */
+.effective-date{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-light);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid rgba(201,168,76,0.15);}
+
+/* FOOTER */
+.site-footer{padding:60px 48px 40px;background:var(--deep-navy);border-top:1px solid rgba(201,168,76,0.12);}
+.site-footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:48px;flex-wrap:wrap;}
+.footer-brand h3{font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.footer-brand p{font-size:13px;color:rgba(245,240,232,0.4);line-height:1.7;max-width:280px;}
+.footer-links{display:flex;gap:60px;flex-wrap:wrap;}
+.footer-col h4{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul a{font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-col ul a:hover{color:var(--cream);}
+.footer-bottom{border-top:1px solid rgba(245,240,232,0.08);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-bottom p{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.15em;color:rgba(245,240,232,0.25);}
+.footer-disc{font-size:11px;color:rgba(245,240,232,0.2);max-width:600px;line-height:1.5;text-align:right;}
+
+@media(max-width:900px){nav{padding:0 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}.legal-body{padding:48px 24px 80px;}.page-hero{padding:100px 24px 48px;}.site-footer{padding:48px 24px 32px;}.footer-links{gap:32px;}.footer-disc{text-align:left;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;">
+    <span style="color:var(--gold);">The Best <span style="color:var(--cream);">of America</span>™</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="about.html">About</a>
+</div>
+
+<section class="page-hero">
+  <p class="eyebrow">Legal</p>
+  <h1>Terms &amp; <em>Conditions</em></h1>
+  <div class="hero-divider"></div>
+  <p>Effective Date: January 1, 2025</p>
+</section>
+
+<div class="legal-body">
+
+  <div class="effective-date">
+    Last Updated: January 1, 2025 &nbsp;·&nbsp; The Best of America &nbsp;·&nbsp; Lancaster, California &nbsp;·&nbsp; Los Angeles County
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#about">About This Archive</a></li>
+      <li><a href="#use">Permitted Use</a></li>
+      <li><a href="#nominations">Nominations &amp; Submissions</a></li>
+      <li><a href="#sponsorships">Sponsorships</a></li>
+      <li><a href="#intellectual-property">Intellectual Property</a></li>
+      <li><a href="#disclaimers">Disclaimers</a></li>
+      <li><a href="#limitation">Limitation of Liability</a></li>
+      <li><a href="#governing-law">Governing Law</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <div class="legal-section" id="acceptance">
+    <h2>01 — Acceptance of Terms</h2>
+    <p>By accessing or using TheBestofAmerica.org (the "Site"), you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use this Site. These Terms apply to all visitors, users, and others who access the Site.</p>
+    <p>The Best of America reserves the right to update or modify these Terms at any time without prior notice. Your continued use of the Site following any changes constitutes your acceptance of the revised Terms.</p>
+  </div>
+
+  <div class="legal-section" id="about">
+    <h2>02 — About This Archive</h2>
+    <p>TheBestofAmerica.org is an independent national archive operated by The Best of America, a registered business in the City of Lancaster, California, Los Angeles County. The archive is dedicated to honoring and preserving the stories of American veterans, first responders, community leaders, and historic institutions.</p>
+    <p>The Best of America is not affiliated with any government entity, military branch, or federal agency. All honoree records, sponsor listings, and editorial content are produced and maintained independently.</p>
+  </div>
+
+  <div class="legal-section" id="use">
+    <h2>03 — Permitted Use</h2>
+    <p>This Site is provided for informational and educational purposes. You may view, share, and link to content on this Site for personal, non-commercial purposes, provided that proper attribution is given to TheBestofAmerica.org.</p>
+    <p>You may not reproduce, republish, distribute, sell, or commercially exploit any content from this Site without prior written permission from The Best of America. Unauthorized use of any content may violate copyright, trademark, and other applicable laws.</p>
+    <p>You agree not to use this Site in any way that is unlawful, harmful, or disruptive, or that could damage the reputation of The Best of America or the individuals honored within this archive.</p>
+  </div>
+
+  <div class="legal-section" id="nominations">
+    <h2>04 — Nominations &amp; Submissions</h2>
+    <p>Nominations submitted through this Site are reviewed at the sole discretion of The Best of America. Submission of a nomination does not guarantee inclusion in the archive. We reserve the right to accept, decline, or remove any nomination or honoree record at any time.</p>
+    <p>By submitting a nomination, you affirm that the information provided is accurate and truthful to the best of your knowledge. The Best of America is not responsible for inaccurate information submitted by third parties.</p>
+    <p>Nominations are always free of charge. We will never charge a fee to nominate an individual for inclusion in this archive.</p>
+  </div>
+
+  <div class="legal-section" id="sponsorships">
+    <h2>05 — Sponsorships</h2>
+    <p>Local Patriot Business sponsorships are one-time contributions that support the operational costs of maintaining this archive. Sponsorship fees are non-refundable. Inclusion as a Local Patriot Business does not constitute an endorsement of any product, service, or political position by The Best of America.</p>
+    <p>The Best of America reserves the right to remove any sponsor listing that is found to be inconsistent with the values and mission of this archive.</p>
+  </div>
+
+  <div class="legal-section" id="intellectual-property">
+    <h2>06 — Intellectual Property</h2>
+    <p>All original content on this Site — including text, design, graphics, the TheBestofAmerica.org name, and the archive's seal — is the property of The Best of America and is protected by applicable copyright and trademark law.</p>
+    <p>Historical photographs and documents referenced on this Site are sourced from public domain or properly licensed materials. Sources are cited where applicable. If you believe any content on this Site infringes upon your rights, please contact us at <a href="mailto:Bill@TheBestofAmerica.org">Bill@TheBestofAmerica.org</a>.</p>
+  </div>
+
+  <div class="legal-section" id="disclaimers">
+    <h2>07 — Disclaimers</h2>
+    <p>This Site and its content are provided "as is" without warranties of any kind, either express or implied. The Best of America makes every reasonable effort to ensure the accuracy of honoree records and historical information, but does not guarantee the completeness or accuracy of any content.</p>
+    <p>The Best of America is not responsible for the content of external websites linked from this Site. Links to third-party sites are provided for convenience only and do not imply endorsement.</p>
+  </div>
+
+  <div class="legal-section" id="limitation">
+    <h2>08 — Limitation of Liability</h2>
+    <p>To the fullest extent permitted by law, The Best of America shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of, or inability to use, this Site or its content. This includes but is not limited to damages for loss of data, loss of profits, or business interruption.</p>
+  </div>
+
+  <div class="legal-section" id="governing-law">
+    <h2>09 — Governing Law</h2>
+    <p>These Terms and Conditions are governed by and construed in accordance with the laws of the State of California. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in Los Angeles County, California.</p>
+  </div>
+
+  <div class="legal-section" id="contact">
+    <h2>10 — Contact</h2>
+    <p>If you have questions about these Terms and Conditions, please contact us:</p>
+    <p>
+      <strong>The Best of America</strong><br>
+      Lancaster, California · Los Angeles County<br>
+      <a href="mailto:Bill@TheBestofAmerica.org">Bill@TheBestofAmerica.org</a><br>
+      661.972.7544
+    </p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America™</h3>
+        <p>An independent national archive preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="honorees.html?filter=founding">The Founding 250</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
