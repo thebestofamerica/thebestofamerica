@@ -139,13 +139,43 @@
   .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
   .hero-portrait {
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
     aspect-ratio: 3/4;
     object-fit: cover;
-    object-position: center top;
-    filter: sepia(20%) contrast(1.05);
-    border: 1px solid rgba(201,168,76,0.25);
+    object-position: 30% 45%;
+    filter: sepia(10%) contrast(1.08) brightness(1.02);
+    border: 1px solid rgba(201,168,76,0.3);
     display: block;
+    cursor: pointer;
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .hero-portrait:hover {
+    filter: sepia(0%) contrast(1.1) brightness(1.05);
+    transform: scale(1.01);
+  }
+  .portrait-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .portrait-view-prompt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(6,14,28,0.92));
+    color: var(--gold);
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 24px 12px 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .portrait-wrapper:hover .portrait-view-prompt {
+    opacity: 1;
   }
   .hero-portrait-caption {
     font-family: 'Oswald', sans-serif;
@@ -182,11 +212,14 @@
   .decoration-text small { display: block; font-size: 11px; color: rgba(245,240,232,0.55); letter-spacing: 0.5px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 4px; font-style: italic; }
 
   /* ── STORY SECTIONS ── */
-  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; }
   .section-label-col { position: sticky; top: 100px; }
   .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
   .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
   .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .story-text { }
+  .story-text p { font-size: 16px; line-height: 1.95; color: var(--text-mid); margin-bottom: 20px; }
+  .story-text p:last-child { margin-bottom: 0; }
   .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
   .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
   .section-body p em { font-style: italic; color: var(--text-dark); }
@@ -240,6 +273,140 @@
     .footer-links { gap: 32px; }
     .footer-disc { text-align: left; }
   }
+
+  /* ── PAINTING LIGHTBOX ── */
+  .painting-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(6, 14, 28, 0);
+    backdrop-filter: blur(0px);
+    transition: background 0.5s, backdrop-filter 0.5s;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .painting-lightbox.open {
+    display: flex;
+    background: rgba(6, 14, 28, 0.96);
+    backdrop-filter: blur(6px);
+  }
+  .painting-lightbox.fade-in {
+    animation: lbFadeIn 0.5s ease forwards;
+  }
+  @keyframes lbFadeIn {
+    from { background: rgba(6,14,28,0); backdrop-filter: blur(0px); }
+    to   { background: rgba(6,14,28,0.96); backdrop-filter: blur(6px); }
+  }
+  .lightbox-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 48px 24px 32px;
+    max-width: 1200px;
+    width: 100%;
+    animation: lbSlideUp 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
+    cursor: default;
+  }
+  @keyframes lbSlideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .lightbox-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    text-align: center;
+  }
+  .lightbox-img {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border: 1px solid rgba(201,168,76,0.2);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+  }
+  .lightbox-caption {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(245,240,232,0.65);
+    text-align: center;
+    line-height: 1.7;
+    max-width: 700px;
+  }
+  .lightbox-caption strong {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .lightbox-caption span {
+    display: block;
+    font-style: normal;
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    margin-top: 8px;
+  }
+  .lightbox-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 4px;
+  }
+  .lightbox-close {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.45);
+    cursor: pointer;
+    border: 1px solid rgba(245,240,232,0.15);
+    padding: 8px 20px;
+    transition: all 0.2s;
+    background: none;
+  }
+  .lightbox-close:hover {
+    color: var(--cream);
+    border-color: rgba(245,240,232,0.4);
+  }
+  .lightbox-archive-link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.35);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .lightbox-archive-link:hover { color: var(--gold-light); }
+
+
+  /* ── PAINTING LIGHTBOX ── */
+  .painting-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; }
+  .painting-lightbox.open { display: flex; animation: lbFadeIn 0.45s ease forwards; }
+  @keyframes lbFadeIn { from { background: rgba(6,14,28,0); backdrop-filter: blur(0px); } to { background: rgba(6,14,28,0.97); backdrop-filter: blur(8px); } }
+  .lightbox-inner { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px 24px 28px; max-width: 1200px; width: 100%; cursor: default; animation: lbSlideUp 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+  @keyframes lbSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .lightbox-eyebrow { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--crimson); text-align: center; }
+  .lightbox-img { width: 100%; max-height: 68vh; object-fit: contain; border: 1px solid rgba(201,168,76,0.2); box-shadow: 0 32px 80px rgba(0,0,0,0.8); }
+  .lightbox-caption { font-family: 'Libre Baskerville', serif; font-size: 13px; font-style: italic; color: rgba(245,240,232,0.6); text-align: center; line-height: 1.7; max-width: 680px; }
+  .lightbox-caption strong { font-style: normal; color: var(--gold); }
+  .lightbox-caption em { color: rgba(245,240,232,0.45); font-size: 11px; font-style: normal; font-family: 'Oswald', sans-serif; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-top: 8px; }
+  .lightbox-links { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+  .lightbox-close { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245,240,232,0.4); cursor: pointer; border: 1px solid rgba(245,240,232,0.15); padding: 8px 20px; transition: all 0.2s; background: none; }
+  .lightbox-close:hover { color: var(--cream); border-color: rgba(245,240,232,0.4); }
+  .lightbox-site-link { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.35); padding-bottom: 2px; transition: color 0.2s; }
+  .lightbox-site-link:hover { color: var(--gold-light); }
 </style>
 </head>
 <body>
@@ -277,8 +444,14 @@
       <p class="hero-tagline">"I will either set my country free or shed my last drop of blood to make her so." — Dr. Joseph Warren, to his mother, April 19, 1775</p>
     </div>
     <div class="hero-portrait-col">
-      <img class="hero-portrait" src="joseph-warren-portrait.jpg" alt="The Death of General Warren at the Battle of Bunker's Hill — John Trumbull, 1786, Museum of Fine Arts Boston">
-      <div class="hero-portrait-caption"><em>The Death of General Warren at the Battle of Bunker's Hill</em><br>John Trumbull, 1786 · Public Domain · Museum of Fine Arts, Boston<br>"My blood shivered." — Abigail Adams, upon first seeing this painting, 1786</div>
+      <div class="portrait-wrapper" onclick="openPainting()" title="View full painting">
+        <div class="portrait-wrapper" onclick="openPainting()" title="Click to view full painting">
+        <img class="hero-portrait" src="joseph-warren-portrait.jpg" alt="The Death of General Warren at the Battle of Bunker's Hill — John Trumbull, 1786, Museum of Fine Arts Boston">
+        <div class="portrait-view-prompt">&#9654;&nbsp; View Full Painting</div>
+      </div>
+        <div class="portrait-view-prompt">&#9654; View Full Painting</div>
+      </div>
+      <div class="hero-portrait-caption"><em>The Death of General Warren at the Battle of Bunker's Hill</em><br>John Trumbull, 1786 &nbsp;·&nbsp; Public Domain &nbsp;·&nbsp; Museum of Fine Arts, Boston</div>
     </div>
   </div>
 </section>
@@ -343,7 +516,11 @@
 
   <!-- SECTION 1: THE WOMAN -->
   <div class="story-section">
-      <div class="story-label">A Physician<br>Born to Lead</div>
+      <div class="section-label-col">
+        <span class="section-number">01</span>
+        <div class="section-title">A Physician<br>Born to Lead</div>
+        <div class="section-rule"></div>
+      </div>
       <div class="story-text">
         <p>Joseph Warren was born on June 11, 1741, in Roxbury, Massachusetts — the eldest son of a farming family that had lived in New England for a century and a half. He entered Harvard College at fourteen and graduated in 1759, already exceptional. After a medical apprenticeship, he opened his own practice in Boston in 1763.</p>
         <p>His patients represented every stratum of colonial society. He inoculated John Adams for smallpox, beginning a friendship that would last the rest of Warren's life. He saved seven-year-old John Quincy Adams' badly fractured finger from amputation. He provided obstetrical care to pregnant women when most Boston physicians would not, and he offered smallpox inoculations free of charge to those who could not pay. In twelve years of practice, he treated approximately 1,500 patients — John Hancock and Samuel Adams on one end of the ledger, unnamed slaves and common laborers on the other. His practice made him indispensable to an entire city, and gave him access to every corner of it.</p>
@@ -351,7 +528,11 @@
     </div>
 
     <div class="story-section">
-      <div class="story-label">The Pen Before<br>the Sword</div>
+      <div class="section-label-col">
+        <span class="section-number">02</span>
+        <div class="section-title">The Pen Before<br>the Sword</div>
+        <div class="section-rule"></div>
+      </div>
       <div class="story-text">
         <p>As his medical practice flourished, so did his politics. Following the Townshend Acts of 1767, Warren began writing for the Boston Gazette under the pseudonym "A True Patriot" — producing essays so sharp that the Royal Governor attempted to charge him and the paper's publishers with libel. He joined the Sons of Liberty, the Committee of Correspondence, and the Freemasons, institutions that together formed the backbone of the revolutionary network in Massachusetts.</p>
         <p>Warren witnessed the Boston Massacre of 1770 firsthand, treating the wounded as they were carried from King Street. He would go on to deliver two annual Massacre Day orations at Old South Meeting House. At the fifth anniversary in 1775 — with British troops occupying Boston — he took the stage in a Roman toga and spoke without flinching before a room full of Redcoats.</p>
@@ -360,7 +541,11 @@
     </div>
 
     <div class="story-section">
-      <div class="story-label">The Spymaster<br>of Boston</div>
+      <div class="section-label-col">
+        <span class="section-number">03</span>
+        <div class="section-title">The Spymaster<br>of Boston</div>
+        <div class="section-rule"></div>
+      </div>
       <div class="story-text">
         <p>With Samuel Adams, John Adams, and John Hancock occupied in Philadelphia attending the Continental Congress, Warren remained in Boston to manage the revolution's home front. His medical office served as a cover: patients from every class of society moved through his doors — merchants, laborers, soldiers, servants — and many carried intelligence. Historians have described him as "the de facto spymaster" of the Boston patriot movement, running an espionage network that reached from anonymous stable boys to a brother-in-law of the Royal Governor himself.</p>
         <p>It was Warren who learned, in April 1775, that British General Gage planned to arrest Hancock and Adams and march on the colonial powder stores at Concord. It was Warren who organized the warning system, commissioned the signal lanterns in the steeple of Christ Church, and dispatched Paul Revere and William Dawes on the night of April 18, 1775. While Revere rode into history, Warren himself slipped out of occupied Boston in the early morning hours of April 19, fought alongside the militia on the road from Lexington to Concord, and narrowly escaped death when a musket ball struck the pin from his earlock — close enough to feel.</p>
@@ -369,7 +554,11 @@
     </div>
 
     <div class="story-section">
-      <div class="story-label">Breed's Hill,<br>June 17, 1775</div>
+      <div class="section-label-col">
+        <span class="section-number">04</span>
+        <div class="section-title">Breed's Hill,<br>June 17, 1775</div>
+        <div class="section-rule"></div>
+      </div>
       <div class="story-text">
         <p>On June 14, 1775, the Massachusetts Provincial Congress commissioned Warren as a Major General — the second-highest military rank in the colony. Three days later, British forces began moving on the American earthworks above Charlestown. Warren learned of the attack at a morning meeting of the Committee of Safety in Cambridge and rode immediately to the fortifications on Breed's Hill.</p>
         <p>He arrived to find Generals Putnam and Prescott already in command. Both men urged him to take overall command. Warren declined. He was a newly commissioned general with no combat experience, he said. Putnam and Prescott were proven soldiers. He would fight as a volunteer. He picked up a musket and joined the line.</p>
@@ -378,7 +567,11 @@
     </div>
 
     <div class="story-section">
-      <div class="story-label">The First<br>American<br>Martyr</div>
+      <div class="section-label-col">
+        <span class="section-number">05</span>
+        <div class="section-title">The First<br>American<br>Martyr</div>
+        <div class="section-rule"></div>
+      </div>
       <div class="story-text">
         <p>The British stripped Warren's body, bayoneted it until unrecognizable, and buried it in a common grave. British Captain Walter Laurie later boasted that he had "stuffed the scoundrel with another rebel into one hole." Ten months later, Warren's brothers and Paul Revere exhumed the remains. Revere — who had also been Warren's dentist — identified the body by two artificial teeth he himself had wired into the doctor's jaw. It stands as the first recorded instance of forensic dental identification in American history.</p>
         <p>Warren's remains were transported to Boston with full military honors and interred at the Old Granary Burying Ground on April 18, 1776 — exactly one year after Revere's famous ride. In 1794, Warren's own Masonic lodge erected the first monument on Bunker Hill in his honor. In 1855, the Bunker Hill Monument Association commissioned a seven-foot marble statue of Warren, which stands at Bunker Hill Lodge to this day. John Trumbull immortalized his death in the painting "The Death of General Warren at the Battle of Bunker's Hill." Abigail Adams, upon seeing it in 1786, wrote simply: "My blood shivered."</p>
@@ -388,3 +581,168 @@
     </div>
 
 
+
+<div class="pull-quote">
+        <p>During the attack, Lieutenant Fox, in an exemplary manner, performed her duties as head nurse of the Station Hospital… worked ceaselessly with coolness and efficiency, and her fine example of calmness, courage, and leadership was of great benefit to the morale of all with whom she came in contact.</p>
+        <cite>— Official U.S. Army Citation, signed by Brigadier General W.E. Farthing · Pearl Harbor, 1942</cite>
+      </div>
+
+      <p>The attack on Pearl Harbor killed 2,403 Americans and wounded 1,178 more. Through the chaos of that morning — the noise, the smoke, the constant arrival of broken and dying men — Fox's six nurses held their posts without exception. Not one left. Under her command, they received, stabilized, and cared for hundreds of casualties in a facility built for peacetime sick call.</p>
+      <p>Fox was 47 years old. She had served the Army for 23 years and never been in combat. She would later recall no dramatic moment of decision — only the work in front of her, the training in her hands, and a complete inability to watch someone suffer without trying to help.</p>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-star">★</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- SECTION 4: THE PURPLE HEART -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">The First<br>Purple Heart</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>On October 26, 1942, history was made at Hickam Field — quietly, as it often is.</h3>
+      <p>Ten months after the attack, a ceremony was held at the same airfield where the bombs had fallen. Colonel William Boyd, Post Commander, read aloud the citation signed by Brigadier General W.E. Farthing. First Lieutenant Annie G. Fox was awarded the Purple Heart — becoming the first woman in American history to receive the decoration.</p>
+      <p>At that time, the Purple Heart did not require that the recipient be physically wounded. It could be awarded for "any singularly meritorious act of extraordinary fidelity or essential service." Fox had not been hurt in the attack. She had simply refused to stop working, refused to leave her patients, and refused to let fear drown out duty.</p>
+      <p>In 1944, the criteria for the Purple Heart were amended to require wounds received in enemy action. Fox's medal was formally replaced by the Bronze Star Medal — which carried the identical citation language from 1942. The United States Armed Forces has continued to recognize her as the first woman to have received the Purple Heart.</p>
+      <p>She continued to serve after Pearl Harbor — transferring to Letterman General Hospital in San Francisco, then to Camp Phillips, Kansas, where she was promoted to Major. She retired from active duty on December 15, 1945, two years before President Truman would sign the Women's Armed Services Integration Act granting women full military standing across all branches of the Armed Forces.</p>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-star">★</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- SECTION 5: LEGACY -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why She<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>History has a long memory for battles. Archives are for the people who fought them.</h3>
+      <p>Annie Fox never married. After retiring from the Army, she settled in San Diego to be near two of her sisters. She died on January 20, 1987, in San Francisco, at the age of 93 — having outlived the war, the century's midpoint, and most of the women who served beside her.</p>
+      <p>In 2017, Hawaii Magazine recognized her among the most influential women in Hawaiian history. That same year, the U.S. Department of Veterans Affairs named its automated digital health messaging program <em>"Annie"</em> in her honor — a system that today delivers personalized health reminders to veterans across the country.</p>
+      <p>She is held in the permanent record of TheBestofAmerica.org because an archive's purpose is to make the forgetting impossible. Every generation that comes after this one deserves to know her name and to understand that courage, in its truest form, looks nothing like a movie poster. It looks like a 47-year-old nurse in a gas mask, administering anesthesia in a 30-bed hospital, while bombs fall twenty feet away, because someone needs her and she is there.</p>
+      <p>Major Annie Gayton Fox. United States Army Nurse Corps. Twenty-seven years of service. The first woman in American history to receive the Purple Heart. She was magnificent.</p>
+
+      <div class="sources-box">
+        <h4>Verified Sources</h4>
+        <ul>
+          <li>U.S. National Park Service — <em>Dr. Joseph Warren, Boston National Historical Park</em></li>
+          <li>Massachusetts Historical Society — <em>Joseph Warren Papers; Orphans of the Revolution</em></li>
+          <li>National Library of Medicine (NIH/PMC) — <em>Dr. Joseph Warren: Leader in Medicine, Politics, and Revolution</em></li>
+          <li>Smithsonian Magazine — <em>This Forgotten Founding Father Hoped to Die Up to My Knees in Blood</em></li>
+          <li>Champlain Valley National Heritage Partnership — <em>Joseph Warren, Patriot Martyr</em>, by John Krueger</li>
+          <li>Christian Di Spigna — <em>Founding Martyr: The Life and Death of Dr. Joseph Warren</em>, Crown Publishers, 2018</li>
+          <li>Nathaniel Philbrick — <em>Bunker Hill: A City, a Siege, a Revolution</em>, Viking, 2013</li>
+          <li>Museum of Fine Arts, Boston — <em>The Death of General Warren at the Battle of Bunker's Hill</em>, John Trumbull, 1786</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-body -->
+
+<!-- TRIBUTE BLOCK -->
+<div class="tribute-block">
+  <div class="tribute-eyebrow">Archived in Permanent Honor</div>
+  <p class="tribute-text">"I will either set my country free or shed my last drop of blood to make her so."</p>
+  <div class="tribute-name">Dr. Joseph Warren &nbsp;·&nbsp; 1741–1775 &nbsp;·&nbsp; Physician &nbsp;·&nbsp; Patriot &nbsp;·&nbsp; Founding Father</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America™</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="honorees.html?filter=founding">The Founding 250</a></li>
+            <li><a href="honorees.html?filter=veteran">Veterans</a></li>
+            <li><a href="honorees.html?filter=institution">Historic Places</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+
+<!-- PAINTING LIGHTBOX -->
+<div class="painting-lightbox" id="paintingLightbox" onclick="closePaintingBg(event)">
+  <div class="lightbox-inner">
+    <div class="lightbox-eyebrow">★ The Best of America &nbsp;·&nbsp; Founding 250 &nbsp;·&nbsp; 250th Anniversary 2026</div>
+    <img class="lightbox-img" src="joseph-warren-portrait.jpg" alt="The Death of General Warren at the Battle of Bunker's Hill — John Trumbull, 1786">
+    <div class="lightbox-caption">
+      <strong>"The Death of General Warren at the Battle of Bunker's Hill"</strong><br>
+      John Trumbull, 1786 &nbsp;·&nbsp; Oil on Canvas &nbsp;·&nbsp; Museum of Fine Arts, Boston &nbsp;·&nbsp; Public Domain<br>
+      <em>Dr. Joseph Warren &nbsp;·&nbsp; June 17, 1775 &nbsp;·&nbsp; Age 34 &nbsp;·&nbsp; America's First Martyr</em>
+    </div>
+    <div class="lightbox-links">
+      <a href="honorees.html" class="lightbox-site-link">← Return to Archive</a>
+      <button class="lightbox-close" onclick="closePainting()">✕ &nbsp;Close</button>
+      <a href="index.html" class="lightbox-site-link">TheBestofAmerica.org →</a>
+    </div>
+  </div>
+</div>
+<script>
+  function openPainting() {
+    document.getElementById('paintingLightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePainting() {
+    document.getElementById('paintingLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closePaintingBg(e) {
+    if (e.target === document.getElementById('paintingLightbox')) closePainting();
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePainting();
+  });
+</script>
+</html>
