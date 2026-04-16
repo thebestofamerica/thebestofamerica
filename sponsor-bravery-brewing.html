@@ -42,54 +42,45 @@
 
     /* ── NAV ── */
     nav {
-      background: rgba(6,14,28,0.97);
-      border-bottom: 2px solid var(--gold);
-      padding: 0 2rem;
-      position: sticky;
-      top: 0;
+      position: fixed;
+      top: 0; left: 0; right: 0;
       z-index: 100;
+      padding: 0 48px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
+      background: linear-gradient(180deg,rgba(6,14,28,0.98) 0%,rgba(6,14,28,0.0) 100%);
+      backdrop-filter: blur(2px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
     }
-    .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 0.02em;
-      line-height: 1.2;
-    }
-    .nav-brand span { color: var(--gold); }
+    .nav-logo { font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.25em; color:#c9a84c; text-transform:uppercase; text-decoration:none; display:flex; align-items:center; gap:10px; }
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 36px;
       list-style: none;
     }
     .nav-links a {
       font-family: 'Oswald', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      transition: color 0.2s;
+      color: rgba(245,240,232,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
     }
-    .nav-links a:hover { color: var(--gold); text-decoration: none; }
-    .hamburger { display: none; cursor: pointer; background: none; border: none; padding: 0; }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--gold); margin: 5px 0;
-      transition: all 0.3s;
-    }
+    .nav-links a:hover, .nav-links a.active { color: #c9a84c; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #c9a84c; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+    .mobile-menu a:hover { color: #c9a84c; }
     @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute;
-        top: 64px; left: 0; right: 0; background: var(--navy);
-        border-bottom: 1px solid var(--gold-dim); padding: 1rem 2rem; gap: 1rem; }
-      .nav-links.open { display: flex; }
-      .hamburger { display: block; }
-      .nav-brand { font-size: 0.9rem; }
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
     }
 
     /* ── HERO ── */
@@ -425,6 +416,7 @@
     /* ── BREADCRUMB ── */
     .breadcrumb {
       padding: 1rem 2rem;
+      padding-top: calc(72px + 1rem);
       background: rgba(255,255,255,0.02);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
@@ -446,54 +438,6 @@
     .breadcrumb span { color: var(--text-dim); }
     .breadcrumb .sep { color: rgba(255,255,255,0.2); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #040a14;
-      border-top: 2px solid var(--gold);
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-    .footer-brand span { color: var(--gold); }
-    .footer-tagline {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      list-style: none;
-      margin-bottom: 1.5rem;
-    }
-    .footer-links a {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--gold); text-decoration: none; }
-    .footer-copy {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.25);
-    }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       .hero { padding: 3.5rem 1.5rem 3rem; }
@@ -508,20 +452,26 @@
 
   <!-- NAV -->
   <nav aria-label="Main navigation">
-    <a href="index.html" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:0.25em;color:#c9a84c;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:10px;">
+    <a class="nav-logo" href="index.html">
       <img src="logo.png" alt="The Best of America Seal" style="width:40px;height:40px;object-fit:contain;">
       <span style="color:#c9a84c;">The Best <span style="color:#f5f0e8;">of America</span>™</span>
     </a>
+    <ul class="nav-links">
+      <li><a href="honorees.html">Honorees</a></li>
+      <li><a href="nominate.html">Nominate a Hero</a></li>
+      <li><a class="active" href="local-patriot-businesses.html" style="color:#c9a84c;">Local Patriot Businesses</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
     <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="honorees.html">Honorees</a></li>
-      <li><a href="nominate.html">Nominate a Hero</a></li>
-      <li><a href="local-patriot-businesses.html" style="color:#c9a84c;">Local Patriot Businesses</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="honorees.html">Honorees</a>
+    <a href="nominate.html">Nominate a Hero</a>
+    <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+    <a href="about.html">About</a>
+  </div>
 
   <!-- BREADCRUMB -->
   <div class="breadcrumb">
@@ -776,12 +726,8 @@
   </footer>
 
   <script>
-    // Hamburger menu
-    const btn = document.getElementById('hamburgerBtn');
-    const links = document.getElementById('navLinks');
-    btn.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
+    document.getElementById('hamburgerBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
     });
   </script>
 

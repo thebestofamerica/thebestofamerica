@@ -13,6 +13,9 @@ html{scroll-behavior:smooth;}
 body{font-family:'Libre Baskerville',Georgia,serif;background:var(--deep-navy);color:var(--cream);overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.35;}
 
+/* GLOBAL LINK RESET */
+a{color:inherit;text-decoration:none;}
+
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(6,14,28,0.98) 0%,rgba(6,14,28,0.0) 100%);backdrop-filter:blur(2px);border-bottom:1px solid rgba(201,168,76,0.15);}
 .nav-logo{font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:10px;}
@@ -146,7 +149,7 @@ residential construction and restoration, with a longstanding commitment
 Brewing is more than a craft brewery — it's a community gathering place 
 that honors those who served. Their Wall of Bravery displays hundreds of
  photos of service members, making every pint a tribute.</p>
-      <a href="sponsor-bravery-brewing.html" style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c!important;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">★ &nbsp;View Full Profile →</a>
+      <a href="sponsor-bravery-brewing.html" style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c!important;text-decoration:none!important;display:inline-flex;align-items:center;gap:6px;-webkit-text-fill-color:#c9a84c;">★ &nbsp;View Full Profile →</a>
     </div>
 
     <div class="business-card">
