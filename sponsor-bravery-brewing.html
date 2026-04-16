@@ -508,15 +508,17 @@
 
   <!-- NAV -->
   <nav aria-label="Main navigation">
-    <div class="nav-brand">The Best of <span>America</span></div>
+    <a href="index.html" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:0.25em;color:#c9a84c;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:10px;">
+      <img src="logo.png" alt="The Best of America Seal" style="width:40px;height:40px;object-fit:contain;">
+      <span style="color:#c9a84c;">The Best <span style="color:#f5f0e8;">of America</span>™</span>
+    </a>
     <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
       <li><a href="honorees.html">Honorees</a></li>
-      <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
-      <li><a href="nominate.html">Nominate</a></li>
+      <li><a href="nominate.html">Nominate a Hero</a></li>
+      <li><a href="local-patriot-businesses.html" style="color:#c9a84c;">Local Patriot Businesses</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
   </nav>
@@ -735,18 +737,41 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-brand">The Best of <span>America</span></div>
-    <div class="footer-tagline">America's Independent Patriotic National Archive · Est. 2003</div>
-    <ul class="footer-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="honorees.html">Honorees</a></li>
-      <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
-      <li><a href="nominate.html">Nominate</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-    <div class="footer-copy">
-      © 2026 TheBestofAmerica.org · All Rights Reserved · Records Are Never Removed
+  <footer style="padding:60px 48px 40px;background:#060e1c;border-top:1px solid rgba(201,168,76,0.1);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:48px;flex-wrap:wrap;">
+        <div>
+          <h3 style="font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:0.2em;color:#c9a84c;text-transform:uppercase;margin-bottom:8px;">The Best of America™</h3>
+          <p style="font-size:13px;color:rgba(245,240,232,0.4);line-height:1.7;max-width:280px;">An independent national archive preserving 250 years of American service and strength.</p>
+        </div>
+        <div style="display:flex;gap:60px;flex-wrap:wrap;">
+          <div>
+            <h4 style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#c9a84c;margin-bottom:20px;">Archive</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+              <li><a href="honorees.html" style="font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;">Honorees</a></li>
+              <li><a href="about.html" style="font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;">About</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#c9a84c;margin-bottom:20px;">Participate</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+              <li><a href="nominate.html" style="font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;">Nominate a Hero</a></li>
+              <li><a href="local-patriot-businesses.html" style="font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;">Local Patriot Businesses</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#c9a84c;margin-bottom:20px;">Legal</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+              <li><a href="terms.html" style="font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;">Terms &amp; Conditions</a></li>
+              <li><a href="privacy.html" style="font-size:13px;color:rgba(245,240,232,0.45);text-decoration:none;">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(245,240,232,0.08);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+        <p style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.15em;color:rgba(245,240,232,0.25);">© 2026 TheBestofAmerica.org · All Rights Reserved</p>
+        <p style="font-size:11px;color:rgba(245,240,232,0.2);max-width:600px;line-height:1.5;text-align:right;">Records Are Never Removed · An independent archive, not affiliated with any government agency.</p>
+      </div>
     </div>
   </footer>
 
