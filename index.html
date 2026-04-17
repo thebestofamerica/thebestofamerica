@@ -1468,16 +1468,41 @@
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      action="/thank-you"
       class="email-form"
+      id="signup-form"
     >
       <input type="hidden" name="form-name" value="weekly-recognitions"/>
       <input type="hidden" name="bot-field"/>
-      <input type="email" name="email" placeholder="Your email address" required/>
+      <input type="email" name="email" id="signup-email" placeholder="Your email address" required/>
       <button type="submit">Subscribe</button>
     </form>
+    <div id="signup-success" style="display:none; text-align:center; padding: 16px 0;">
+      <p style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);">★ &nbsp; You're In &nbsp; ★</p>
+      <p style="margin-top:8px; color:rgba(245,240,232,0.75); font-size:15px;">Thank you — your first recognition arrives next week.</p>
+    </div>
   </div>
 </section>
+
+<script>
+  document.getElementById('signup-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(function() {
+      form.style.display = 'none';
+      document.getElementById('signup-success').style.display = 'block';
+    })
+    .catch(function() {
+      form.style.display = 'none';
+      document.getElementById('signup-success').style.display = 'block';
+    });
+  });
+</script>
 
 <!-- FOOTER -->
 <footer>
