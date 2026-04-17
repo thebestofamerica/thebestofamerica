@@ -1463,10 +1463,19 @@
     <div class="section-label" style="justify-content:center;">Stay Connected</div>
     <h3>Weekly Recognitions</h3>
     <p>Receive weekly recognitions honoring the people and places that make America strong.</p>
-    <div class="email-form">
-      <input type="email" placeholder="Your email address"/>
+    <form
+      name="weekly-recognitions"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/thank-you.html"
+      class="email-form"
+    >
+      <input type="hidden" name="form-name" value="weekly-recognitions"/>
+      <input type="hidden" name="bot-field"/>
+      <input type="email" name="email" placeholder="Your email address" required/>
       <button type="submit">Subscribe</button>
-    </div>
+    </form>
   </div>
 </section>
 

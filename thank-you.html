@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thank You — The Best of America™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital@0;1&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --crimson: #b31b1b;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --parchment: #ede5d0;
+    --white: #ffffff;
+    --gray: #8a8070;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    background: var(--deep-navy);
+    color: var(--cream);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── NOISE TEXTURE ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.35;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(6,14,28,0.98) 0%, rgba(6,14,28,0.0) 100%);
+    backdrop-filter: blur(2px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--cream); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold) !important;
+    border: 1px solid var(--gold);
+    padding: 8px 18px;
+    transition: background 0.3s, color 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+    transition: all 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(6,14,28,0.99);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    z-index: 199;
+    padding: 24px 32px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.75);
+    text-decoration: none;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* ─── MAIN ─── */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 80px;
+    position: relative;
+  }
+
+  /* Background glow */
+  main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(179,27,27,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .thank-you-card {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Stars decoration */
+  .star-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    animation: fadeUp 1.2s ease 0.1s both;
+  }
+  .star-row span {
+    color: var(--gold);
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+  .star-row .rule {
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5));
+  }
+  .star-row .rule.right {
+    background: linear-gradient(90deg, rgba(201,168,76,0.5), transparent);
+  }
+
+  /* Seal / icon */
+  .seal-ring {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    background: rgba(201,168,76,0.06);
+    animation: fadeUp 1.2s ease 0.2s both;
+  }
+  .seal-ring svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    animation: fadeUp 1.2s ease 0.25s both;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(38px, 7vw, 58px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 24px;
+    animation: fadeUp 1.2s ease 0.3s both;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+    margin: 0 auto 24px;
+    animation: fadeUp 1.2s ease 0.35s both;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.75);
+    margin-bottom: 40px;
+    animation: fadeUp 1.2s ease 0.4s both;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 1.2s ease 0.5s both;
+  }
+
+  .btn-primary {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--crimson);
+    color: var(--cream);
+    padding: 14px 32px;
+    text-decoration: none;
+    border: 1px solid var(--crimson);
+    transition: background 0.3s, color 0.3s;
+  }
+  .btn-primary:hover { background: #8f1515; border-color: #8f1515; }
+
+  .btn-secondary {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--gold);
+    padding: 14px 32px;
+    text-decoration: none;
+    border: 1px solid rgba(201,168,76,0.5);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .btn-secondary:hover { background: rgba(201,168,76,0.08); border-color: var(--gold); }
+
+  /* Bottom note */
+  .bottom-note {
+    margin-top: 48px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    animation: fadeUp 1.2s ease 0.6s both;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: rgba(6,14,28,0.95);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 28px 48px;
+  }
+  .footer-bottom {
+    text-align: center;
+  }
+  .footer-bottom p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    margin-bottom: 6px;
+    animation: none;
+  }
+  .footer-disc {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 10px;
+    letter-spacing: 0;
+    text-transform: none !important;
+    font-style: italic;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    footer { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">The Best <span>of America</span>™</a>
+  <ul class="nav-links">
+    <li><a href="honorees.html">Honorees</a></li>
+    <li><a href="nominate.html">Nominate</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="nominate.html" class="nav-cta">Nominate a Hero</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="about.html">About</a>
+</div>
+
+<!-- MAIN -->
+<main>
+  <div class="thank-you-card">
+
+    <div class="star-row">
+      <div class="rule"></div>
+      <span>★ ★ ★</span>
+      <div class="rule right"></div>
+    </div>
+
+    <div class="seal-ring">
+      <!-- Envelope / letter icon -->
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="9" width="28" height="19" rx="1" stroke="#c9a84c" stroke-width="1.5"/>
+        <path d="M4 10.5L18 20.5L32 10.5" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="section-label">You're In</div>
+
+    <h1>Thank You for <em>Signing Up</em></h1>
+
+    <div class="divider"></div>
+
+    <p>
+      Each week, we'll send you a new story from the archive — a veteran, a first
+      responder, a community leader, or a place that helped shape America.
+      These are the records that deserve to last forever.
+    </p>
+
+    <div class="cta-group">
+      <a href="honorees.html" class="btn-primary">Browse the Archive</a>
+      <a href="nominate.html" class="btn-secondary">Nominate a Hero</a>
+    </div>
+
+    <p class="bottom-note">TheBestofAmerica.org &nbsp;·&nbsp; Est. 2003 &nbsp;·&nbsp; Founding 250</p>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p>Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
+    <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+  </div>
+</footer>
+
+</body>
+</html>
