@@ -108,7 +108,9 @@ footer{padding:60px 48px 40px;background:var(--deep-navy);border-top:1px solid r
   <h2>Tell Us About <em>Your Hero</em></h2>
   <p>Please provide as much detail as possible. All nominations are reviewed by the archive's editorial board. There is no fee to nominate.</p>
 
-  <form name="nominations" method="POST" data-netlify="true">
+  <form name="nominations" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="nominate-form">
+    <input type="hidden" name="form-name" value="nominations"/>
+    <input type="hidden" name="bot-field"/>
     <div class="form-row">
       <div class="form-group">
         <label for="nominee-name">Nominee's Full Name</label>
@@ -156,7 +158,36 @@ footer{padding:60px 48px 40px;background:var(--deep-navy);border-top:1px solid r
     <button type="submit" class="btn-primary">Submit Nomination</button>
     <p class="form-note">All submissions are reviewed by our editorial board. You will receive a confirmation email once your nomination has been received. Inclusion in the archive is at the sole discretion of The Best of America™.</p>
   </form>
+
+  <div id="nominate-success" style="display:none; text-align:center; padding: 48px 0;">
+    <p style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">★ &nbsp; Nomination Received &nbsp; ★</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; color:var(--cream); margin-bottom:16px;">Thank You for <em style="color:var(--gold);">Honoring a Hero</em></h2>
+    <div style="width:48px;height:2px;background:var(--crimson);margin:0 auto 24px;"></div>
+    <p style="font-size:15px; line-height:1.85; color:rgba(245,240,232,0.65); max-width:480px; margin:0 auto;">Your nomination has been submitted to our editorial board for review. We appreciate you helping preserve America's finest stories.</p>
+  </div>
 </div>
+
+<script>
+  document.getElementById('nominate-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(function() {
+      form.style.display = 'none';
+      document.getElementById('nominate-success').style.display = 'block';
+      window.scrollTo({ top: form.closest('.nominate-section').offsetTop - 100, behavior: 'smooth' });
+    })
+    .catch(function() {
+      form.style.display = 'none';
+      document.getElementById('nominate-success').style.display = 'block';
+    });
+  });
+</script>
 
 <footer>
   <div class="footer-inner">
