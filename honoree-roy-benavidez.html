@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSG Roy P. Benavidez — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --navy-mid: #112240;
+    --crimson: #b31b1b;
+    --crimson-dark: #8f1515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--warm-white); color: var(--text-dark); font-family: 'Libre Baskerville', Georgia, serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(6,14,28,0.97); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .nav-logo { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-logo span { color: var(--cream); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 8px 18px; transition: background 0.3s, color 0.3s !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+
+  /* FOOTER */
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+  /* HERO */
+  .hero { position: relative; background: var(--navy); padding-top: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
+  .hero::before { content: '★'; position: absolute; font-size: 600px; color: rgba(201,168,76,0.025); top: 50%; left: -100px; transform: translateY(-50%); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; position: relative; }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait { width: 100%; max-width: 280px; aspect-ratio: 3/4; object-fit: cover; object-position: center top; filter: sepia(20%) contrast(1.05); border: 1px solid rgba(201,168,76,0.25); display: block; }
+  .hero-portrait-caption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.45); text-align: center; line-height: 1.6; }
+
+  /* DIVIDER */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+  /* PAGE BODY */
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* SERVICE BAR */
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+
+  /* DECORATIONS BAR */
+  .decorations-bar { background: var(--navy); border-top: 2px solid rgba(179,27,27,0.4); border-bottom: 1px solid rgba(201,168,76,0.15); margin: 0 -40px; padding: 24px 40px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .decorations-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); white-space: nowrap; padding-right: 16px; border-right: 1px solid rgba(201,168,76,0.2); }
+  .decoration-item { display: flex; align-items: flex-start; gap: 12px; }
+  .decoration-star { color: var(--gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .decoration-text { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+  .decoration-text small { display: block; font-size: 11px; color: rgba(245,240,232,0.55); letter-spacing: 0.5px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 4px; font-style: italic; }
+
+  /* STORY SECTIONS */
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .section-label-col { position: sticky; top: 100px; }
+  .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+  .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+  .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+  .section-body p em { font-style: italic; color: var(--text-dark); }
+
+  /* PULL QUOTE */
+  .pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+  .pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+  .pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+
+  /* CALLOUT STATS */
+  .callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+  .callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+  .callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+  .callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+  /* SOURCES BOX */
+  .sources-box { background: var(--cream); border-left: 3px solid var(--gold); padding: 28px 32px; margin-top: 48px; }
+  .sources-box h4 { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .sources-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .sources-box ul li { font-size: 12px; color: var(--text-light); line-height: 1.55; padding-left: 16px; position: relative; }
+  .sources-box ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+
+  /* TRIBUTE BLOCK */
+  .tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+  .tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+  .tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+    .hero-portrait-col { flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 20px; }
+    .hero-portrait { max-width: 140px; }
+  }
+  @media (max-width: 700px) {
+    .hero-inner { padding: 40px 24px; }
+    .page-body { padding: 0 24px 60px; }
+    .story-section { grid-template-columns: 1fr; gap: 16px; }
+    .section-label-col { position: static; }
+    .section-number { font-size: 48px; margin-bottom: -16px; }
+    .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+    .service-item { border-right: none; padding: 0; min-width: 120px; }
+    .decorations-bar { margin: 0 -24px; padding: 20px 24px; gap: 20px; }
+    .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+    .pull-quote { padding: 28px 24px; }
+    .sources-box { padding: 24px 20px; }
+    .site-footer { padding: 48px 24px 32px; }
+    .footer-links { gap: 32px; }
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span style="color:var(--gold);">The Best <span>of America</span>™</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html" class="active">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="about.html">About</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">★ Founding 250 &nbsp;·&nbsp; Veteran Honoree &nbsp;·&nbsp; Vietnam War</div>
+      <h1 class="hero-name">Master Sergeant Roy P. <em>Benavidez</em></h1>
+      <div class="hero-rank">Green Beret &nbsp;·&nbsp; 5th Special Forces Group (Airborne) &nbsp;·&nbsp; 1952–1976</div>
+      <p class="hero-tagline">"If the story of his heroism were a movie script, you would not believe it." — President Ronald Reagan, Pentagon, February 24, 1981</p>
+    </div>
+    <div class="hero-portrait-col">
+      <img class="hero-portrait" src="roy-benavidez-portrait.jpg" alt="Master Sergeant Roy P. Benavidez, Medal of Honor recipient — U.S. Army photograph, public domain">
+      <div class="hero-portrait-caption">MSG Roy P. Benavidez<br>U.S. Army Special Forces<br>Public Domain · U.S. Army</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- SERVICE BAR -->
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Branch</div>
+      <div class="service-value">United States Army</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Unit</div>
+      <div class="service-value">5th Special Forces Group</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Final Rank</div>
+      <div class="service-value">Master Sergeant</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Years of Service</div>
+      <div class="service-value">1952–1976 · 24 Years</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Theater</div>
+      <div class="service-value">Vietnam · Korea · Germany</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Born · Died</div>
+      <div class="service-value">Aug. 5, 1935 · Nov. 29, 1998</div>
+    </div>
+  </div>
+
+  <!-- DECORATIONS BAR -->
+  <div class="decorations-bar">
+    <div class="decorations-label">Decorations</div>
+    <div class="decoration-item">
+      <div class="decoration-star">★</div>
+      <div class="decoration-text">
+        Medal of Honor
+        <small>Awarded Feb. 24, 1981 — Presented by President Ronald Reagan at the Pentagon</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">★</div>
+      <div class="decoration-text">
+        Distinguished Service Cross
+        <small>Original award for May 2, 1968 action — later upgraded to Medal of Honor</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">★</div>
+      <div class="decoration-text">
+        Purple Heart ×5
+        <small>Five separate awards for wounds received in combat</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">01</span>
+      <div class="section-title">The Boy<br>From El Campo</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>Orphaned at seven, working the fields at ten — and still building a life the rest of us would call impossible.</h3>
+      <p>Roy Benavidez was born Raul Perez Benavidez on August 5, 1935, in Lindenau, a farming community near Cuero in DeWitt County, Texas. His father, Salvador Benavidez Jr., was a Mexican-American sharecropper. His mother, Teresa Perez, was a Yaqui Indian. Before Roy reached his second birthday, his father died of tuberculosis. Five years later, his mother died of the same. He and his younger brother Roger were sent to El Campo, Texas, to live with their Uncle Nicholas and Aunt Alexandria, crowding into a household with eight cousins.</p>
+      <p>Growing up in Jim Crow-era Texas, Roy occupied the hard margin where Mexican and Native American heritage met an America that wasn't sure what to do with either. He shined shoes at the El Campo bus station, picked cotton across west Texas, harvested sugar beets in Colorado, and worked a tire shop under the watchful eye of a local reverend who saw something worth cultivating in him. School came and went with the seasons. At fifteen, he left it entirely to work full time and help feed his family.</p>
+      <p>In 1952, at seventeen, he enlisted in the Texas Army National Guard. In 1955 he transferred to the regular U.S. Army, chose to go by Roy, and began the slow, determined construction of a life of service. He served in Korea and Germany, completed airborne training, married his childhood sweetheart Hilaria "Lala" Coy in 1959, and joined the 82nd Airborne Division at Fort Bragg. He was not yet done being tested.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">★</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 2 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">02</span>
+      <div class="section-title">He'll Never<br>Walk Again</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>A land mine. A paralysis diagnosis. A man who refused both.</h3>
+      <p>In 1965, Benavidez arrived in Vietnam for his first tour as a military adviser to South Vietnamese Army units. While gathering intelligence on possible Viet Cong infiltration, he stepped on a land mine. The blast tore through him. He woke up at Clark Air Force Base in the Philippines, unable to feel his legs. Transported to Brooke Army Medical Center at Fort Sam Houston in San Antonio, he received the verdict: the spinal damage was too severe. He would never walk again. The Army began preparing his medical discharge papers.</p>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">1965</span>
+          <div class="callout-desc">Land mine — First Vietnam tour</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">&gt;1 yr</span>
+          <div class="callout-desc">Hospitalization before walking again</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">32</span>
+          <div class="callout-desc">His age when accepted to Special Forces</div>
+        </div>
+      </div>
+
+      <p>Roy Benavidez had other ideas. Stung by the diagnosis — and, by his own account, by television images of flag burnings and protests against the war his fellow soldiers were still fighting — he began a secret nightly rehabilitation program. After lights-out, he would roll from his bed to the floor and drag himself on his elbows and chin to the wall. Then he would spend the dark hours trying to feel something in his toes. Then his feet. Then his ankles. Then, slowly, pushing himself up the wall — night after night, often in tears from the pain — while his ward-mates, many of them amputees facing permanent disability, quietly cheered him on.</p>
+      <p>After more than a year of unsanctioned, agonizing effort, he walked out of Fort Sam Houston in July 1966, his wife Lala beside him. Not only did the Army keep him — when he applied at age thirty-two for the grueling Special Forces qualification course, they accepted him. He graduated a Green Beret and returned to Vietnam in January 1968, assigned to Detachment B-56, 5th Special Forces Group (Airborne).</p>
+
+      <div class="pull-quote">
+        <p>Every night he crawled from his bed to the wall — and spent hours trying to wiggle his toes. That was it at first. Just his toes.</p>
+        <cite>— Roy P. Benavidez, Medal of Honor acceptance speech, The Pentagon, 1981</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">★</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 3 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">03</span>
+      <div class="section-title">May 2, 1968<br>Loc Ninh</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>Armed with a knife and a medical bag, he jumped from a helicopter into a firefight against a thousand men.</h3>
+      <p>On the morning of May 2, 1968, Staff Sergeant Roy Benavidez was attending a Catholic prayer service at the forward operating base in Loc Ninh when a radio call broke through the communications bunker. A twelve-man Special Forces reconnaissance team — three American Green Berets and nine Montagnard tribesmen — had been inserted into dense jungle west of Loc Ninh to gather intelligence. They had walked into an NVA battalion of roughly a thousand soldiers. Three rescue helicopters had already tried to reach them. All three were driven back. The team was pinned, dying, and running out of time.</p>
+      <p>Benavidez grabbed a medical bag and a knife — no other weapon — and boarded a fourth extraction helicopter. When the Huey reached the battle zone and could not land, he jumped from the hovering aircraft and ran seventy-five yards through open jungle under direct enemy fire. He was shot in the leg before he reached the team. A grenade blast shredded his face, arm, and back. He kept running.</p>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">6</span>
+          <div class="callout-desc">Hours of continuous combat</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">37</span>
+          <div class="callout-desc">Separate wounds — bullets, bayonet, shrapnel</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">8</span>
+          <div class="callout-desc">Lives saved</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">~1,000</span>
+          <div class="callout-desc">Enemy soldiers faced</div>
+        </div>
+      </div>
+
+      <p>What followed was six hours that President Reagan would later say sounded like a Hollywood script. Benavidez rallied the survivors, administered first aid, distributed ammunition, threw smoke canisters to guide the aircraft, and radioed in bombing runs and helicopter gunship attacks to cover the extractions. He personally carried and dragged wounded men to the helicopters. When one helicopter was shot down, he organized a second extraction. During that second attempt, an NVA soldier attacked him at close quarters — clubbing him in the jaw with a rifle butt and driving a bayonet through his body. Benavidez killed the soldier with his knife, then continued moving the wounded while holding his own intestines in with his free hand.</p>
+      <p>After a final sweep to ensure no classified documents or living men were left behind — nearly blind from the blood streaming into his eyes — he allowed himself to be pulled into the helicopter. Back at the base, he was examined and pronounced dead. As a medic prepared to zip him into a body bag, Benavidez did the only thing his broken body still could: <em>he spit in the doctor's face.</em> The doctor called for emergency surgery. Roy Benavidez was alive.</p>
+
+      <div class="pull-quote">
+        <p>If the story of his heroism were a movie script, you would not believe it.</p>
+        <cite>— President Ronald Reagan, Pentagon Medal of Honor Ceremony, February 24, 1981</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">★</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 4 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">Denied<br>Twelve Times</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>The Army said it needed a living eyewitness. Benavidez believed there were none. He was wrong.</h3>
+      <p>For his actions that day, Benavidez initially received the Distinguished Service Cross — the Army's second-highest decoration for valor. Those who had witnessed the six-hour battle believed it wasn't enough. In 1974, Benavidez began a formal campaign to have the award upgraded to the Medal of Honor. The Army denied him twelve times. The rules required an eyewitness account from someone who had seen the action from the ground, and Roy believed no such witness had survived.</p>
+      <p>He was wrong. Brian O'Connor — the radioman Benavidez had believed dead — had been evacuated in critical condition before he could be fully debriefed. He had spent years living quietly in the Fiji Islands. In 1980, while on holiday in Australia, O'Connor picked up a newspaper that had reprinted a small story about Benavidez from the <em>El Campo Leader-News</em>. He immediately contacted Roy and submitted a ten-page sworn account of everything he had witnessed. It was the eyewitness testimony that unlocked the Medal of Honor.</p>
+      <p>On February 24, 1981, in the courtyard of the Pentagon, President Ronald Reagan personally pinned the Medal of Honor on Master Sergeant Roy P. Benavidez — one of Reagan's first major ceremonial acts as president. Reagan read the full citation aloud to the assembled press corps, paused visibly, and told the journalists: "If the story of his heroism were a movie script, you would not believe it."</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">★</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 5 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why He<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He came home from the war and spent the rest of his life fighting for everyone else.</h3>
+      <p>Roy Benavidez retired from the Army in 1976 at the rank of Master Sergeant and returned to El Campo — the same town where he had once shined shoes and picked crops — to raise his three children, Noel, Yvette, and Denise. He attended Mass every Sunday at St. Robert Bellarmine Catholic Church, where all three of his children would eventually marry. He was, by every account, a quiet and private man who did not particularly enjoy talking about what he had done in combat.</p>
+      <p>But the wars were not over. In the early 1980s, the same administration that had honored him at the Pentagon moved to cut disability benefits for veterans. Diagnosed with diabetes and carrying the accumulated injuries of two combat tours, Benavidez faced the loss of the benefits he depended on to live. He took his case to Capitol Hill. He testified before Congress, organized veterans, and launched a public campaign that attracted national attention. He won — and the fight helped protect the benefits of thousands of disabled veterans alongside his own.</p>
+      <p>In the years that followed, Benavidez became one of the most sought-after motivational speakers in America. He spoke in schools, on military bases, at VFW halls, and in churches across the country and around the world — anywhere a young person or a veteran needed to hear a voice that had been through the fire. His message never changed: hard work, faith, love of country, and an absolute refusal to quit could carry anyone out of the hardest circumstances. He authored three books: <em>The Three Wars of Roy Benavidez</em> (1986), <em>The Last Medal of Honor</em> (1991), and <em>Medal of Honor: A Vietnam Warrior's Story</em> (1995).</p>
+      <p>Roy Benavidez died on November 29, 1998, at Brooke Army Medical Center in San Antonio — the same hospital where, thirty-two years earlier, he had secretly dragged himself along the floor in the dark, willing his legs to work. He was sixty-three. He is buried at Fort Sam Houston National Cemetery with full military honors. The U.S. Navy named a cargo ship — the USNS Benavidez (T-AKR-306) — in his honor. Schools, streets, and military buildings across the country bear his name.</p>
+      <p>He is held in the permanent record of TheBestofAmerica.org because an archive's purpose is to make the forgetting impossible. The story of Roy Benavidez — orphan, sharecropper's son, paratrooper, Green Beret, Medal of Honor recipient, veterans' advocate — is the story of what this country is capable of producing when it refuses to give up on anyone, and what one man is capable of when he refuses to give up on himself.</p>
+
+      <div class="sources-box">
+        <h4>Verified Sources</h4>
+        <ul>
+          <li>Congressional Medal of Honor Society — <em>Roy P. Benavidez: Persevering to the Last</em></li>
+          <li>U.S. Army Center of Military History — <em>Medal of Honor Citation: Master Sergeant Roy P. Benavidez</em></li>
+          <li>The National Museum of the United States Army — <em>Roy P. Benavidez Biography</em></li>
+          <li>Texas State Historical Association — <em>Handbook of Texas: Benavidez, Raul Perez (Roy)</em></li>
+          <li>U.S. Department of Veterans Affairs — <em>Veteran of the Day: Roy Benavidez</em></li>
+          <li>Reagan Presidential Library — <em>Medal of Honor Presentation Ceremony, February 24, 1981</em></li>
+          <li>William Sturkey, <em>The Ballad of Roy Benavidez</em> (Basic Books, 2024)</li>
+          <li>Roy P. Benavidez, <em>The Three Wars of Roy Benavidez</em> (Corona Publishing, 1986)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-body -->
+
+<!-- TRIBUTE BLOCK -->
+<div class="tribute-block">
+  <div class="tribute-eyebrow">Archived in Permanent Honor</div>
+  <p class="tribute-text">"The story of my life is the story of America."</p>
+  <div class="tribute-name">Master Sergeant Roy P. Benavidez &nbsp;·&nbsp; 1935–1998 &nbsp;·&nbsp; United States Army Special Forces</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America™</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="honorees.html?filter=veteran">Veterans</a></li>
+            <li><a href="honorees.html?filter=institution">Historic Places</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
