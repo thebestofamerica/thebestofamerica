@@ -27,9 +27,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;d
 /* ROTUNDA HERO */
 .rotunda-hero{position:relative;width:100%;margin-top:72px;}
 .rotunda-hero__img{display:block;width:100%;height:auto;}
-.rotunda-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,14,28,0.35) 0%,rgba(6,14,28,0.0) 12%,rgba(6,14,28,0.0) 72%,rgba(6,14,28,0.92) 100%);z-index:1;pointer-events:none;}
-.rotunda-hero__gold-rule{position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent);z-index:3;}
-.rotunda-hero__content{position:absolute;bottom:0;left:0;right:0;z-index:2;max-width:860px;margin:0 auto;padding:0 2rem 4rem;text-align:center;}
+.rotunda-hero__overlay{position:absolute;top:0;left:0;right:0;height:18%;background:linear-gradient(to bottom,rgba(6,14,28,0.45) 0%,rgba(6,14,28,0.0) 100%);pointer-events:none;}
+.rotunda-hero__gold-rule{display:block;width:100%;height:3px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent);}
+.rotunda-hero__content{background:var(--deep-navy);padding:3rem 2rem 3.5rem;text-align:center;}
 .rotunda-hero__eyebrow{display:inline-block;font-family:'Oswald',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;opacity:0;animation:rHeroUp 0.8s ease forwards 0.2s;}
 .rotunda-hero__title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:var(--cream);line-height:1.12;margin:0 0 1.2rem;opacity:0;animation:rHeroUp 0.8s ease forwards 0.45s;}
 .rotunda-hero__title em{font-style:italic;color:var(--gold);}
@@ -68,8 +68,8 @@ footer{padding:60px 48px 40px;background:var(--deep-navy);border-top:1px solid r
 .footer-bottom p{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.15em;color:rgba(245,240,232,0.25);}
 .footer-disc{font-size:11px;color:rgba(245,240,232,0.2);max-width:600px;line-height:1.5;text-align:right;}
 
-@media(max-width:900px){nav{padding:0 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}.rotunda-hero__content{padding:0 1.25rem 3rem;}.about-content{padding:60px 24px 80px;}.values-grid{grid-template-columns:1fr;}footer{padding:48px 24px 32px;}.footer-links{gap:32px;}}
-@media(max-width:600px){.footer-disc{text-align:left;}.rotunda-hero__content{padding:0 1rem 2rem;}.rotunda-hero__title{font-size:1.8rem;}}
+@media(max-width:900px){nav{padding:0 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}.rotunda-hero__content{padding:2rem 1.25rem 2.5rem;}.about-content{padding:60px 24px 80px;}.values-grid{grid-template-columns:1fr;}footer{padding:48px 24px 32px;}.footer-links{gap:32px;}}
+@media(max-width:600px){.footer-disc{text-align:left;}}
 </style>
 </head>
 <body>
@@ -99,20 +99,17 @@ footer{padding:60px 48px 40px;background:var(--deep-navy);border-top:1px solid r
 <section class="rotunda-hero">
   <img class="rotunda-hero__img" src="thebestofamerica-memorial-rotunda.png" alt="The Best of America National Archive — grand rotunda with seal and veterans memorial"/>
   <div class="rotunda-hero__overlay"></div>
-  <div class="rotunda-hero__gold-rule"></div>
-  <div class="rotunda-hero__content">
-    <span class="rotunda-hero__eyebrow">Est. 2003 &nbsp;·&nbsp; An Independent National Archive</span>
-    <h1 class="rotunda-hero__title">About <em>The Archive</em></h1>
-    <div class="rotunda-hero__rule"></div>
-    <p class="rotunda-hero__tagline">An independent national archive preserving the stories of Americans who have served, sacrificed, and strengthened the fabric of this nation.</p>
-    <div class="rotunda-hero__stars">
-      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-    </div>
-  </div>
-  <div class="rotunda-hero__scroll">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>
-  </div>
 </section>
+<div class="rotunda-hero__gold-rule"></div>
+<div class="rotunda-hero__content">
+  <span class="rotunda-hero__eyebrow">Est. 2003 &nbsp;·&nbsp; An Independent National Archive</span>
+  <h1 class="rotunda-hero__title">About <em>The Archive</em></h1>
+  <div class="rotunda-hero__rule"></div>
+  <p class="rotunda-hero__tagline">An independent national archive preserving the stories of Americans who have served, sacrificed, and strengthened the fabric of this nation.</p>
+  <div class="rotunda-hero__stars">
+    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+  </div>
+</div>
 
 <div class="about-content">
   <div class="section-label">Who We Are</div>
