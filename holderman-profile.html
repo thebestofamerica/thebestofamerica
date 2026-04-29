@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capt. Nelson Miles Holderman — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --navy-mid: #112240;
+    --crimson: #b31b1b;
+    --crimson-dark: #8f1515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--warm-white); color: var(--text-dark); font-family: 'Libre Baskerville', Georgia, serif; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(6,14,28,0.97); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .nav-logo { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+  .hero { position: relative; background: var(--navy); padding-top: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
+  .hero::before { content: 'star'; font-size: 600px; color: rgba(201,168,76,0.025); position: absolute; top: 50%; left: -100px; transform: translateY(-50%); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; position: relative; }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait { width: 100%; max-width: 280px; aspect-ratio: 3/4; object-fit: cover; object-position: center top; filter: sepia(20%) contrast(1.05); border: 1px solid rgba(201,168,76,0.25); display: block; }
+  .hero-portrait-placeholder { width: 100%; max-width: 280px; aspect-ratio: 3/4; background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.25); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .hero-portrait-placeholder p { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.4); text-align: center; line-height: 1.8; padding: 0 16px; }
+  .hero-portrait-caption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.45); text-align: center; line-height: 1.6; }
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+  .decorations-bar { background: var(--navy); border-top: 2px solid rgba(179,27,27,0.4); border-bottom: 1px solid rgba(201,168,76,0.15); margin: 0 -40px; padding: 24px 40px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .decorations-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); white-space: nowrap; padding-right: 16px; border-right: 1px solid rgba(201,168,76,0.2); }
+  .decoration-item { display: flex; align-items: flex-start; gap: 12px; }
+  .decoration-star { color: var(--gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .decoration-text { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+  .decoration-text small { display: block; font-size: 11px; color: rgba(245,240,232,0.55); letter-spacing: 0.5px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 4px; font-style: italic; }
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .section-label-col { position: sticky; top: 100px; }
+  .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+  .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+  .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+  .section-body p em { font-style: italic; color: var(--text-dark); }
+  .pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+  .pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+  .pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+  .callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+  .callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+  .callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+  .callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+  .sources-box { background: var(--cream); border-left: 3px solid var(--gold); padding: 28px 32px; margin-top: 48px; }
+  .sources-box h4 { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .sources-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .sources-box ul li { font-size: 12px; color: var(--text-light); line-height: 1.55; padding-left: 16px; position: relative; }
+  .sources-box ul li::before { content: '\2014'; position: absolute; left: 0; color: var(--gold); }
+  .tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+  .tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+  .tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+    .hero-portrait-col { flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 20px; }
+    .hero-portrait, .hero-portrait-placeholder { max-width: 140px; }
+  }
+  @media (max-width: 700px) {
+    .hero-inner { padding: 40px 24px; }
+    .page-body { padding: 0 24px 60px; }
+    .story-section { grid-template-columns: 1fr; gap: 16px; }
+    .section-label-col { position: static; }
+    .section-number { font-size: 48px; margin-bottom: -16px; }
+    .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+    .service-item { border-right: none; padding: 0; min-width: 120px; }
+    .decorations-bar { margin: 0 -24px; padding: 20px 24px; gap: 20px; }
+    .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+    .pull-quote { padding: 28px 24px; }
+    .sources-box { padding: 24px 20px; }
+    .site-footer { padding: 48px 24px 32px; }
+    .footer-links { gap: 32px; }
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span style="color:var(--gold);">The Best <span>of America</span>&#8482;</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html" class="active">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="about.html">About</a>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">&#9733; Founding 250 &nbsp;&middot;&nbsp; Veteran Honoree &nbsp;&middot;&nbsp; World War I</div>
+      <h1 class="hero-name">Captain Nelson Miles <em>Holderman</em></h1>
+      <div class="hero-rank">California National Guard &nbsp;&middot;&nbsp; 307th Infantry, 77th Division &nbsp;&middot;&nbsp; 1916&#8211;1919</div>
+      <p class="hero-tagline">&#8220;Suffering great pain and subjected to fire of every character, he continued personally to lead and encourage the officers and men under his command with unflinching courage and with distinguished success.&#8221; &#8212; Medal of Honor Citation, 1921</p>
+    </div>
+    <div class="hero-portrait-col">
+      <!-- Replace with: <img class="hero-portrait" src="images/holderman-portrait.jpg" alt="Captain Nelson Miles Holderman, 1917 — Santa Ana Register, public domain"> -->
+      <div class="hero-portrait-placeholder">
+        <p>&#9733;<br><br>Insert portrait photo<br>holderman-portrait.jpg<br>Santa Ana Register, 1917<br>Public Domain</p>
+      </div>
+      <div class="hero-portrait-caption">Capt. Nelson Miles Holderman<br>California National Guard &middot; WWI<br>Medal of Honor Recipient</div>
+    </div>
+  </div>
+</section>
+
+<div class="page-body">
+
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Branch</div>
+      <div class="service-value">U.S. Army / Cal. Nat. Guard</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Unit</div>
+      <div class="service-value">307th Inf. Reg., 77th Div.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Final Rank</div>
+      <div class="service-value">Colonel</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Entered Service</div>
+      <div class="service-value">Santa Ana, California</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Theater</div>
+      <div class="service-value">Western Front &middot; France</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Born &middot; Died</div>
+      <div class="service-value">Nov. 10, 1885 &middot; Sep. 3, 1953</div>
+    </div>
+  </div>
+
+  <div class="decorations-bar">
+    <div class="decorations-label">Decorations</div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">
+        Medal of Honor
+        <small>Argonne Forest, France &middot; October 2&#8211;8, 1918 &middot; W.D. General Orders No. 28 (1921)</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">
+        Silver Star &nbsp;&middot;&nbsp; Purple Heart &times;3
+        <small>Three separate wounds received in four days of combat, October 4&#8211;7, 1918</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">
+        L&eacute;gion d&#8217;Honneur &nbsp;&middot;&nbsp; Croix de Guerre
+        <small>France &middot; California Medal for Valor &middot; Mexican Service Medal with Citation Star</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">01</span>
+      <div class="section-title">Named<br>for Heroes</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>A Nebraska boy, a California orange grove, and a name given to him like a promise.</h3>
+      <p>Nelson Miles Holderman was born on November 10, 1885, in Trumbull, Nebraska, to a family with service already written into its bones. His father, Upton Holderman, had carried a rifle for the Union in the Civil War, serving as a private in Company &#8220;A&#8221; of the 22nd Iowa Infantry. When the family named their son after General Nelson A. Miles &#8212; a Civil War hero and Medal of Honor recipient who his father had served under &#8212; they were making a statement: here is the kind of man we hope you will become.</p>
+      <p>In 1893, the family packed up and moved west to Tustin, California, setting down roots on thirty acres of orange groves, walnut trees, and apricot orchards in the sun-warmed hills of Southern California. Young Nelson grew up in the literal sense of that phrase &#8212; tending things that took years to bear fruit, learning that patience and persistence were not separate from courage but inseparable from it.</p>
+      <p>By the time he reached adulthood, Holderman legally changed his name to honor the soldier he had been named for &#8212; a quiet, deliberate act that tells you everything about the kind of man he was. He did not merely inherit reverence for duty. He chose it. In 1916, he enlisted as a private in the Santa Ana unit of the California Army National Guard, and soon found himself on the U.S.&#8211;Mexico border, patrolling during the Pancho Villa raids &#8212; under the command of a general named John J. Pershing, who would one day lead him again, in a forest in France.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 2 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">02</span>
+      <div class="section-title">Into the<br>Argonne</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>They went too far. The lines closed behind them. Seven hundred men stood surrounded &#8212; and called it duty.</h3>
+      <p>When America entered the Great War in April 1917, Holderman&#8217;s National Guard unit was federalized and swept into the mobilization. He rose through the ranks quickly &#8212; from enlisted man to officer, from lieutenant to captain &#8212; and by the time his company shipped out to France, he was its commander. Upon arrival on the Western Front in 1918, his unit was assigned as replacements for Company K of the 307th Infantry Regiment, part of the 77th Division, the &#8220;Statue of Liberty Division&#8221; built largely from the streets of New York City, now reinforced by a California boy from the orange groves of Tustin.</p>
+      <p>The Meuse&#8211;Argonne Offensive, launched in late September 1918, was the largest American military operation in history to that point &#8212; over a million U.S. troops pressing to break Germany&#8217;s grip on the Western Front. In the dense, fog-threaded terrain of the Argonne Forest, Major Charles Whittlesey led elements of two battalions forward on October 2nd and broke through the German line. They reached their objective at a road junction near Charlevaux Mill &#8212; and found themselves alone. The units on their flanks had failed to keep pace. The German lines closed behind them.</p>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">~700</span>
+          <div class="callout-desc">Men surrounded in the Argonne Forest</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">6</span>
+          <div class="callout-desc">Days under siege without relief or resupply</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">3&times;</span>
+          <div class="callout-desc">Times Holderman was wounded in four days</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">4</span>
+          <div class="callout-desc">Men received the Medal of Honor for the stand</div>
+        </div>
+      </div>
+
+      <p>Into this chaos, separated from his parent battalion during the confusion of the stalled advance, came Captain Nelson Holderman and his company. They pressed through and joined Whittlesey&#8217;s trapped force. Now roughly 700 men stood surrounded in a ravine of the Argonne Forest, with one day&#8217;s rations, no sleeping gear, no foul weather equipment &#8212; and no way out. The wire services would soon give them a name that would echo through American history: the Lost Battalion.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 3 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">03</span>
+      <div class="section-title">October 2&#8211;8,<br>1918</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>Wounded on October 4th. Then the 5th. Then the 7th. He did not leave his men.</h3>
+      <p>To stand in the Argonne Forest in October 1918 was to exist at the absolute threshold of human endurance. The terrain was claustrophobic &#8212; ravines and ridges choked with undergrowth, the canopy overhead blotting out light and direction. German machine guns commanded the high ground. Mortar rounds churned the earth. The Lost Battalion&#8217;s last carrier pigeon &#8212; later immortalized as &#8220;Cher Ami&#8221; &#8212; flew through enemy fire, losing a leg in the process, and reached Allied headquarters carrying the message that stopped friendly artillery fire from falling on the trapped men.</p>
+      <p>Through it all, Captain Nelson Holderman commanded his company with a ferocity that defied the toll being taken on his body. On October 4th, he was hit. He kept fighting. October 5th, hit again. He did not leave his men. October 7th, wounded a third time &#8212; subjected, as his Medal of Honor citation would formally record, to &#8220;fire of every character.&#8221; Still he led, still he pushed through the lines when others could not. On October 6th &#8212; already carrying three wounds &#8212; Holderman personally ran through direct enemy machine gun and shell fire and carried two wounded soldiers from exposed ground to safety. Not because anyone ordered him to. Because that is what a soldier&#8217;s soldier does.</p>
+
+      <div class="pull-quote">
+        <p>He was wounded on 4, 5, and 7 October, but throughout the entire period, suffering great pain and subjected to fire of every character, he continued personally to lead and encourage the officers and men under his command with unflinching courage and with distinguished success.</p>
+        <cite>&#8212; Official Medal of Honor Citation &middot; Captain Nelson Miles Holderman &middot; W.D. General Orders No. 28 (1921)</cite>
+      </div>
+
+      <p>Relief finally came on October 8th, when elements of the 77th Division fought through to Charlevaux Mill. Of the roughly 700 men who had gone in with the Lost Battalion, 170 had died. More than 360 were carried out on stretchers. Fewer than 200 walked out under their own power. But they had never surrendered &#8212; and their five-day stand cracked the German lines in a way that accelerated the final collapse of the Western Front. The war ended thirty-three days later.</p>
+      <p>Four men received the Medal of Honor for the Lost Battalion stand. Holderman was one of them. Many considered him the most decorated American soldier of the entire war. His citation described not tactics or ground taken, but a man who refused &#8212; in every possible sense &#8212; to quit.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 4 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">Thirty Years<br>for Veterans</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He came home from France and spent the next three decades building the institutions that cared for the men he&#8217;d fought beside.</h3>
+      <p>Nelson Holderman returned to California and rejoined the National Guard, eventually retiring as a colonel. But the work that would define the longest chapter of his life was not military in the field sense &#8212; it was institutional, patient, and personal in the way that real service always is. In 1923, the Governor of California appointed him commandant of the Veterans&#8217; Home of California at Yountville, in Napa County &#8212; one of the oldest veterans&#8217; care facilities west of the Mississippi.</p>
+      <p>He held that post for thirty years. Through the Depression. Through another World War. Through the long exhale of a nation trying to remember what it owed the men who had bled for it. He built new dormitories. He constructed a hospital. He expanded the facilities that sheltered aging veterans of conflicts stretching back to the Spanish-American War &#8212; men who had come home to find that the country&#8217;s gratitude had a short shelf life, and who needed someone to hold the line for them the way Holderman had held it in the Argonne.</p>
+      <p>It was said of him that he never used his fame for personal gain. The Medal of Honor, the Silver Star, the three Purple Hearts, the French L&eacute;gion d&#8217;Honneur, the Croix de Guerre &#8212; they were on the wall. The man behind them showed up to work every morning for thirty years on behalf of soldiers who had nothing left to offer except their trust. He died on September 3, 1953, and was buried with full military honors at Golden Gate National Cemetery in San Bruno, California.</p>
+
+      <div class="pull-quote">
+        <p>Holderman was considered by many as the most decorated soldier of World War I, yet it was said that he never used his fame for personal gain, and that he worked tirelessly for veterans.</p>
+        <cite>&#8212; World War I Centennial Commission &middot; California Recipients of the Medal of Honor</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 5 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why He<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He carried two wounded men to safety while his own body was failing &#8212; and then spent his life doing the same thing from a desk in Yountville.</h3>
+      <p>Nelson Miles Holderman was not a famous name. He was a captain from Tustin &#8212; a son of California&#8217;s orange groves who chose his name to honor a hero and then spent a lifetime earning it back. He is not a household word the way Pershing or Patton would be. He is something rarer: the kind of man whose entire life was characterized not by one moment of extraordinary valor, but by a long, unbroken practice of faithfulness to everyone who needed him.</p>
+      <p>The Lost Battalion stand is where most histories leave him. But the thirty years at Yountville &#8212; building dorms, fighting for hospital funding, showing up every day for men whose own country had begun to forget them &#8212; that is the larger story. The Medal of Honor documented six days in October 1918. The thirty years at the Veterans&#8217; Home documented the rest of a life. Together they make a portrait of what it actually means to serve.</p>
+      <p>In the Founding 250 year &#8212; as America looks back across two and a half centuries to take stock of who built this nation and what it cost them &#8212; Captain Nelson Miles Holderman stands as a California original: a man who came from this soil, who fought when he was needed, and who came home and kept fighting in the quieter way that sustains everything else. The Veterans&#8217; Home of California at Yountville named its main hospital building after him. A U.S. Army Reserve Center in West Los Angeles bears his name. In the final scene of <em>The Manchurian Candidate</em> (1962), Frank Sinatra&#8217;s character reads his Medal of Honor citation aloud &#8212; as if to say: this is what the real thing sounds like.</p>
+      <p>He is held in the permanent record of TheBestofAmerica.org because an archive&#8217;s purpose is to make the forgetting impossible. Tustin. The orange groves. A name chosen in honor of a Civil War hero. A private in the National Guard. A captain in the Argonne. A commandant in Napa for thirty years. A colonel who never used his fame for personal gain. <em>That</em> is the best of America. That is why he is here.</p>
+
+      <div class="sources-box">
+        <h4>Verified Sources</h4>
+        <ul>
+          <li>Congressional Medal of Honor Society &#8212; <em>Nelson M. Holderman: Medal of Honor Citation</em></li>
+          <li>U.S. Department of Veterans Affairs &#8212; <em>The Lost Battalion: Nelson Miles Holderman</em></li>
+          <li>Wikipedia &#8212; <em>Nelson M. Holderman</em> (citing Tustin Area Historical Society, Lovret, Juanita)</li>
+          <li>World War I Centennial Commission &#8212; <em>California Recipients of the Medal of Honor</em></li>
+          <li>Find A Grave Memorial &#8212; <em>Capt. Nelson Miles Holderman (1885&#8211;1953), Golden Gate National Cemetery</em></li>
+          <li>Google Arts &amp; Culture / California Military Department &#8212; <em>Nelson Miles Holderman Enlistment Papers and Photographs, 1915&#8211;1918</em></li>
+          <li>War Department General Orders No. 28 (1921) &#8212; <em>Medal of Honor Citation: Captain Nelson Miles Holderman</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="tribute-block">
+  <div class="tribute-eyebrow">Archived in Permanent Honor</div>
+  <p class="tribute-text">&#8220;Throughout the entire period, suffering great pain and subjected to fire of every character, he continued personally to lead and encourage the officers and men under his command with unflinching courage.&#8221;</p>
+  <div class="tribute-name">Captain Nelson Miles Holderman &nbsp;&middot;&nbsp; 1885&#8211;1953 &nbsp;&middot;&nbsp; United States Army, California National Guard</div>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America&#8482;</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright &copy; 2025&#8211;2026 The Best of America&#8482; &middot; All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
