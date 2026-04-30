@@ -135,7 +135,7 @@ perpetuity.</p>
     <button class="filter-btn" onclick="filterHonorees('veteran',this)">Veterans</button>
     <button class="filter-btn" onclick="filterHonorees('first-responder',this)">First Responders</button>
     <button class="filter-btn" onclick="filterHonorees('community',this)">Community Leaders</button>
-    <button class="filter-btn" onclick="filterHonorees('institution',this)">Institutions</button>
+    <button class="filter-btn" onclick="filterHonorees('historic-place',this)">Historic Places</button>
     <button class="filter-btn" onclick="filterHonorees('founding',this)">★ Founding 250</button>
     <div class="filter-search">
       <input type="text" placeholder="Search honorees..." oninput="searchHonorees(this.value)">
@@ -194,13 +194,16 @@ perpetuity.</p>
       <a href="annie-fox-profile.html" style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:2px;">Read Her Full Story →</a>
     </div>
 
-    <div class="honoree-card" data-type="veteran" data-founding="true">
+    <div class="honoree-card" data-type="historic-place" data-founding="true" style="border-color:rgba(201,168,76,0.4);background:linear-gradient(160deg,rgba(10,22,40,0.98) 50%,rgba(139,26,43,0.2) 100%);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);"></div>
       <div class="honoree-corner"></div>
-      <div class="founding-badge"><span>★ Founding 250</span></div>
-      <div class="honoree-type">Veteran · Vietnam War</div>
-      <div class="honoree-name">SFC Melvin Morris</div>
-      <div class="honoree-location">Okmulgee, Oklahoma</div>
-      <p class="honoree-desc">One of the first African American Green Berets. On September 17, 1969, near Chi Lang, Vietnam, single-handedly destroyed four enemy bunkers and recovered a fallen commander's body under withering fire — wounded three times. Awarded the Medal of Honor by President Obama in 2014 after a decades-long review determined racial bias had denied him the honor.</p>
+      <div class="founding-badge"><span>&#9733; Founding 250</span></div>
+      <div style="font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;opacity:0.8;">&#9733; Featured Story</div>
+      <div class="honoree-type">Historic Places &middot; War of 1812 &middot; National Monument</div>
+      <div class="honoree-name">Fort <em style="font-style:italic;color:var(--gold-light);">McHenry</em></div>
+      <div class="honoree-location">Baltimore Harbor, Maryland &middot; Est. 1798</div>
+      <p class="honoree-desc" style="font-style:italic;margin-bottom:18px;">&#8220;…and the rockets&#8217; red glare, the bombs bursting in air, gave proof through the night that our flag was still there.&#8221;<br><span style="font-style:normal;color:rgba(245,240,232,0.4);font-size:12px;">The fort that held for 25 hours &middot; ~1,800 shells fired &middot; Birthplace of the National Anthem &middot; National Monument &amp; Historic Shrine</span></p>
+      <a href="fort-mchenry.html" style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:2px;">View Full Profile &rarr;</a>
     </div>
 
     <div class="honoree-card" data-type="veteran" data-founding="true" style="border-color:rgba(201,168,76,0.4);background:linear-gradient(160deg,rgba(10,22,40,0.98) 50%,rgba(139,26,43,0.2) 100%);position:relative;overflow:hidden;">
@@ -232,10 +235,10 @@ perpetuity.</p>
       <p class="honoree-desc">Won the landmark 1982 federal lawsuit that opened the FDNY to women for the first time in history. Served 25 years as a New York City firefighter, retiring as Captain. Responded to Ground Zero on 9/11. Founded United Women Firefighters. Awarded the Susan B. Anthony Award.</p>
     </div>
 
-    <div class="honoree-card" data-type="institution" data-founding="true">
+    <div class="honoree-card" data-type="historic-place" data-founding="true">
       <div class="honoree-corner"></div>
       <div class="founding-badge"><span>★ Founding 250</span></div>
-      <div class="honoree-type">Historic Institution</div>
+      <div class="honoree-type">Historic Places</div>
       <div class="honoree-name">Pennsylvania Hospital, Est. 1751</div>
       <div class="honoree-location">Philadelphia, Pennsylvania</div>
       <p class="honoree-desc">Founded by Benjamin Franklin and Dr. Thomas Bond — the first hospital in America built to treat the sick poor free of charge. Its main building, dating to 1756, is a National Historic Landmark. Still operating today as part of Penn Medicine after 275 years of continuous service.</p>
@@ -275,9 +278,9 @@ perpetuity.</p>
       <p class="honoree-desc">Mess Attendant aboard USS West Virginia at Pearl Harbor. Carried wounded sailors to safety then manned an anti-aircraft gun under fire with no prior gunnery training. First African American recipient of the Navy Cross, presented personally by Admiral Nimitz in 1942. The aircraft carrier USS Doris Miller (CVN-81) bears his name.</p>
     </div>
 
-    <div class="honoree-card" data-type="institution">
+    <div class="honoree-card" data-type="historic-place">
       <div class="honoree-corner"></div>
-      <div class="honoree-type">Historic Institution</div>
+      <div class="honoree-type">Historic Places</div>
       <div class="honoree-name">Washington Fire Co. No. 2, Est. 1850</div>
       <div class="honoree-location">Madison, Indiana</div>
       <p class="honoree-desc">The oldest continuously operating fire station in the United States. A rare surviving example of Greek Revival firehouse architecture, in unbroken service to its community for over 175 years.</p>
