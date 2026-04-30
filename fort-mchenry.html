@@ -45,7 +45,7 @@
 
   /* DARK HERO HEADER — matches honoree hero style */
   .hero { position: relative; background: var(--navy); border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
-  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; position: relative; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; position: relative; }
   .hero-content { animation: fadeUp 1.2s ease forwards; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
@@ -53,14 +53,7 @@
   .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 64px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
   .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
   .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
-  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
-
-  /* PAINTING THUMBNAIL in hero right col */
-  .hero-place-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-  .hero-place-img { width: 100%; max-width: 280px; aspect-ratio: 4/3; object-fit: cover; object-position: center; border: 1px solid rgba(201,168,76,0.25); display: block; }
-  .hero-place-placeholder { width: 100%; max-width: 280px; aspect-ratio: 4/3; background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.25); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-  .hero-place-placeholder p { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.4); text-align: center; line-height: 1.8; padding: 0 16px; }
-  .hero-place-caption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.45); text-align: center; line-height: 1.6; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 780px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
 
   /* SERVICE BAR */
   .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
@@ -199,13 +192,6 @@
       <h1 class="hero-name">Fort <em>McHenry</em></h1>
       <div class="hero-rank">Baltimore Harbor, Maryland &nbsp;&middot;&nbsp; Established 1798 &nbsp;&middot;&nbsp; National Monument &amp; Historic Shrine</div>
       <p class="hero-tagline">&#8220;…and the rockets&#8217; red glare, the bombs bursting in air, gave proof through the night that our flag was still there.&#8221; &#8212; Francis Scott Key, September 14, 1814</p>
-    </div>
-    <div class="hero-place-col">
-      <!-- Replace with: <img class="hero-place-img" src="fort-mchenry-aerial.jpg" alt="Fort McHenry aerial view — National Park Service"> -->
-      <div class="hero-place-placeholder">
-        <p>&#9733;<br><br>Insert aerial or<br>historic photo<br>fort-mchenry-aerial.jpg<br>NPS / Public Domain</p>
-      </div>
-      <div class="hero-place-caption">Fort McHenry<br>Baltimore Harbor &middot; Maryland<br>National Monument &amp; Historic Shrine</div>
     </div>
   </div>
 </section>
