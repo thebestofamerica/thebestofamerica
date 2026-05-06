@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sergeant William Harvey Carney — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --navy-mid: #112240;
+    --crimson: #b31b1b;
+    --crimson-dark: #8f1515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--text-dark);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── SITE NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(6,14,28,0.97);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo span { color: var(--cream); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 8px 18px; transition: background 0.3s, color 0.3s !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ── FOOTER ── */
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: var(--navy);
+    padding-top: 72px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '★';
+    position: absolute;
+    font-size: 600px;
+    color: rgba(201,168,76,0.025);
+    top: 50%;
+    left: -100px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+  }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(38px, 5vw, 64px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: sepia(20%) contrast(1.1) brightness(0.95);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: block;
+  }
+  .hero-portrait-caption {
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.45);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-badge {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+  }
+  .hero-badge.crimson { border-color: rgba(179,27,27,0.4); color: #e07070; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+  /* ── PAGE BODY ── */
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ── SERVICE BAR ── */
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.55); margin-bottom: 6px; }
+  .service-value { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.1em; color: var(--cream); }
+
+  /* ── NARRATIVE SECTIONS ── */
+  .narrative-section { margin-bottom: 64px; }
+  .section-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--gold); }
+  .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; color: var(--text-dark); line-height: 1.2; margin-bottom: 28px; }
+  .section-headline em { font-style: italic; color: var(--crimson); }
+  .body-text { font-size: 16px; line-height: 1.95; color: var(--text-mid); margin-bottom: 22px; }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-left: 4px solid var(--crimson);
+    padding: 24px 32px;
+    margin: 40px 0;
+    background: rgba(179,27,27,0.04);
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .pull-quote cite {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-style: normal;
+  }
+
+  /* ── CALLOUT STATS ── */
+  .callout-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 40px 0; }
+  .callout-stat { background: var(--navy); padding: 28px 24px; text-align: center; }
+  .callout-stat-value { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .callout-stat-label { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245,240,232,0.5); }
+
+  /* ── TWO-COL LAYOUT ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-bottom: 40px; }
+  .two-col-reverse { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-bottom: 40px; }
+
+  /* ── ARCHIVE IMAGE ── */
+  .archive-img-wrap { position: relative; }
+  .archive-img {
+    width: 100%;
+    display: block;
+    filter: sepia(15%) contrast(1.08);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .archive-img-caption {
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(107,96,88,0.7);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ── TRIBUTE BLOCK ── */
+  .tribute-block {
+    background: var(--navy);
+    padding: 48px;
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .tribute-block::before {
+    content: '★';
+    position: absolute;
+    font-size: 300px;
+    color: rgba(201,168,76,0.04);
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 26px); font-style: italic; color: var(--cream); line-height: 1.7; max-width: 700px; margin-bottom: 24px; }
+  .tribute-sub { font-family: 'Libre Baskerville', serif; font-size: 14px; color: rgba(245,240,232,0.5); line-height: 1.8; max-width: 640px; }
+
+  /* ── SOURCES ── */
+  .sources-section { margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(107,96,88,0.2); }
+  .sources-heading { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--text-light); margin-bottom: 20px; }
+  .sources-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .sources-list li { font-size: 12px; color: var(--text-light); line-height: 1.6; padding-left: 16px; position: relative; }
+  .sources-list li::before { content: '—'; position: absolute; left: 0; color: rgba(201,168,76,0.4); }
+
+  /* ── PROFILE NAV ── */
+  .profile-nav-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 32px; border-top: 1px solid rgba(107,96,88,0.15); flex-wrap: wrap; gap: 16px; }
+  .profile-nav-link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold) !important;
+    text-decoration: none;
+    -webkit-text-fill-color: var(--gold);
+    transition: opacity 0.2s;
+  }
+  .profile-nav-link:hover { opacity: 0.75; }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-portrait-col { order: -1; }
+    .hero-portrait { max-width: 200px; margin: 0 auto; }
+    .page-body { padding: 0 24px 60px; }
+    .service-bar { margin: 0 -24px; padding: 20px 24px; }
+    .two-col, .two-col-reverse { grid-template-columns: 1fr; }
+    .callout-stats { grid-template-columns: 1fr; }
+    .tribute-block { padding: 32px 24px; }
+    .pull-quote { padding: 20px 24px; }
+  }
+  @media (max-width: 600px) {
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://thebestofamerica.org/">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;">
+    <span style="color:var(--gold);">The Best <span>of America</span>™</span>
+  </a>
+  <ul class="nav-links">
+    <li><a class="active" href="https://thebestofamerica.org/honorees">Honorees</a></li>
+    <li><a href="https://thebestofamerica.org/nominate">Nominate a Hero</a></li>
+    <li><a href="https://thebestofamerica.org/local-patriot-businesses">Local Patriot Businesses</a></li>
+    <li><a href="video.html">Video</a></li>
+    <li><a href="https://thebestofamerica.org/about">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://thebestofamerica.org/honorees">Honorees</a>
+  <a href="https://thebestofamerica.org/nominate">Nominate a Hero</a>
+  <a href="https://thebestofamerica.org/local-patriot-businesses">Local Patriot Businesses</a>
+  <a href="video.html">Video</a>
+  <a href="https://thebestofamerica.org/about">About</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">★ Founding 250 &nbsp;·&nbsp; Veteran &nbsp;·&nbsp; Civil War &nbsp;·&nbsp; Medal of Honor</div>
+      <h1 class="hero-name">Sergeant William Harvey <em>Carney</em></h1>
+      <div class="hero-rank">Company C, 54th Massachusetts Infantry Regiment (Colored) &nbsp;·&nbsp; United States Army &nbsp;·&nbsp; 1863–1864</div>
+      <p class="hero-tagline">"The old flag never touched the ground, boys."</p>
+      <div class="hero-badges">
+        <span class="hero-badge">Medal of Honor · 1900</span>
+        <span class="hero-badge">Civil War · 1863–1865</span>
+        <span class="hero-badge crimson">Fort Wagner · July 18, 1863</span>
+        <span class="hero-badge">New Bedford, Massachusetts</span>
+      </div>
+    </div>
+    <div class="hero-portrait-col">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/William_Harvey_Carney.jpg/800px-William_Harvey_Carney.jpg"
+        alt="Sergeant William Harvey Carney, 54th Massachusetts Infantry, Civil War"
+        class="hero-portrait"
+      />
+      <div class="hero-portrait-caption">Sgt. William Harvey Carney<br>54th Massachusetts Infantry<br>Photograph · circa 1863</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE BAR -->
+<div class="page-body">
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Born</div>
+      <div class="service-value">February 29, 1840 · Norfolk, Virginia</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Unit</div>
+      <div class="service-value">Co. C, 54th Massachusetts Infantry (Colored)</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Action</div>
+      <div class="service-value">Assault on Fort Wagner · July 18, 1863</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Medal of Honor</div>
+      <div class="service-value">Awarded 1900 · 37 years after the battle</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Died</div>
+      <div class="service-value">December 9, 1908 · New Bedford, Massachusetts</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">★</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 1: THE MAN -->
+  <div class="narrative-section">
+    <div class="section-eyebrow">The Man</div>
+    <h2 class="section-headline">A Son of Virginia Who <em>Chose</em> Freedom</h2>
+    <div class="two-col">
+      <div>
+        <p class="body-text">William Harvey Carney was born into slavery in Norfolk, Virginia, on February 29, 1840. He was owned by Major William H. Carney — from whom he would eventually take his surname — and spent the first years of his life in a system designed to deny him everything: a name he chose, a faith he kept, a future he could call his own.</p>
+        <p class="body-text">Sometime in the 1850s, through means not fully recorded, Carney made his way north along the Underground Railroad. He settled in New Bedford, Massachusetts, a port city with one of the most active free Black communities in New England. It was there that he found work, built a life, and prepared for the war he could already sense was coming.</p>
+        <p class="body-text">New Bedford had been home to Frederick Douglass. It was a city where formerly enslaved men and women had built institutions — churches, schools, mutual aid societies — against every pressure the world exerted upon them. William Carney planted himself in that community and quietly became part of it.</p>
+      </div>
+      <div>
+        <p class="body-text">He was a deeply religious man. Those who knew him described a steadiness that felt almost deliberate — not the quietness of someone with nothing to say, but of someone who had decided how to live and lived accordingly. He had seen enough of the world to know what mattered. When the war began and the question became whether Black men would be allowed to fight for their own liberation, William Carney was ready.</p>
+        <p class="body-text">He was twenty-three years old when he enlisted in February 1863. The 54th Massachusetts Infantry Regiment — the first authorized Black military unit raised in the North — was forming under the command of Colonel Robert Gould Shaw, a white officer who had volunteered to lead it. Carney was among the first men to sign.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: THE 54TH -->
+  <div class="narrative-section">
+    <div class="section-eyebrow">The Regiment</div>
+    <h2 class="section-headline">The 54th Massachusetts — <em>They Had to Prove Everything</em></h2>
+    <p class="body-text">The men of the 54th Massachusetts carried a weight no white regiment ever had to carry. The question wasn't just whether they would fight well — it was whether Black men could fight at all. The United States government, the Confederate government, and a significant portion of the Northern public were watching to see.</p>
+
+    <div class="callout-stats">
+      <div class="callout-stat">
+        <div class="callout-stat-value">1,000+</div>
+        <div class="callout-stat-label">Men in the Regiment</div>
+      </div>
+      <div class="callout-stat">
+        <div class="callout-stat-value">272</div>
+        <div class="callout-stat-label">Casualties at Fort Wagner</div>
+      </div>
+      <div class="callout-stat">
+        <div class="callout-stat-value">23</div>
+        <div class="callout-stat-label">Carney's Age at the Battle</div>
+      </div>
+    </div>
+
+    <p class="body-text">They trained at Camp Meigs in Massachusetts. They were inspected, watched, scrutinized. They were paid less than white soldiers — $10 a month versus $13 — a disparity they protested by refusing any pay at all until the law was corrected. They marched through Boston on May 28, 1863, to cheering crowds and the silent prayers of families who knew what they were walking into.</p>
+    <p class="body-text">By summer, they were on Morris Island, South Carolina, preparing for what would become one of the most iconic charges in American military history.</p>
+
+    <div class="pull-quote">
+      <p>"We want to show that the colored men of the North have their hearts in this cause, and have the courage to strike an effective blow for liberty and for the Union."</p>
+      <cite>— Frederick Douglass, who recruited men for the 54th Massachusetts</cite>
+    </div>
+  </div>
+
+  <!-- SECTION 3: FORT WAGNER -->
+  <div class="narrative-section">
+    <div class="section-eyebrow">July 18, 1863</div>
+    <h2 class="section-headline">The Assault on Fort Wagner — <em>The Flag Did Not Fall</em></h2>
+    <p class="body-text">Fort Wagner was a Confederate earthwork fortification at the southern end of Morris Island, protecting the approaches to Charleston Harbor. On the evening of July 18, 1863, the 54th Massachusetts was given the honor — and the terrible burden — of leading the assault.</p>
+    <p class="body-text">It was nearly dark when they advanced. The fort sat at the end of a narrow sand spit flanked by ocean and marsh; there was almost no room to maneuver. The men had to approach in a column, directly into Confederate fire. Colonel Shaw led from the front. The regiment moved forward under artillery and rifle fire across 1,700 yards of open beach.</p>
+    <p class="body-text">Sergeant John Wall, the color sergeant carrying the regiment's national flag, was shot early in the advance. He passed the flag to Sergeant William Harvey Carney before falling. What happened next became one of the defining acts of the Civil War.</p>
+
+    <div class="pull-quote">
+      <p>"Though shot in both legs, his chest, and his right arm, he dragged himself across the sands to deliver the flag to his comrades — and then spoke the words that would follow him the rest of his life."</p>
+      <cite>— Reconstructed from eyewitness accounts, National Archives</cite>
+    </div>
+
+    <p class="body-text">Carney pressed forward into the fort's ditch and up the parapet, reaching the fort's walls with the flag still held high. The attack ultimately failed — the 54th was repulsed after suffering devastating casualties, including the death of Colonel Shaw — but Carney refused to let the flag touch the ground. Severely wounded — shot through both legs, his chest, and eventually his right arm — he crawled and staggered back across the beach through enemy fire, clutching the colors the entire way.</p>
+    <p class="body-text">He reached Union lines and handed the flag to another soldier. His reported words — simple, unassuming, and permanent — became part of the American record:</p>
+
+    <div class="tribute-block">
+      <div class="tribute-eyebrow">★ His Words · July 18, 1863</div>
+      <p class="tribute-text">"The old flag never touched the ground, boys."</p>
+      <p class="tribute-sub">He had been shot in both legs, through the chest, and in the arm. He had crossed the battlefield and climbed the parapet of a Confederate fort. He had held the United States flag above his head through all of it. Those eight words were all he needed to say.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: AFTER THE WAR -->
+  <div class="narrative-section">
+    <div class="section-eyebrow">Coming Home</div>
+    <h2 class="section-headline">A Quiet Life, <em>An Enduring Legacy</em></h2>
+    <p class="body-text">Carney's wounds forced his discharge from the 54th in June 1864. He returned to New Bedford, where he spent the next four decades living the kind of life the country had been too slow to make possible for men like him. He married Susannah Williams. He raised a family. He worked for years as a letter carrier for the New Bedford post office — a modest, essential job he performed with the same steadiness he had brought to everything else.</p>
+    <p class="body-text">He became something of a local institution. At reunions and commemorations, he sometimes carried the same flag — or a replica of it — and the crowds who saw him understood what they were witnessing. Here was the man who had held the flag. Here was the proof that the question had been answered on the sands of Morris Island.</p>
+    <p class="body-text">What he did not have, for thirty-seven years, was the Medal of Honor. The bureaucratic reasons have never been fully explained. Black veterans were systematically underrecognized in the years after the Civil War, and Carney's case was no exception. The award was finally granted in 1900 — thirty-seven years after the battle, eight years before his death.</p>
+    <p class="body-text">He died on December 9, 1908, at the age of sixty-eight, from injuries sustained in an elevator accident at the Massachusetts State House. The Massachusetts state flag flew at half-staff. His obituary ran in papers across the country. He was buried in Oak Grove Cemetery in New Bedford.</p>
+  </div>
+
+  <!-- SECTION 5: LEGACY -->
+  <div class="narrative-section">
+    <div class="section-eyebrow">The Record</div>
+    <h2 class="section-headline">What His Name <em>Means</em></h2>
+    <p class="body-text">The story of William Harvey Carney is, at its core, the story of a man who was told his entire life that he did not belong — not to citizenship, not to service, not to the republic he was willing to die for — and who answered that claim by climbing the parapet of a Confederate fort with a bullet in each leg and the United States flag above his head.</p>
+    <p class="body-text">He is believed to have been the first African American to receive the Medal of Honor during the Civil War era, though administrative delays meant the award came decades late. His citation reads simply that he "gallantly seized the colors" after the color sergeant fell, "and bore them nobly through the thickest of the fight." That language captures the act. It doesn't fully capture what it meant.</p>
+    <p class="body-text">The 54th Massachusetts — and William Carney within it — demonstrated something that the country needed to see and that a portion of it did not want to acknowledge: that Black men would fight with equal valor, equal sacrifice, and equal claim to the nation they were helping to preserve. That truth, which Carney helped establish at Fort Wagner in 1863, still holds.</p>
+    <p class="body-text">Thirty-seven years later, the nation agreed.</p>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources-section">
+    <div class="sources-heading">Archive Sources</div>
+    <ul class="sources-list">
+      <li>U.S. Army — army.mil: "Meet Sgt. William Carney: Medal of Honor Recipient"</li>
+      <li>National Museum of the United States Army — thenmusa.org: William Carney biography</li>
+      <li>Congressional Medal of Honor Society — cmohs.org: William H. Carney citation</li>
+      <li>National Medal of Honor Museum — mohmuseum.org: William Harvey Carney</li>
+      <li>City of Norfolk, Virginia — norfolk.gov: William Harvey Carney historical record</li>
+      <li>National Park Service — nps.gov: Sergeant William Carney and the 54th MA Regiment</li>
+      <li>National Archives: Compiled Military Service Records, 54th Massachusetts Infantry Regiment (Colored), Microfilm Serial M1898, Roll 3</li>
+      <li>Carney Academy / New Bedford Public Schools — carney.newbedfordschools.org: William H. Carney biography</li>
+    </ul>
+  </div>
+
+  <!-- PROFILE NAV -->
+  <div class="profile-nav-bar">
+    <a href="/honorees.html" class="profile-nav-link">← All Honorees</a>
+    <a href="/honorees/annie-fox-profile.html" class="profile-nav-link">Next Honoree: Maj. Annie G. Fox →</a>
+  </div>
+
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America™</h3>
+        <p>An independent national archive preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="https://thebestofamerica.org/honorees">Honorees</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="https://thebestofamerica.org/nominate">Nominate a Hero</a></li>
+            <li><a href="https://thebestofamerica.org/local-patriot-businesses">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Established 2003 &nbsp;·&nbsp; <a href="https://web.archive.org/web/20030614000000*/thebestofamerica.org" target="_blank" rel="noopener" style="color:rgba(201,168,76,0.6);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.25);">View Our Original Archive</a> &nbsp;·&nbsp; Copyright © 2003–2026 The Best of America™ · All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu close on outside click
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.nav-hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
