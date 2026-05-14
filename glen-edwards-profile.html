@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capt. Glen W. Edwards — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --navy-mid: #112240;
+    --crimson: #b31b1b;
+    --crimson-dark: #8f1515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--warm-white); color: var(--text-dark); font-family: 'Libre Baskerville', Georgia, serif; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(6,14,28,0.97); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .nav-logo { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+
+  /* ── FOOTER ── */
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+  /* ── HERO — Holderman-style with portrait column ── */
+  .hero { position: relative; background: var(--navy); padding-top: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
+  .hero::before { content: '★'; font-size: 600px; color: rgba(201,168,76,0.025); position: absolute; top: 50%; left: -100px; transform: translateY(-50%); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; position: relative; }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait { width: 100%; max-width: 280px; aspect-ratio: 3/4; object-fit: cover; object-position: center top; filter: sepia(15%) contrast(1.08); border: 1px solid rgba(201,168,76,0.25); display: block; }
+  .hero-portrait-caption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.45); text-align: center; line-height: 1.6; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+  /* ── BODY ── */
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ── SERVICE BAR ── */
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+
+  /* ── DECORATIONS BAR ── */
+  .decorations-bar { background: var(--navy); border-top: 2px solid rgba(179,27,27,0.4); border-bottom: 1px solid rgba(201,168,76,0.15); margin: 0 -40px; padding: 24px 40px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .decorations-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); white-space: nowrap; padding-right: 16px; border-right: 1px solid rgba(201,168,76,0.2); }
+  .decoration-item { display: flex; align-items: flex-start; gap: 12px; }
+  .decoration-star { color: var(--gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .decoration-text { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+  .decoration-text small { display: block; font-size: 11px; color: rgba(245,240,232,0.55); letter-spacing: 0.5px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 4px; font-style: italic; }
+
+  /* ── STORY SECTIONS ── */
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .section-label-col { position: sticky; top: 100px; }
+  .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+  .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+  .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+  .section-body p em { font-style: italic; color: var(--text-dark); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+  .pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+  .pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+
+  /* ── CALLOUT STATS ── */
+  .callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+  .callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+  .callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+  .callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+  /* ── INLINE PHOTO ── */
+  .inline-photo { margin: 40px 0; }
+  .inline-photo img { width: 100%; max-height: 480px; object-fit: cover; object-position: center; filter: sepia(20%) contrast(1.05); display: block; border: 1px solid rgba(10,22,40,0.12); }
+  .inline-photo figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 10px 0 0; line-height: 1.6; }
+
+  .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+  .photo-pair figure img { width: 100%; height: 280px; object-fit: cover; filter: sepia(20%) contrast(1.05); border: 1px solid rgba(10,22,40,0.12); }
+  .photo-pair figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 8px 0 0; line-height: 1.6; }
+
+  /* ── SPONSOR CREDIT ── */
+  .sponsor-credit { background: rgba(201,168,76,0.05); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 20px 40px; margin: 0 -40px; text-align: center; }
+  .sponsor-credit p { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-light); margin: 0; }
+  .sponsor-credit strong { color: var(--crimson); font-weight: 600; }
+
+  /* ── TRIBUTE BLOCK ── */
+  .tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+  .tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+  .tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+
+  /* ── ARCHIVE SEAL ── */
+  .archive-footer { text-align: center; padding: 48px 20px 24px; border-top: 1px solid rgba(10,22,40,0.12); margin-top: 0; }
+  .archive-footer p { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--text-light); text-transform: uppercase; line-height: 2; }
+  .archive-footer .site { color: var(--crimson); font-size: 11px; letter-spacing: 2px; margin-top: 6px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+    .hero-portrait-col { flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 20px; }
+    .hero-portrait { max-width: 140px; }
+    .photo-pair { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .hero-inner { padding: 40px 24px; }
+    .page-body { padding: 0 24px 60px; }
+    .story-section { grid-template-columns: 1fr; gap: 16px; }
+    .section-label-col { position: static; }
+    .section-number { font-size: 48px; margin-bottom: -16px; }
+    .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+    .service-item { border-right: none; padding: 0; min-width: 120px; }
+    .decorations-bar { margin: 0 -24px; padding: 20px 24px; gap: 20px; }
+    .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+    .sponsor-credit { margin: 0 -24px; padding: 20px 24px; }
+    .pull-quote { padding: 28px 24px; }
+    .site-footer { padding: 48px 24px 32px; }
+    .footer-links { gap: 32px; }
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span style="color:var(--gold);">The Best <span>of America</span>&#8482;</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html" class="active">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="video.html">Video</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="video.html">Video</a>
+  <a href="about.html">About</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">&#9733; Founding 250 &nbsp;&middot;&nbsp; Veteran Honoree &nbsp;&middot;&nbsp; Test Pilot &nbsp;&middot;&nbsp; Line of Duty</div>
+      <h1 class="hero-name">Captain Glen <em>W. Edwards</em></h1>
+      <div class="hero-rank">United States Army Air Forces &nbsp;&middot;&nbsp; Test Pilot, Muroc Army Air Field &nbsp;&middot;&nbsp; 1941&ndash;1948</div>
+      <p class="hero-tagline">He flew the wing that the world said was impossible — and gave his life proving it wasn't. Forty-one years later, it became the B-2 Spirit. A desert air base took his name. Lancaster inherited his sky.</p>
+    </div>
+    <div class="hero-portrait-col">
+      <img class="hero-portrait"
+           src="glen-edwards-portrait.jpg"
+           alt="Captain Glen W. Edwards, official USAF portrait photograph">
+      <div class="hero-portrait-caption">Capt. Glen W. Edwards<br>U.S. Army Air Forces &middot; Test Pilot<br>Edwards AFB Named in His Honor</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- SERVICE BAR -->
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Branch</div>
+      <div class="service-value">U.S. Army Air Forces</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Role</div>
+      <div class="service-value">Test Pilot &middot; Fighter Ace</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Aircraft</div>
+      <div class="service-value">Northrop YB-49 Flying Wing</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Dates of Service</div>
+      <div class="service-value">1941 &ndash; June 5, 1948</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Status</div>
+      <div class="service-value">Killed in the Line of Duty</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Born &middot; Died</div>
+      <div class="service-value">Nov. 6, 1918 &middot; June 5, 1948</div>
+    </div>
+  </div>
+
+  <!-- DECORATIONS BAR -->
+  <div class="decorations-bar">
+    <div class="decorations-label">Honors &amp; Legacy</div>
+    <div class="decoration-item">
+      <span class="decoration-star">&#9733;</span>
+      <div class="decoration-text">Edwards Air Force Base
+        <small>Muroc Army Air Field renamed in his honor, December 1949</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <span class="decoration-star">&#9733;</span>
+      <div class="decoration-text">WWII European Theater
+        <small>P-38 Lightning &amp; P-47 Thunderbolt combat missions, Eighth Air Force</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <span class="decoration-star">&#9733;</span>
+      <div class="decoration-text">B-2 Spirit Lineage
+        <small>Direct predecessor aircraft — same 172-ft wingspan, same Antelope Valley desert sky</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 01 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">01</span>
+      <div class="section-title">The Man<br>Before the Mission</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>A California boy who belonged to the sky from the moment he first saw it.</h3>
+      <p>Glen Walter Edwards was born on November 6, 1918, in Medicine Hat, Alberta, Canada, to American parents — a family that soon settled in Lincoln, California. He grew up as a restless, mechanically gifted young man who took apart engines to understand them and put them back together just to see if he could do it faster. By the time he enrolled at California Polytechnic State University, his instructors already saw something different in him: the rare combination of engineering instinct and physical coordination that produces exceptional aviators.</p>
+      <p>The classroom could only hold him for so long. When the Army Air Corps opened its aviation cadet program, Glen Edwards walked through the door without hesitation.</p>
+      <p>He was commissioned in 1941. He was twenty-two years old. A war was coming, and the sky — his sky — was waiting.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 02 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">02</span>
+      <div class="section-title">The Call<br>to Serve</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He flew where the war was hottest and came back as someone the Air Force needed even more.</h3>
+      <p>When America entered World War II, Glen Edwards went to war in the skies over Europe. Assigned to the Eighth Air Force, he flew combat missions in P-38 Lightnings and P-47 Thunderbolts over Nazi-occupied territory — the brutal, unforgiving work of aerial combat against a capable and determined enemy. He proved himself exceptional: the kind of pilot who understood the aircraft as an extension of himself.</p>
+      <p>He returned from the war decorated, with a reputation that had already reached the officers responsible for filling the most exclusive and dangerous assignment in American aviation — experimental test flight at Muroc Army Air Field, a remote, classified base carved from the Mojave Desert just north of the Antelope Valley.</p>
+
+      <!-- YB-49 takeoff photo -->
+      <figure class="inline-photo">
+        <img src="yb49-takeoff.jpg" alt="Northrop YB-49 Flying Wing taking off, exhaust smoke trailing, spectators watching — Muroc Army Air Field, California">
+        <figcaption>The Northrop YB-49 Flying Wing departs Muroc Army Air Field. The aircraft's jet exhaust and dramatic profile drew crowds of spectators and classified observers alike. &mdash; U.S. Air Force, public domain</figcaption>
+      </figure>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">P-38</span>
+          <div class="callout-desc">Lightning &mdash; Primary WWII Combat Aircraft</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">P-47</span>
+          <div class="callout-desc">Thunderbolt &mdash; European Theater Missions</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">YB-49</span>
+          <div class="callout-desc">Flying Wing &mdash; His Final and Greatest Aircraft</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 03 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">03</span>
+      <div class="section-title">The Work<br>He Did</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He flew the aircraft that everyone said couldn't be flown — and he made it look like it could.</h3>
+      <p>The Northrop YB-49 was unlike anything in the sky. A pure flying wing — no fuselage, no tail, no vertical surfaces of any conventional kind — it was the radical vision of Jack Northrop, who had spent decades pursuing the design as the most aerodynamically efficient configuration possible for a long-range bomber. The YB-49 was that dream made real: sleek, enormous, and aerodynamically demanding in ways that pushed even the best pilots to their absolute limits.</p>
+      <p>It was profoundly difficult to fly. Without the stabilizing influence of a conventional tail, it hunted through the air — an oscillating yaw that demanded constant correction, continuous attention. Pilots who flew it described an aircraft that required total physical engagement every moment. There was no trimmed, hands-off flight. Every minute demanded the pilot.</p>
+
+      <div class="pull-quote">
+        <p>The flying wing demanded everything you had and then asked for more. You didn't fly it so much as negotiate with it — and the negotiation never stopped.</p>
+        <cite>&mdash; Test pilot accounts, Muroc Army Air Field, 1947&ndash;1948</cite>
+      </div>
+
+      <!-- Photo pair: ramp view + aerial desert -->
+      <div class="photo-pair">
+        <figure>
+          <img src="yb49-ramp.jpg" alt="Northrop YB-49 Flying Wing on the ramp at Muroc, aerial view showing the pure wing shape with no tail or fuselage">
+          <figcaption>The YB-49 on the ramp at Muroc. The pure flying wing shape — no fuselage, no tail — is visible from above. &mdash; U.S. Air Force, public domain</figcaption>
+        </figure>
+        <figure>
+          <img src="yb49-aerial-desert.png" alt="Northrop YB-49 Flying Wing in flight over desert terrain, photographed from directly above showing the wing planform">
+          <figcaption>The YB-49 over the Mojave Desert, photographed from directly above. The aircraft flew over this same landscape that Glen Edwards called home. &mdash; U.S. Air Force, public domain</figcaption>
+        </figure>
+      </div>
+
+      <p>Glen Edwards flew it anyway — again and again. On April 26, 1948, the YB-49 completed a landmark 9.5-hour endurance flight, with 6.5 of those hours at 40,000 feet. It was one of the most remarkable test flights in aviation history. The program seemed on the verge of proving the flying wing was the future. Everything pointed forward.</p>
+      <p>That flight would be the program's high-water mark.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 04 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">June 5, 1948<br>Over the Mojave</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He did not come back. Neither did four others who flew alongside him.</h3>
+      <p>The morning of June 5, 1948, was clear over Muroc. Captain Glen Edwards climbed into the co-pilot seat of YB-49 serial number 42-102368 alongside pilot Major Daniel A. Forbes Jr. The mission was stall recovery performance testing — pushing the aircraft to the edge of its flight envelope to understand how it behaved and whether a pilot could bring it back. Exactly the kind of mission that defined what test pilots did.</p>
+      <p>At 40,000 feet north of the base, the YB-49 reached a point from which there was no return. In a catastrophic structural failure, the outer wing panels tore free. The aircraft disintegrated over the Mojave Desert, approximately ten miles east of the small town of Mojave.</p>
+      <p>Captain Glen W. Edwards was killed instantly. So were Major Daniel A. Forbes Jr., First Lieutenant Edward L. Swindell, and civilian engineers Charles H. LaFountain and Clare C. Lesser. Five men. One aircraft. One morning. No survivors.</p>
+
+      <!-- In-flight photo -->
+      <figure class="inline-photo">
+        <img src="yb49-inflight.jpg" alt="Northrop YB-49 Flying Wing in flight over mountainous terrain, banking to show the dramatic wing profile against the sky">
+        <figcaption>The YB-49 in flight over the mountains of California. This aircraft &mdash; serial 42-102367, the first prototype &mdash; was the sister ship of the one Captain Edwards was flying on June 5, 1948. &mdash; U.S. Air Force (44172 AC), public domain</figcaption>
+      </figure>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">40,000</span>
+          <div class="callout-desc">Feet altitude at structural failure</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">5</span>
+          <div class="callout-desc">Crew members killed</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">29</span>
+          <div class="callout-desc">Edwards' age at time of death</div>
+        </div>
+      </div>
+
+      <p>The YB-49 program did not survive. The second aircraft was destroyed in a taxiing accident months later. The program was cancelled. The flying wing, it seemed, had died in the Mojave Desert along with its crew. A small memorial marks the crash site today — veterans, aviators, and Northrop Grumman engineers still make the pilgrimage across the desert to stand there, because they understand what those five men's sacrifice ultimately made possible.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 05 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why He<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>His name is on the base. His dream is in the sky. His story belongs to Lancaster.</h3>
+      <p>In December 1949, the United States Air Force renamed Muroc Army Air Field. It became Edwards Air Force Base — a name now synonymous with the cutting edge of American aviation. Chuck Yeager broke the sound barrier there. Astronauts trained there. Every generation of American air power has been forged there. The base carries Glen Edwards' name because the Air Force believed he deserved to be remembered permanently in the place where brave men go to find out what is possible.</p>
+      <p>The flying wing was not dead. It was waiting.</p>
+      <p>Forty-one years after the YB-49 fell over the Mojave, Northrop unveiled the B-2 Spirit stealth bomber — a flying wing, with the same 172-foot wingspan as the YB-49, guided by fly-by-wire computers that solved every stability problem the earlier aircraft could not overcome. The B-2 Spirit was designed and built in the Antelope Valley. It was tested at Edwards Air Force Base. Lancaster, California — home to Northrop Grumman's B-2 production — sits in the shadow of that lineage every single day.</p>
+
+      <div class="pull-quote">
+        <p>It would be 41 years before the flying wing concept succeeded — with the Northrop B-2 Spirit. The same wingspan. The same dream. The same desert sky.</p>
+        <cite>&mdash; This Day in Aviation &middot; June 5, 1948</cite>
+      </div>
+
+      <p>When the B-2 Spirit flies over the Antelope Valley — and it does, because this is where it was born — it flies over the same desert where Captain Glen W. Edwards gave his life proving the wing was possible. He did not live to see it. He could not have imagined it. But it could not exist without him.</p>
+      <p>The Best of America Archive records his name here because the people of the Antelope Valley deserve to know that the aircraft they built, the base that guards their horizon, and the freedom they live under all carry the fingerprints of a twenty-nine-year-old test pilot from Lincoln, California, who flew toward the unknown on a June morning and did not come back.</p>
+      <p>He was an American. He was magnificent. And Lancaster was always his home sky.</p>
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<!-- TRIBUTE BLOCK -->
+<div class="page-body" style="padding-bottom:0; padding-top:0;">
+  <div class="tribute-block">
+    <div class="tribute-eyebrow">Archived in Permanent Honor</div>
+    <p class="tribute-text">&#8220;He flew toward the unknown so that those who followed him might find solid ground. The Antelope Valley remembers.&#8221;</p>
+    <div class="tribute-name">Captain Glen W. Edwards &nbsp;&middot;&nbsp; 1918&ndash;1948 &nbsp;&middot;&nbsp; United States Army Air Forces</div>
+  </div>
+
+  <!-- SPONSOR CREDIT -->
+  <div class="sponsor-credit">
+    <p>This profile made possible by <strong>Bravery Brewing Co. &middot; Lancaster, California</strong> &nbsp;&middot;&nbsp; Founding Patriot Business Sponsor &middot; TheBestofAmerica.org</p>
+  </div>
+
+  <!-- ARCHIVE SEAL -->
+  <div class="archive-footer">
+    <p>Honoree Profile &middot; Veterans Category &middot; Antelope Valley, California</p>
+    <p>Founding 250 Initiative &middot; America&#8217;s 250th Anniversary &middot; July 4, 2026</p>
+    <p class="site">TheBestofAmerica.org</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America&#8482;</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Established 2003 &middot; View Our Original Archive &nbsp;|&nbsp; Copyright &copy; 2025&ndash;2026 The Best of America&#8482; &middot; All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
