@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pfc. Charles R. Johnson — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --navy-mid: #112240;
+    --crimson: #b31b1b;
+    --crimson-dark: #8f1515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--warm-white); color: var(--text-dark); font-family: 'Libre Baskerville', Georgia, serif; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(6,14,28,0.97); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .nav-logo { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+
+  /* ── FOOTER ── */
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+  /* ── HERO ── */
+  .hero { position: relative; background: var(--navy); padding-top: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
+  .hero::before { content: '★'; font-size: 600px; color: rgba(201,168,76,0.025); position: absolute; top: 50%; left: -100px; transform: translateY(-50%); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; position: relative; }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait { width: 100%; max-width: 340px; aspect-ratio: 16/10; object-fit: cover; object-position: left center; filter: sepia(10%) contrast(1.05); border: 1px solid rgba(201,168,76,0.25); display: block; }
+  .hero-portrait-caption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.45); text-align: center; line-height: 1.6; }
+
+  /* Portrait placeholder */
+  .portrait-placeholder { width: 100%; max-width: 280px; aspect-ratio: 3/4; background: linear-gradient(160deg, rgba(10,22,40,0.9) 0%, rgba(179,27,27,0.15) 100%); border: 1px solid rgba(201,168,76,0.25); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .portrait-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.4); text-align: center; padding: 0 20px; line-height: 1.8; }
+  .portrait-placeholder::before { content: '★'; font-size: 48px; color: rgba(201,168,76,0.2); }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+  /* ── BODY ── */
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ── SERVICE BAR ── */
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+
+  /* ── DECORATIONS BAR ── */
+  .decorations-bar { background: var(--navy); border-top: 2px solid rgba(179,27,27,0.4); border-bottom: 1px solid rgba(201,168,76,0.15); margin: 0 -40px; padding: 24px 40px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .decorations-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); white-space: nowrap; padding-right: 16px; border-right: 1px solid rgba(201,168,76,0.2); }
+  .decoration-item { display: flex; align-items: flex-start; gap: 12px; }
+  .decoration-star { color: var(--gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .decoration-text { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+  .decoration-text small { display: block; font-size: 11px; color: rgba(245,240,232,0.55); letter-spacing: 0.5px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 4px; font-style: italic; }
+
+  /* ── STORY SECTIONS ── */
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .section-label-col { position: sticky; top: 100px; }
+  .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+  .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+  .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+  .section-body p em { font-style: italic; color: var(--text-dark); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+  .pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+  .pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+
+  /* ── CALLOUT STATS ── */
+  .callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+  .callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+  .callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+  .callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+  /* ── INLINE PHOTO ── */
+  .inline-photo { margin: 40px 0; }
+  .inline-photo img { width: 100%; max-height: 480px; object-fit: cover; object-position: center; filter: sepia(20%) contrast(1.05); display: block; border: 1px solid rgba(10,22,40,0.12); }
+  .inline-photo figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 10px 0 0; line-height: 1.6; }
+
+  /* Photo placeholder */
+  .photo-placeholder { width: 100%; height: 320px; background: linear-gradient(160deg, rgba(10,22,40,0.06) 0%, rgba(10,22,40,0.12) 100%); border: 1px dashed rgba(10,22,40,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin: 40px 0; }
+  .photo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(10,22,40,0.3); }
+
+  .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+  .photo-pair figure img { width: 100%; height: 280px; object-fit: cover; filter: sepia(20%) contrast(1.05); border: 1px solid rgba(10,22,40,0.12); }
+  .photo-pair figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 8px 0 0; line-height: 1.6; }
+
+  /* ── SPONSOR CREDIT ── */
+  .sponsor-credit { background: rgba(201,168,76,0.05); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 20px 40px; margin: 0 -40px; text-align: center; }
+  .sponsor-credit p { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-light); margin: 0; }
+  .sponsor-credit strong { color: var(--crimson); font-weight: 600; }
+
+  /* ── TRIBUTE BLOCK ── */
+  .tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+  .tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+  .tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+
+  /* ── ARCHIVE SEAL ── */
+  .archive-footer { text-align: center; padding: 48px 20px 24px; border-top: 1px solid rgba(10,22,40,0.12); margin-top: 0; }
+  .archive-footer p { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--text-light); text-transform: uppercase; line-height: 2; }
+  .archive-footer .site { color: var(--crimson); font-size: 11px; letter-spacing: 2px; margin-top: 6px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+    .hero-portrait-col { flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 20px; }
+    .hero-portrait, .portrait-placeholder { max-width: 140px; }
+    .photo-pair { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .hero-inner { padding: 40px 24px; }
+    .page-body { padding: 0 24px 60px; }
+    .story-section { grid-template-columns: 1fr; gap: 16px; }
+    .section-label-col { position: static; }
+    .section-number { font-size: 48px; margin-bottom: -16px; }
+    .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+    .service-item { border-right: none; padding: 0; min-width: 120px; }
+    .decorations-bar { margin: 0 -24px; padding: 20px 24px; gap: 20px; }
+    .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+    .sponsor-credit { margin: 0 -24px; padding: 20px 24px; }
+    .pull-quote { padding: 28px 24px; }
+    .site-footer { padding: 48px 24px 32px; }
+    .footer-links { gap: 32px; }
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span style="color:var(--gold);">The Best <span>of America</span>&#8482;</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html" class="active">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="video.html">Video</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="video.html">Video</a>
+  <a href="about.html">About</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">&#9733; Founding 250 &nbsp;&middot;&nbsp; Veteran Honoree &nbsp;&middot;&nbsp; Korean War &nbsp;&middot;&nbsp; Medal of Honor</div>
+      <h1 class="hero-name">Private First Class Charles R. <em>Johnson</em></h1>
+      <div class="hero-rank">United States Army &nbsp;&middot;&nbsp; Company B, 15th Infantry Regiment, 3rd Infantry Division &nbsp;&middot;&nbsp; 1952&ndash;1953</div>
+      <p class="hero-tagline">His sister begged him to join the Army Band and stay safe. He told her: &ldquo;If other mothers&rsquo; sons have to fight, I feel I need to do the same thing.&rdquo; On the night of June 11, 1953, outnumbered thirty to one on a hill called Outpost Harry, Pfc. Charles R. Johnson proved he meant every word &mdash; and gave everything he had so ten other men could live.</p>
+    </div>
+    <div class="hero-portrait-col">
+      <img class="hero-portrait"
+           src="charles-johnson-portrait.jpg"
+           alt="Private First Class Charles R. Johnson, U.S. Army — Medal of Honor, Korean War">
+      <div class="hero-portrait-caption">Pfc. Charles R. Johnson &nbsp;&middot;&nbsp; U.S. Army<br>Company B &middot; 15th Infantry Regiment<br>Medal of Honor &middot; Outpost Harry, Korea &middot; 1932&ndash;1953</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- SERVICE BAR -->
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Branch</div>
+      <div class="service-value">U.S. Army</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Unit</div>
+      <div class="service-value">Co. B, 15th Infantry<br>3rd Infantry Division</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Conflict</div>
+      <div class="service-value">Korean War<br>1952&ndash;1953</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Action</div>
+      <div class="service-value">Outpost Harry<br>Iron Triangle, Korea</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Born</div>
+      <div class="service-value">August 11, 1932<br>Millbrook, New York</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Killed in Action</div>
+      <div class="service-value">June 12, 1953<br>Age 20</div>
+    </div>
+  </div>
+
+  <!-- DECORATIONS BAR -->
+  <div class="decorations-bar">
+    <div class="decorations-label">Decorations</div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Medal of Honor
+        <small>Awarded posthumously, January 3, 2025 &mdash; 72 years after his death</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Silver Star
+        <small>Awarded posthumously, 2010 &mdash; upgraded to Medal of Honor, 2025</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Purple Heart
+        <small>Killed in action, Outpost Harry, June 12, 1953</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 01 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">01</span>
+      <div class="section-title">The Boy<br>from Millbrook</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He was the kind of young man every small town hopes to produce.</h3>
+      <p>Charles Robert Johnson was born on August 11, 1932, in Millbrook, New York &mdash; a small Hudson Valley town in Dutchess County where everybody knew everybody and character was measured by how you treated your neighbors. His family called him &ldquo;Buddy.&rdquo; It fit. He was the third of six children, raised by Robert and Pearl Johnson in a home where hard work and decency were the only currencies that mattered.</p>
+      <p>Charlie Johnson was the kind of boy who made everything look natural. He lettered in football, excelled in baseball and basketball. He played trumpet. He sang in the choir. When his family moved and he transferred to Arlington High School in LaGrangeville for his senior year, he didn&rsquo;t fade into the background &mdash; he was elected class vice president and co-captain of the basketball team. His classmates voted him the Babe Ruth Award for good sportsmanship and fair play. He was, by every account, exactly the kind of young man a community builds itself around.</p>
+      <p>After graduating, he enrolled at Howard University in Washington, D.C., played football for their team, and seemed to have every road ahead of him open and waiting.</p>
+      <p>In 1952, the United States Army drafted him.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 02 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">02</span>
+      <div class="section-title">The Choice<br>He Made</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He could have stayed safe. He chose not to.</h3>
+      <p>When the Army drafted Charlie Johnson, his sister Geraldine saw an opening. The Army Band needed musicians, and Charlie could play. She urged him to go that route &mdash; to serve, yes, but to serve in a way that kept him away from the front lines. It was a reasonable thing for a sister to ask. It was a reasonable thing for a young man with his whole life ahead of him to accept.</p>
+      <p>Charlie Johnson turned it down.</p>
+
+      <div class="pull-quote">
+        <p>If other mothers&rsquo; sons have to fight, I feel I need to do the same thing.</p>
+        <cite>&mdash; Pfc. Charles R. Johnson, to his sister Geraldine, 1952</cite>
+      </div>
+
+      <p>Those twelve words are the whole man. Not bravado. Not a death wish. A sense of fairness so deep it outweighed his own survival instinct. Other young men &mdash; men without his gifts, men with fewer options, men whose sisters weren&rsquo;t offering them a way out &mdash; were going to Korea to fight. Charlie Johnson decided that if they had to go, so did he.</p>
+      <p>He was assigned as a Browning Automatic Rifleman to Company B, 15th Infantry Regiment, 3rd Infantry Division. The 3rd Division carried one of the proudest records in the U.S. Army &mdash; the &ldquo;Rock of the Marne,&rdquo; the unit that had stopped the last German offensive of World War I, and the division that produced Audie Murphy. Charlie Johnson arrived as part of something else historic: the racial integration of the United States military, ordered by President Truman just four years before and still very much in progress. He was among the first generation of Black soldiers to serve in fully integrated Army units.</p>
+
+      <figure class="inline-photo">
+        <img src="outpost-harry-korea.jpg"
+             alt="Aerial reconnaissance photograph of Outpost Harry (OP Harry) and Star Hill, Iron Triangle, Korea — annotated military map showing trench lines, MLR, supply point and access road">
+        <figcaption>Aerial reconnaissance photograph of Outpost Harry (upper right) and Star Hill (upper left) in the Iron Triangle, Korea. The trench lines, Main Line of Resistance (MLR), supply point, and access road are visible. This is the ground Pfc. Johnson and Company B, 15th Infantry were sent to defend on June 11, 1953. &mdash; U.S. Army, public domain</figcaption>
+      </figure>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">3rd</span>
+          <div class="callout-desc">Infantry Division &mdash; Rock of the Marne</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">15th</span>
+          <div class="callout-desc">Infantry Regiment &mdash; Can Do</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">20</span>
+          <div class="callout-desc">Years old when killed in action</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 03 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">03</span>
+      <div class="section-title">Outpost<br>Harry</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>A small hill. A massive assault. Thirty Chinese soldiers for every American defender.</h3>
+      <p>In the final weeks of the Korean War &mdash; the armistice was just six weeks away &mdash; both sides were still fighting ferociously for terrain that would define the ceasefire line. Outpost Harry was Hill 420, a strategically critical piece of ground in the Iron Triangle about 60 miles northeast of Seoul. The Americans and their allies, including a Greek &ldquo;Sparta&rdquo; Battalion carrying the memory of Thermopylae, held it. The Chinese wanted it.</p>
+      <p>On the night of June 10&ndash;11, 1953, the Chinese launched a massive assault. More than 3,600 enemy troops &mdash; a reinforced regiment &mdash; attacked the outpost. By morning, according to surviving accounts, all but a handful of the American defenders had been killed or severely wounded. Company B, 15th Infantry was committed to reinforce.</p>
+      <p>Charlie Johnson and his squad entered that fight.</p>
+
+      <div class="pull-quote">
+        <p>All total, there was a reinforced PVA regiment of approximately 3,600 enemy trying to kill us.</p>
+        <cite>&mdash; Capt. Martin Markley, survivor, Outpost Harry, June 1953</cite>
+      </div>
+
+      <div class="photo-pair">
+        <figure>
+          <img src="korea-infantry-combat.jpg"
+               alt="U.S. Army soldiers firing recoilless rifle on a hillside in Korea, smoke and combat action, 1952-1953">
+          <figcaption>U.S. Army soldiers in action on a Korean hillside, 1952&ndash;53 &mdash; the brutal close-quarters fighting that defined the outpost war along the Iron Triangle. &mdash; U.S. Army, public domain</figcaption>
+        </figure>
+        <figure>
+          <img src="korea-hill-soldiers.jpg"
+               alt="Two U.S. Army soldiers walking across barren, shell-scarred Korean hill terrain after battle, 1952-1953">
+          <figcaption>American soldiers cross shell-scarred terrain on a contested Korean hilltop &mdash; the landscape of Outpost Harry after repeated Chinese assaults. &mdash; U.S. Army, public domain</figcaption>
+        </figure>
+      </div>
+
+      <p>The trenches and bunkers on Outpost Harry became a killing ground. Overwhelming numbers of Chinese troops assaulted the positions defended by Johnson and his squad. Artillery hit their bunker directly. Grenades came in after. Men went down around him. The situation was beyond desperate &mdash; it was the kind of fight that infantry soldiers train their whole careers hoping never to face.</p>
+      <p>Charlie Johnson, already wounded, did not stop.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 04 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">June 11&ndash;12,<br>1953</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>Wounded, surrounded, and out of ammunition &mdash; he stepped out of the bunker anyway.</h3>
+      <p>The official Medal of Honor citation records what Charles Johnson did in those hours with the measured language of military documentation. The men who were there remember it differently &mdash; as the most selfless act of human courage they ever witnessed.</p>
+      <p>Hit by a direct artillery strike on his bunker, then wounded again by a grenade thrown inside it, Johnson ignored his own injuries and began administering first aid to the men around him who were more gravely hurt. Under direct artillery, mortar, and small arms fire, he dragged a wounded comrade through the trenches to a safer position, stopping to clear enemy soldiers from his path in close combat. His comrade was Donald Dingee &mdash; his classmate from Arlington High School, the boy he had grown up alongside in the Hudson Valley, now bleeding out in a trench in Korea.</p>
+
+      <div class="pull-quote">
+        <p>He pulled Don through that trench and got him to safety. Then he went back out. That&rsquo;s who Charlie was.</p>
+        <cite>&mdash; Testimony of soldiers present, Outpost Harry, June 1953</cite>
+      </div>
+
+      <p>With his men pinned down, surrounded, and ammunition nearly exhausted, Johnson assessed the situation and made a decision. He left the relative safety of the bunker. He went out alone to find weapons and ammunition, and he placed himself physically between his comrades and the oncoming Chinese forces &mdash; one man, already wounded twice, holding a line so that others could survive long enough for reinforcements to arrive.</p>
+      <p>In the early hours of June 12, 1953, a Chinese grenade killed him.</p>
+      <p>The men he shielded lived. Survivors credited his actions with saving the lives of nine to ten soldiers. Donald Dingee &mdash; the boy he had pulled through the trench &mdash; came home.</p>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">3,600</span>
+          <div class="callout-desc">Enemy troops in the assault</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">10</span>
+          <div class="callout-desc">American lives saved by his actions</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">72</span>
+          <div class="callout-desc">Years before the Medal of Honor was awarded</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 05 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why He<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>He waited 72 years. This archive will not let him wait any longer.</h3>
+      <p>Charlie Johnson was buried at Nine Partners Cemetery in Millbrook, New York &mdash; the same small Hudson Valley town where he was born. He was twenty years old. For fifty-seven years, he had no military decoration of any kind. The men who survived Outpost Harry knew what he had done. His family knew. His community knew. The Army, in the chaos and paperwork of a war that ended six weeks after he died, did not formally record it.</p>
+      <p>In 2010, advocates from his old high school &mdash; teachers, students, classmates of classmates &mdash; finally secured him a Silver Star. It was the third-highest military award for gallantry in combat. It was not enough. For the next fifteen years, the Arlington High School community, his family, and eventually a United States Congressman fought to have that Silver Star upgraded to what it should have been from the beginning.</p>
+      <p>On January 3, 2025, President Biden placed the Medal of Honor &mdash; posthumously &mdash; in the hands of Charlie Johnson&rsquo;s sister, Juanita Mendez. Seventy-two years after her brother stepped out of that bunker.</p>
+
+      <div class="pull-quote">
+        <p>It&rsquo;s just so great to hear his story being told to the broader nation at large &mdash; and hopefully inspire everyone the way it&rsquo;s inspired us in the family over all these years.</p>
+        <cite>&mdash; Trey Mendez, nephew of Pfc. Charles R. Johnson, January 3, 2025</cite>
+      </div>
+
+      <p>At Arlington High School, there is a hall named for him. On the wall hangs a bronze statue of a soldier pulling a wounded man through a trench. The soldier is Charlie Johnson. The wounded man is Don Dingee. Every student who walks past it sees what it looks like when a person decides that someone else&rsquo;s life matters more than their own.</p>
+
+      <figure class="inline-photo">
+        <img src="korea-bunker-soldiers.jpg"
+             alt="U.S. Army soldiers gathered at a sandbagged bunker position in Korea — the kind of fortified outpost position defended at Outpost Harry">
+        <figcaption>American soldiers at a sandbagged bunker position in Korea &mdash; the type of fortified outpost that Johnson and Company B, 15th Infantry were defending on the night of June 11&ndash;12, 1953. &mdash; U.S. Army, public domain</figcaption>
+      </figure>
+
+      <p>The Best of America&#8482; Archive records Charles Johnson&rsquo;s name here because this is exactly who the archive exists for. Not the famous. Not the household names. The twenty-year-old from Millbrook who played trumpet and sang in the choir and decided that if other mothers&rsquo; sons had to fight, he did too &mdash; and who, in the last hours of his life, proved that he had meant it absolutely.</p>
+      <p>He is The Best of America. He always was. It just took the rest of us 72 years to say it loud enough.</p>
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<!-- TRIBUTE BLOCK -->
+<div class="page-body" style="padding-bottom:0; padding-top:0;">
+  <div class="tribute-block">
+    <div class="tribute-eyebrow">Archived in Permanent Honor</div>
+    <p class="tribute-text">&#8220;If other mothers&rsquo; sons have to fight, I feel I need to do the same thing.&#8221; He said it. He meant it. He proved it. The Best of America&#8482; will not forget him again.&#8221;</p>
+    <div class="tribute-name">Private First Class Charles R. Johnson &nbsp;&middot;&nbsp; 1932&ndash;1953 &nbsp;&middot;&nbsp; United States Army &nbsp;&middot;&nbsp; Medal of Honor</div>
+  </div>
+
+  <!-- FLPB SPONSOR RECRUITMENT -->
+  <div class="sponsor-credit">
+    <p style="font-size:11px; line-height:2; letter-spacing:0.15em;">This profile has no sponsor yet &mdash; and heroes like Pfc. Johnson deserve to be remembered forever.</p>
+    <p style="margin-top:10px; font-size:10px; letter-spacing:0.2em;">
+      <a href="local-patriot-businesses.html" style="color:var(--crimson); text-decoration:none; border-bottom:1px solid rgba(179,27,27,0.35); padding-bottom:1px; font-family:'Oswald',sans-serif; letter-spacing:0.2em; text-transform:uppercase; font-size:10px;">Become a Founding Local Patriot Business&#8482; &rarr;</a>
+      &nbsp;&nbsp;&middot;&nbsp;&nbsp; Sponsor this profile and ensure no American hero is ever forgotten
+    </p>
+  </div>
+
+  <!-- ARCHIVE SEAL -->
+  <div class="archive-footer">
+    <p>Honoree Profile &middot; Veterans Category &middot; Korean War &middot; Medal of Honor</p>
+    <p>Founding 250 Initiative &middot; America&#8217;s 250th Anniversary &middot; July 4, 2026</p>
+    <p class="site">TheBestofAmerica.org</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America&#8482;</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Established 2003 &nbsp;&middot;&nbsp; <a href="https://web.archive.org/web/20030614000000*/http://thebestofamerica.org/" target="_blank" rel="noopener" style="color:rgba(201,168,76,0.6);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.25);">View Our Original Archive</a> &nbsp;&middot;&nbsp; Copyright &copy; 2025&ndash;2026 The Best of America&#8482; &middot; All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
