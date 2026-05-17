@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Officer Moira Smith — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --navy-mid: #112240;
+    --crimson: #b31b1b;
+    --crimson-dark: #8f1515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--warm-white); color: var(--text-dark); font-family: 'Libre Baskerville', Georgia, serif; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(6,14,28,0.97); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .nav-logo { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+
+  /* ── HERO ── */
+  .hero { position: relative; background: var(--navy); padding-top: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
+  .hero::before { content: '★'; font-size: 600px; color: rgba(201,168,76,0.025); position: absolute; top: 50%; left: -100px; transform: translateY(-50%); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; position: relative; }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait { width: 100%; max-width: 280px; aspect-ratio: 3/4; object-fit: cover; object-position: center top; filter: sepia(10%) contrast(1.05); border: 1px solid rgba(201,168,76,0.25); display: block; }
+  .hero-portrait-caption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.45); text-align: center; line-height: 1.6; }
+  .portrait-placeholder { width: 100%; max-width: 280px; aspect-ratio: 3/4; background: linear-gradient(160deg, rgba(10,22,40,0.9) 0%, rgba(179,27,27,0.15) 100%); border: 1px solid rgba(201,168,76,0.25); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .portrait-placeholder::before { content: '★'; font-size: 48px; color: rgba(201,168,76,0.2); }
+  .portrait-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.4); text-align: center; padding: 0 20px; line-height: 1.8; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+  /* ── BODY ── */
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ── SERVICE BAR ── */
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+
+  /* ── DECORATIONS BAR ── */
+  .decorations-bar { background: var(--navy); border-top: 2px solid rgba(179,27,27,0.4); border-bottom: 1px solid rgba(201,168,76,0.15); margin: 0 -40px; padding: 24px 40px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .decorations-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); white-space: nowrap; padding-right: 16px; border-right: 1px solid rgba(201,168,76,0.2); }
+  .decoration-item { display: flex; align-items: flex-start; gap: 12px; }
+  .decoration-star { color: var(--gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .decoration-text { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+  .decoration-text small { display: block; font-size: 11px; color: rgba(245,240,232,0.55); letter-spacing: 0.5px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 4px; font-style: italic; }
+
+  /* ── STORY SECTIONS ── */
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .section-label-col { position: sticky; top: 100px; }
+  .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+  .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+  .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+  .pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+  .pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+
+  /* ── CALLOUT STATS ── */
+  .callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+  .callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+  .callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+  .callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+  /* ── INLINE PHOTO ── */
+  .inline-photo { margin: 40px 0; }
+  .inline-photo img { width: 100%; max-height: 480px; object-fit: cover; object-position: center; filter: sepia(15%) contrast(1.05); display: block; border: 1px solid rgba(10,22,40,0.12); }
+  .inline-photo figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 10px 0 0; line-height: 1.6; }
+  .photo-placeholder { width: 100%; height: 320px; background: linear-gradient(160deg, rgba(10,22,40,0.06) 0%, rgba(10,22,40,0.12) 100%); border: 1px dashed rgba(10,22,40,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin: 40px 0; }
+  .photo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(10,22,40,0.3); }
+  .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+  .photo-pair figure img { width: 100%; height: 280px; object-fit: cover; filter: sepia(15%) contrast(1.05); border: 1px solid rgba(10,22,40,0.12); display: block; }
+  .photo-pair figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 8px 0 0; line-height: 1.6; }
+
+  /* ── TRIBUTE BLOCK ── */
+  .tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+  .tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+  .tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+
+  /* ── FLPB SPONSOR CTA ── */
+  .sponsor-credit { background: rgba(201,168,76,0.05); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 24px 40px; margin: 0 -40px; text-align: center; }
+  .sponsor-credit p { font-family: 'Oswald', sans-serif; font-size: 11px; line-height: 2; letter-spacing: 0.15em; color: var(--text-light); }
+
+  /* ── ARCHIVE SEAL ── */
+  .archive-footer { text-align: center; padding: 48px 20px 24px; border-top: 1px solid rgba(10,22,40,0.12); }
+  .archive-footer p { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--text-light); text-transform: uppercase; line-height: 2; }
+  .archive-footer .site { color: var(--crimson); font-size: 11px; letter-spacing: 2px; margin-top: 6px; }
+
+  /* ── FOOTER ── */
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+    .hero-portrait-col { flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 20px; }
+    .hero-portrait, .portrait-placeholder { max-width: 140px; }
+    .photo-pair { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .page-body { padding: 0 24px 60px; }
+    .story-section { grid-template-columns: 1fr; gap: 16px; }
+    .section-label-col { position: static; }
+    .section-number { font-size: 48px; margin-bottom: -16px; }
+    .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+    .service-item { border-right: none; padding: 0; min-width: 120px; }
+    .decorations-bar { margin: 0 -24px; padding: 20px 24px; gap: 20px; }
+    .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+    .sponsor-credit { margin: 0 -24px; padding: 20px 24px; }
+    .pull-quote { padding: 28px 24px; }
+    .site-footer { padding: 48px 24px 32px; }
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span>The Best <span style="color:var(--cream);">of America</span>&#8482;</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html" class="active">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="video.html">Video</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="video.html">Video</a>
+  <a href="about.html">About</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">&#9733; Founding 250 &nbsp;&middot;&nbsp; First Responder &nbsp;&middot;&nbsp; NYPD &nbsp;&middot;&nbsp; September 11, 2001</div>
+      <h1 class="hero-name">Police Officer Moira <em>Smith</em></h1>
+      <div class="hero-rank">New York City Police Department &nbsp;&middot;&nbsp; 13th Precinct, Manhattan &nbsp;&middot;&nbsp; Shield No. 10467</div>
+      <p class="hero-tagline">She was the first officer on the radio reporting the attack. She guided hundreds out of the South Tower. She went back in every time. She kissed her two-year-old daughter goodbye that morning, and she never came home &mdash; because she would not stop going back for one more person.</p>
+    </div>
+    <div class="hero-portrait-col">
+      <img class="hero-portrait"
+           src="moira-smith-portrait.jpg"
+           alt="Police Officer Moira Smith, NYPD 13th Precinct, September 11 2001"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="portrait-placeholder" style="display:none;">
+        <span>Portrait photo<br>pending license<br>&mdash;<br>Officer Moira Smith<br>NYPD &middot; 1963&ndash;2001</span>
+      </div>
+      <div class="hero-portrait-caption">Officer Moira A. Smith &nbsp;&middot;&nbsp; Shield No. 10467<br>NYPD 13th Precinct &nbsp;&middot;&nbsp; New York City<br>The only female NYPD officer killed on September 11, 2001</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- SERVICE BAR -->
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Department</div>
+      <div class="service-value">New York City<br>Police Department</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Assignment</div>
+      <div class="service-value">13th Precinct<br>Manhattan</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Service</div>
+      <div class="service-value">1988&ndash;2001<br>13 years</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Action</div>
+      <div class="service-value">South Tower<br>World Trade Center</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Born</div>
+      <div class="service-value">Bay Ridge, Brooklyn<br>New York</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Killed in the Line of Duty</div>
+      <div class="service-value">September 11, 2001<br>Age 38</div>
+    </div>
+  </div>
+
+  <!-- DECORATIONS BAR -->
+  <div class="decorations-bar">
+    <div class="decorations-label">Decorations</div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">NYPD Medal of Honor
+        <small>Posthumously awarded &mdash; the department&rsquo;s highest decoration for valor</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Distinguished Duty Medal
+        <small>Awarded 1991 &mdash; subway crash at Union Square &mdash; dozens of lives saved</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Glamour &amp; Ms. Woman of the Year
+        <small>Both magazines &mdash; 2001 &mdash; posthumous recognition</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 01 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">01</span>
+      <div class="section-title">The Girl<br>from Bay Ridge</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>She grew up in Brooklyn knowing exactly who she was.</h3>
+      <p>Moira Ann Reddy was born and raised in Bay Ridge, a tight-knit Irish-Catholic neighborhood in southwest Brooklyn where the harbor was visible from the hills and the sense of community ran deep. Her mother was from Dublin. She graduated from Our Lady of Angels School, then Our Lady of Perpetual Help High School &mdash; the kind of education that plants deep roots in duty, faith, and service to others.</p>
+      <p>She was, by every account of those who knew her, the life of every room she entered. Fun-loving, warm, quick with a laugh, able to talk with absolutely anyone for hours. She even joked about her maiden name &mdash; Reddy &mdash; telling people it meant she was &ldquo;ready for anything.&rdquo; She was not wrong.</p>
+      <p>In 1988, Moira Reddy joined the New York City Transit Police Department. She was twenty-five years old. She wanted to serve her city. It was, for her, that simple. In 1997, when the Transit Police merged with the NYPD, she was assigned to the 13th Precinct in Manhattan &mdash; the neighborhood around Gramercy Park and the Flatiron District &mdash; where she would spend the last four years of her career and her life.</p>
+      <p>She married James Smith, a fellow NYPD officer. They had a daughter named Patricia. She was, by the morning of September 11, 2001, a thirteen-year veteran of New York law enforcement, a decorated officer, a wife, and the mother of a two-year-old girl.</p>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">13</span>
+          <div class="callout-desc">Years on the force</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">2</span>
+          <div class="callout-desc">Patricia&rsquo;s age that morning</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">1</span>
+          <div class="callout-desc">The only female NYPD officer killed on 9/11</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 02 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">02</span>
+      <div class="section-title">Union Square,<br>August 1991</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>She had already done this before. That is what people do not know.</h3>
+      <p>On the morning of August 27, 1991, Officer Moira Smith was finishing an eight-hour overnight shift in the subways when she heard it &mdash; the crash and groan of twisting metal below her feet at Union Square Station. She ran toward the sound.</p>
+      <p>What she found was the worst New York subway disaster in over sixty years. A subway train had derailed. Five passengers were killed. More than 130 were injured. The scene underground was chaos: darkness, smoke, wreckage, screaming, trapped bodies.</p>
+      <p>Moira Smith, three years on the job, just off a full shift, ran toward it anyway. She spent the next sixteen hours in that wreck &mdash; pulling survivors out, setting up triage, directing the injured to safety, working without stopping in conditions that would have broken most people before the second hour.</p>
+      <p>The NYPD awarded her the Distinguished Duty Medal &mdash; the department&rsquo;s recognition that what she had done that day was extraordinary. She accepted it and went back to work.</p>
+      <p>Ten years later, she would do it again. Only this time, the building would not stop falling.</p>
+
+      <div class="pull-quote">
+        <p>A decade earlier, with just three years on the job, Moira pulled survivors from the wreckage when a train derailed. She also responded when a bomb exploded in a subway car on Fulton Street. Moira was a natural first responder with courage to spare.</p>
+        <cite>&mdash; NYPD Commissioner Raymond W. Kelly, Madison Square Park dedication ceremony, March 10, 2012</cite>
+      </div>
+
+      <!-- Photo placeholder: Union Square station / NYC subway 1991 or NYPD 13th Precinct -->
+      <div class="photo-placeholder">
+        <span>&#9733;</span>
+        <span>Photo: Officer Smith in uniform / 13th Precinct</span>
+        <span>Replace with: moira-smith-uniform.jpg</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 03 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">03</span>
+      <div class="section-title">8:46 A.M.<br>September 11</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>She was the first officer on the radio. She never stopped moving after that.</h3>
+      <p>On the morning of September 11, 2001, Officer Moira Smith kissed her two-year-old daughter Patricia goodbye and left for the 13th Precinct. Her husband Jim, who had worked the night shift, was home. He and Patricia spent the morning watching Winnie the Pooh on the VCR, unaware.</p>
+      <p>At 8:46 a.m., American Airlines Flight 11 hit the North Tower of the World Trade Center. Moira Smith looked up into the clear blue sky, saw what had happened, and immediately got on the radio. She was the first NYPD officer to report the attack. Then she ran toward Lower Manhattan.</p>
+      <p>What she found at the World Trade Center was not an evacuation system &mdash; it was a collapsing structure, a mass of disoriented civilians, and a situation that no training manual had ever prepared anyone for. The South Tower had been struck at 9:03 a.m. Thousands of people were trying to get out. The stairwells were jammed. The Plaza was chaos. There was no one in charge of the ground-level flow.</p>
+      <p>Moira Smith became that person.</p>
+
+      <div class="pull-quote">
+        <p>She was barking out instructions. &lsquo;Don&rsquo;t look! Don&rsquo;t look! Keep moving, don&rsquo;t use your cellphone. Keep moving!&rsquo; I got about five minutes away when the building went down. I turned around just to see it fall. I thought of her right away.</p>
+        <cite>&mdash; Martin Glynn, survivor, South Tower Plaza Level, September 11, 2001</cite>
+      </div>
+
+      <!-- Photo placeholder: South Tower / WTC plaza September 11 -->
+      <div class="photo-placeholder">
+        <span>&#9733;</span>
+        <span>Photo: World Trade Center / South Tower, September 11, 2001</span>
+        <span>Replace with: wtc-south-tower-sept11.jpg &mdash; U.S. Government / public domain</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 04 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">She Kept<br>Going Back</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>Every time she got someone out, she turned around and went back in.</h3>
+      <p>Survivor accounts of Officer Moira Smith that morning describe the same pattern, documented by memorial researchers, survivor testimony, and the 9/11 Commission&rsquo;s supporting materials: she did not simply direct people out once. She guided someone to safety &mdash; and then she went back into the building for more.</p>
+      <p>At the base of an evacuation ramp, she stood with her flashlight raised like a baton, waving it in steady arcs, repeating the same words over and over to hundreds of people moving past her: <em>Don&rsquo;t look. Keep moving.</em> She had assessed the situation instantly: groups of people were stopping in the plaza, staring at the horror around them, blocking the exit paths and triggering panic. She broke the bottleneck and kept it clear. She was, as one survivor described it, the human lighthouse &mdash; the fixed, calm point around which chaos organized itself.</p>
+
+      <div class="pull-quote">
+        <p>The mass of people exiting the building felt the calm assurance that they were being directed by someone in authority who was in control of the situation. Her actions even seemed ordinary, even commonplace. She insulated the evacuees from the awareness of the dangerous situation they were in, with the result that everything proceeded smoothly. In my company &mdash; sixty-one people perished. One hundred and eighty survived.</p>
+        <cite>&mdash; Eyewitness survivor account, South Tower evacuation ramp, September 11, 2001 &mdash; moirasmith.com</cite>
+      </div>
+
+      <p>One of those she physically guided out was Edward Nicholls, a broker at Aon Corporation, bloodied and battered, one of the few people to escape the South Tower&rsquo;s Sky Lobby alive. A photographer captured the moment: Officer Smith, in full uniform, her face steady and focused, guiding a wounded man through the smoke and dust toward safety. Her husband Jim would later say, looking at that photograph &mdash; the last image ever taken of his wife alive &mdash; that he could see the courage and empathy in her face. After she got Nicholls to safety, she turned around and went back inside.</p>
+
+      <!-- Nicholls text treatment -->
+      <div style="background:var(--navy);border:1px solid rgba(201,168,76,0.2);padding:48px 40px;margin:40px 0;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--crimson),transparent);"></div>
+        <div style="font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">The Last Photograph</div>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;line-height:1.8;color:var(--cream);margin-bottom:20px;">A photographer was there. He captured her in that moment &mdash; in full uniform, steady and focused, one hand guiding a bloodied man through the smoke and dust toward the street. The man is Edward Nicholls. He is covered in debris. She is not. Her face, her husband Jim would say years later, shows courage. It shows empathy. It is the last photograph ever taken of her alive.</p>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;line-height:1.8;color:var(--cream);margin-bottom:0;">After she got him to the sidewalk, she turned around. She went back in.</p>
+        <div style="font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-top:24px;">Image available &mdash; Getty Images &middot; Search: &ldquo;Moira Smith Edward Nicholls&rdquo; &middot; License pending</div>
+      </div>
+
+      <p>She went back in again. And again. Survivor testimony and the National September 11 Memorial &amp; Museum confirm multiple re-entries. NYPD Commissioner Raymond W. Kelly, at the playground dedication ten years later, said simply: <em>&ldquo;Each time she left to help someone, she went back in &mdash; no doubt, she saved hundreds on September 11th.&rdquo;</em></p>
+      <p>At 9:59 a.m., the South Tower collapsed.</p>
+      <p>Moira Smith was inside.</p>
+
+      <figure class="inline-photo" style="max-width:320px;margin:40px auto;">
+        <img src="moira-smith-badge.png"
+             alt="NYPD Shield No. 10467 — Badge of Police Officer Moira Ann Smith, recovered from Ground Zero, on display at the National September 11 Memorial Museum">
+        <figcaption>Shield No. 10467 &mdash; The recovered badge of Police Officer Moira Ann Smith, on permanent display at the National September 11 Memorial &amp; Museum, New York City. Photo: Michael Hnatov &middot; Accession No. IL.2013.19.1 &middot; Presented with permission of the City of New York and the New York City Police Department &mdash; <em>Permission pending for archival use &middot; TheBestofAmerica.org</em></figcaption>
+      </figure>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">9:59</span>
+          <div class="callout-desc">A.M. — South Tower collapsed</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">100s</span>
+          <div class="callout-desc">Lives credited to her actions by NYPD Commissioner</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">March<br>2002</span>
+          <div class="callout-desc">Her remains were finally recovered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 05 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why She<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>Patricia grew up knowing her mother&rsquo;s name mattered. This archive makes sure of it.</h3>
+      <p>For months after September 11, Moira Smith&rsquo;s remains were not found. Her husband Jim brought two-year-old Patricia to Ground Zero for memorials. Patricia, too small to understand, saluted her mother&rsquo;s casket when it was finally brought out of Our Lady of Lourdes Church in Queens in March 2002 &mdash; on what would have been Moira&rsquo;s 39th birthday. The photograph of that two-year-old saluting is one of the most heartbreaking images of the entire aftermath of September 11.</p>
+      <p>Patricia grew up. She went to the University of Alabama. She became an athletic trainer for the Tulane University football team in New Orleans. She wears a pendant around her neck with her mother&rsquo;s name spelled out in gold cursive letters, and she says she&rsquo;s afraid to lose it. Her mother&rsquo;s actual badge &mdash; Shield No. 10467, scratched and dented &mdash; is on permanent display at the National September 11 Memorial &amp; Museum.</p>
+
+      <div class="pull-quote">
+        <p>My family always described my mom as the life of the party. She was always able to bring up anyone&rsquo;s mood and could talk to anyone about anything for hours. That&rsquo;s why she really loved her job and doing what she could to give back to her community.</p>
+        <cite>&mdash; Patricia Smith, daughter of Officer Moira Smith, University of Alabama, 2019</cite>
+      </div>
+
+      <p>New York City named a playground for her &mdash; the Police Officer Moira Ann Smith Playground in Madison Square Park, dedicated March 10, 2012, in the territory of the 13th Precinct where she worked. A high-speed East River ferry was christened the <em>Moira Smith</em> in February 2002, with two-year-old Patricia aboard for the ceremony. A portrait by renowned Irish artist Jim Fitzpatrick hangs in the 13th Precinct stationhouse. Her name is inscribed at the National September 11 Memorial alongside the 22 other NYPD officers who died that day &mdash; the only woman among them.</p>
+      <p>Glamour magazine named her Woman of the Year. Ms. magazine named her Woman of the Year. The NYPD&rsquo;s Policewomen&rsquo;s Endowment Association named her Woman of the Year. The department awarded her its Medal of Honor &mdash; posthumously, as it had to be.</p>
+
+      <figure class="inline-photo" style="max-width:320px;margin:40px auto;">
+        <img src="moira-smith-coin.jpg"
+             alt="Commemorative coin honoring P.O. Moira Smith — September 11, 2001 — 20th Anniversary — Collection of the 9/11 Memorial Museum">
+        <figcaption>Commemorative tribute coin honoring P.O. Moira Smith &middot; September 11, 2001 &middot; 20th Anniversary &middot; Collection of the 9/11 Memorial Museum, Memorial Tribute Archive &middot; Accession No. T.2020.1.1 &middot; Photo: Museum staff &mdash; <em>Permission pending for archival use &middot; TheBestofAmerica.org</em></figcaption>
+      </figure>
+
+      <p>The Best of America&#8482; Archive records Officer Moira Smith&rsquo;s name here because this archive exists for exactly this reason: to make sure the people who ran toward the fire are never reduced to a number on a wall. She was a girl from Bay Ridge who became a woman who could not stop helping people &mdash; not in a subway wreck, not in a burning tower, not even when the building was coming down around her. She was thirty-eight years old. She had a daughter who needed her. She went back in anyway.</p>
+      <p>That is The Best of America. And Patricia Smith deserves to know that her mother&rsquo;s name is here &mdash; not just on a badge behind glass, but in an archive built to make sure it is never forgotten.</p>
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<!-- TRIBUTE BLOCK -->
+<div class="page-body" style="padding-bottom:0; padding-top:0;">
+  <div class="tribute-block">
+    <div class="tribute-eyebrow">Archived in Permanent Honor</div>
+    <p class="tribute-text">&ldquo;Each time she left to help someone, she went back in &mdash; no doubt, she saved hundreds on September 11th.&rdquo; She kissed her daughter goodbye that morning. She kept going back until the building would not let her anymore. The Best of America&#8482; will not forget her.&rdquo;</p>
+    <div class="tribute-name">Police Officer Moira Ann Smith &nbsp;&middot;&nbsp; Shield No. 10467 &nbsp;&middot;&nbsp; NYPD 13th Precinct &nbsp;&middot;&nbsp; September 11, 2001</div>
+  </div>
+
+  <!-- FLPB SPONSOR CTA -->
+  <div class="sponsor-credit">
+    <p>This profile has no sponsor yet &mdash; and heroes like Officer Smith deserve to be remembered forever.</p>
+    <p style="margin-top:10px;">
+      <a href="local-patriot-businesses.html" style="color:var(--crimson);text-decoration:none;border-bottom:1px solid rgba(179,27,27,0.35);padding-bottom:1px;font-family:'Oswald',sans-serif;letter-spacing:0.2em;text-transform:uppercase;font-size:10px;">Become a Founding Local Patriot Business&#8482; &rarr;</a>
+      &nbsp;&nbsp;&middot;&nbsp;&nbsp; Sponsor this profile and ensure no American hero is ever forgotten
+    </p>
+  </div>
+
+  <!-- ARCHIVE SEAL -->
+  <div class="archive-footer">
+    <p>Honoree Profile &middot; First Responder Category &middot; September 11, 2001</p>
+    <p>Founding 250 Initiative &middot; America&rsquo;s 250th Anniversary &middot; July 4, 2026</p>
+    <p class="site">TheBestofAmerica.org</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America&#8482;</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Established 2003 &nbsp;&middot;&nbsp; <a href="https://web.archive.org/web/20030614000000*/http://thebestofamerica.org/" target="_blank" rel="noopener" style="color:rgba(201,168,76,0.6);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.25);">View Our Original Archive</a> &nbsp;&middot;&nbsp; Copyright &copy; 2025&ndash;2026 The Best of America&#8482; &middot; All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
