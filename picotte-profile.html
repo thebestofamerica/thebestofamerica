@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Susan La Flesche Picotte — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --crimson: #b31b1b;
+    --crimson-dark: #8f1515;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--warm-white); color: var(--text-dark); font-family: 'Libre Baskerville', Georgia, serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(6,14,28,0.97); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .nav-logo { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+
+  /* HERO */
+  .hero { position: relative; background: var(--navy); padding-top: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
+  .hero::before { content: '★'; font-size: 600px; color: rgba(201,168,76,0.025); position: absolute; top: 50%; left: -100px; transform: translateY(-50%); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; position: relative; }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 62px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait { width: 100%; max-width: 280px; aspect-ratio: 3/4; object-fit: cover; object-position: center top; filter: sepia(20%) contrast(1.08); border: 1px solid rgba(201,168,76,0.25); display: block; }
+  .hero-portrait-caption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.45); text-align: center; line-height: 1.6; }
+  .portrait-placeholder { width: 100%; max-width: 280px; aspect-ratio: 3/4; background: linear-gradient(160deg, rgba(10,22,40,0.9) 0%, rgba(179,27,27,0.15) 100%); border: 1px solid rgba(201,168,76,0.25); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .portrait-placeholder::before { content: '★'; font-size: 48px; color: rgba(201,168,76,0.2); }
+  .portrait-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.4); text-align: center; padding: 0 20px; line-height: 1.8; }
+
+  /* DIVIDER */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+  /* BODY */
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* SERVICE BAR */
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+
+  /* DECORATIONS BAR */
+  .decorations-bar { background: var(--navy); border-top: 2px solid rgba(179,27,27,0.4); border-bottom: 1px solid rgba(201,168,76,0.15); margin: 0 -40px; padding: 24px 40px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .decorations-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); white-space: nowrap; padding-right: 16px; border-right: 1px solid rgba(201,168,76,0.2); }
+  .decoration-item { display: flex; align-items: flex-start; gap: 12px; }
+  .decoration-star { color: var(--gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .decoration-text { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+  .decoration-text small { display: block; font-size: 11px; color: rgba(245,240,232,0.55); letter-spacing: 0.5px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 4px; font-style: italic; }
+
+  /* STORY SECTIONS */
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .section-label-col { position: sticky; top: 100px; }
+  .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+  .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+  .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+  .section-body p em { font-style: italic; color: var(--text-dark); }
+
+  /* PULL QUOTE */
+  .pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+  .pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+  .pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+
+  /* CALLOUT STATS */
+  .callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+  .callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+  .callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+  .callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+  /* INLINE PHOTO */
+  .inline-photo { margin: 40px 0; }
+  .inline-photo img { width: 100%; max-height: 480px; object-fit: cover; object-position: center top; filter: sepia(25%) contrast(1.05); display: block; border: 1px solid rgba(10,22,40,0.12); }
+  .inline-photo figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 10px 0 0; line-height: 1.6; }
+  .photo-placeholder { width: 100%; height: 320px; background: linear-gradient(160deg, rgba(10,22,40,0.06) 0%, rgba(10,22,40,0.12) 100%); border: 1px dashed rgba(10,22,40,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin: 40px 0; }
+  .photo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(10,22,40,0.3); }
+  .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+  .photo-pair figure img { width: 100%; height: 280px; object-fit: cover; object-position: center top; filter: sepia(25%) contrast(1.05); border: 1px solid rgba(10,22,40,0.12); display: block; }
+  .photo-pair figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 8px 0 0; line-height: 1.6; }
+
+  /* ARCHIVE PARALLEL BLOCK */
+  .parallel-block { background: linear-gradient(135deg, rgba(10,22,40,0.97) 0%, rgba(139,26,43,0.15) 100%); border: 1px solid rgba(201,168,76,0.3); padding: 48px 48px; margin: 48px 0; position: relative; overflow: hidden; }
+  .parallel-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .parallel-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .parallel-eyebrow { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .parallel-block p { font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.8; color: var(--cream); margin-bottom: 16px; }
+  .parallel-block p:last-child { margin-bottom: 0; }
+  .parallel-block strong { color: var(--gold-light); font-weight: 600; }
+
+  /* TRIBUTE BLOCK */
+  .tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+  .tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+  .tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+
+  /* SPONSOR CTA */
+  .sponsor-credit { background: rgba(201,168,76,0.05); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 24px 40px; margin: 0 -40px; text-align: center; }
+  .sponsor-credit p { font-family: 'Oswald', sans-serif; font-size: 11px; line-height: 2; letter-spacing: 0.15em; color: var(--text-light); }
+
+  /* ARCHIVE SEAL */
+  .archive-footer { text-align: center; padding: 48px 20px 24px; border-top: 1px solid rgba(10,22,40,0.12); }
+  .archive-footer p { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--text-light); text-transform: uppercase; line-height: 2; }
+  .archive-footer .site { color: var(--crimson); font-size: 11px; letter-spacing: 2px; margin-top: 6px; }
+
+  /* FOOTER */
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+    .hero-portrait-col { flex-direction: row; justify-content: flex-start; gap: 20px; }
+    .hero-portrait, .portrait-placeholder { max-width: 140px; }
+    .photo-pair { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .page-body { padding: 0 24px 60px; }
+    .story-section { grid-template-columns: 1fr; gap: 16px; }
+    .section-label-col { position: static; }
+    .section-number { font-size: 48px; margin-bottom: -16px; }
+    .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+    .service-item { border-right: none; padding: 0; min-width: 120px; }
+    .decorations-bar { margin: 0 -24px; padding: 20px 24px; gap: 20px; }
+    .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+    .sponsor-credit { margin: 0 -24px; padding: 20px 24px; }
+    .pull-quote { padding: 28px 24px; }
+    .parallel-block { padding: 32px 24px; }
+    .site-footer { padding: 48px 24px 32px; }
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span>The Best <span style="color:rgba(245,240,232,0.8);">of America</span>&#8482;</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html" class="active">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="video.html">Video</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="video.html">Video</a>
+  <a href="about.html">About</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">&#9733; Founding 250 &nbsp;&middot;&nbsp; Community Leader &nbsp;&middot;&nbsp; Omaha Nation &nbsp;&middot;&nbsp; America&rsquo;s First Native American Doctor</div>
+      <h1 class="hero-name">Dr. Susan La Flesche <em>Picotte</em></h1>
+      <div class="hero-rank">Physician &nbsp;&middot;&nbsp; Omaha Tribe &nbsp;&middot;&nbsp; Walthill, Nebraska &nbsp;&middot;&nbsp; 1865&ndash;1915</div>
+      <p class="hero-tagline">She earned her medical degree 31 years before women could vote and 35 years before Native Americans were recognized as citizens of the country that was built on their land. Then she turned down fame in New York and Paris, took the train home to Nebraska, and became the only doctor for 1,244 people across 1,350 square miles &mdash; because that is where she was needed.</p>
+    </div>
+    <div class="hero-portrait-col">
+      <img class="hero-portrait"
+           src="picotte-portrait.jpg"
+           alt="Dr. Susan La Flesche Picotte — formal cabinet card portrait, Harry A. Webb, Philadelphia, Pennsylvania, circa 1886-1889, during her years at the Woman's Medical College of Pennsylvania">
+      <div class="hero-portrait-caption">Dr. Susan La Flesche Picotte<br>Cabinet card portrait by Harry A. Webb<br>Philadelphia, Pa. &nbsp;&middot;&nbsp; c. 1886&ndash;1889<br>Smithsonian Institution, NMNH-00691200 &nbsp;&middot;&nbsp; Public domain</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- SERVICE BAR -->
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Nation</div>
+      <div class="service-value">Omaha Tribe<br>Nebraska</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Education</div>
+      <div class="service-value">Woman&rsquo;s Medical College<br>of Pennsylvania, 1889</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Practice</div>
+      <div class="service-value">Omaha Reservation<br>1,350 sq. miles</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Patients</div>
+      <div class="service-value">1,244 Omaha people<br>plus surrounding communities</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Legacy</div>
+      <div class="service-value">Walthill Hospital, 1913<br>National Historic Landmark</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Years of Service</div>
+      <div class="service-value">1889&ndash;1915<br>26 years</div>
+    </div>
+  </div>
+
+  <!-- DECORATIONS BAR -->
+  <div class="decorations-bar">
+    <div class="decorations-label">Recognition</div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">First Native American Physician
+        <small>M.D., Woman&rsquo;s Medical College of Pennsylvania, 1889 &mdash; Graduated valedictorian</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">National Historic Landmark
+        <small>Dr. Susan La Flesche Picotte Memorial Hospital, Walthill, Nebraska &mdash; Designated 1993</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Nebraska Hall of Fame
+        <small>Inducted posthumously &mdash; Life-size statue, Lincoln, Nebraska, 2021</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 01 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">01</span>
+      <div class="section-title">Born in<br>a Tipi</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>She came into the world in 1865, in a buffalo-hide tipi on the Nebraska plains, daughter of the last great chief of the Omaha.</h3>
+      <p>Susan La Flesche was born on June 17, 1865, on the Omaha Reservation in eastern Nebraska. Her father was Chief Joseph La Flesche &mdash; known as Iron Eye &mdash; the last formally recognized chief of the Omaha Tribe, a man of Ponca and French Canadian descent who had watched what the encroachment of white civilization had done to his people and made a fateful decision. His children would learn both worlds. They would carry the Omaha in their hearts and the tools of survival in their hands.</p>
+      <p>It was a household that produced extraordinary people. Her sister Susette &mdash; Bright Eyes &mdash; became a nationally known activist who served as interpreter for Ponca Chief Standing Bear during his landmark 1879 civil rights trial in Omaha, one of the first times a federal court ruled that a Native American was a person under the law. Her half-brother Francis became a celebrated ethnologist and musicologist at the Smithsonian. And Susan, the youngest daughter, watched from childhood as the world around her shaped itself into a mission.</p>
+      <p>When Susan was eight years old, she sat through the night beside a dying old Omaha woman. She watched as a white doctor was summoned &mdash; once, twice, three times, four &mdash; and did not come. The old woman died. Susan La Flesche concluded, at eight years old, that the doctor had not come because the woman was just an Indian. She made a vow. She would become the doctor herself.</p>
+
+      <figure class="inline-photo" style="max-width:360px; margin:40px auto;">
+        <img src="picotte-portrait.jpg"
+             alt="Dr. Susan La Flesche Picotte — cabinet card portrait by Harry A. Webb, Philadelphia, Pennsylvania, circa 1886-1889">
+        <figcaption>Dr. Susan La Flesche Picotte, photographed by Harry A. Webb at 112 &amp; 114 N. 9th St., Philadelphia, Pa. &mdash; almost certainly during her years at the Woman&rsquo;s Medical College of Pennsylvania, just blocks away. The young Omaha woman who would become the first Native American physician in U.S. history, captured in the city where she earned that distinction. &mdash; Smithsonian Institution, NMNH-00691200 &middot; Public domain</figcaption>
+      </figure>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">1865</span>
+          <div class="callout-desc">Born on Omaha Reservation, Nebraska</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">1889</span>
+          <div class="callout-desc">Medical degree — valedictorian</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">31</span>
+          <div class="callout-desc">Years before women could vote</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">35</span>
+          <div class="callout-desc">Years before Native Americans were U.S. citizens</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 02 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">02</span>
+      <div class="section-title">Philadelphia,<br>1889</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>She fought through two walls at once &mdash; one built against women, one built against Native Americans &mdash; and finished first.</h3>
+      <p>The road to medical school was not straight. Susan La Flesche attended mission schools on the reservation, then the Elizabeth Institute in New Jersey, then the Hampton Normal and Agricultural Institute in Virginia &mdash; a school founded for freed Black students that also accepted Native Americans. She finished near the top of her class. A family friend, anthropologist Alice Fletcher, helped her secure a scholarship loan to the Woman&rsquo;s Medical College of Pennsylvania in Philadelphia &mdash; one of the only medical schools in the world that would accept women.</p>
+      <p>She arrived in Philadelphia in 1886. She was twenty-one years old, a young Omaha woman from the Nebraska plains, in one of America&rsquo;s great cities, studying medicine at a time when the idea of a Native American woman becoming a physician was, to most of the country, simply not a category that existed.</p>
+      <p>She thrived anyway. She overcame the stigma of being a woman in higher education. She overcame the racism directed at her heritage. In the lecture halls of Philadelphia, she became the student they all talked about. On March 14, 1889, Susan La Flesche stood at the front of her graduating class and received her medical degree &mdash; valedictorian, the top of her class, the first Native American in the history of the United States to earn a medical degree.</p>
+
+      <div class="pull-quote">
+        <p>She finished first in her medical school class. She did this in 1889 &mdash; 31 years before women could vote and 35 years before Indians were recognized as American citizens in their own country.</p>
+        <cite>&mdash; Omaha World-Herald, profile of Dr. Susan La Flesche Picotte</cite>
+      </div>
+
+      <p>The East Coast wanted to keep her. There were prestigious opportunities &mdash; a life of professional recognition in New York, perhaps Paris. She turned them all down. She packed her medical bag and took the train home to Nebraska. Her people were waiting.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 03 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">03</span>
+      <div class="section-title">The Only<br>Doctor</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>Overnight she had 1,244 patients scattered across 1,350 square miles. She made house calls by foot, then horse, through blizzards and heat.</h3>
+      <p>She returned to the Omaha Reservation in 1889 as physician at the government boarding school. Her patients came immediately. They were sick with tuberculosis, cholera, measles, influenza &mdash; desperately ill people scattered miles apart across rolling Nebraska countryside, most of them poor, most of them with no other options. Her white counterpart on the reservation, faced with the reality that every tribal member insisted on Dr. Susan, simply quit. She became the only doctor for a territory the size of a small state.</p>
+      <p>She made house calls on foot in the beginning. Then on horseback. Then by buggy. She traveled through subzero Nebraska winters, through white-out blizzards, arriving at sod houses and wooden cabins to find feverish children, dying elders, women in difficult labor. She brought her own children on house calls when she had to. She carried her medical bag and her Omaha language and her knowledge of both worlds, and she used all of it.</p>
+      <p>But she did more than medicine. Her patients came to her for everything. She helped tribal members navigate the bureaucracy of the Office of Indian Affairs, write letters, translate official documents, fight the land fraud that was stripping the Omaha of their allotments. She organized public health campaigns &mdash; fighting tuberculosis, discouraging communal drinking cups at village wells, advocating for screen doors on houses to prevent insect-borne disease. She founded a library. She taught Sunday school. She presided over church services. She lobbied the state legislature against liquor sellers operating on reservation land, eventually persuading the Office of Indian Affairs to ban liquor sales in reservation towns.</p>
+
+      <div class="pull-quote">
+        <p>She became their doctor &mdash; but in many ways their lawyer, accountant, priest, and political liaison. So many of the sick insisted on Dr. Susan that her white counterpart suddenly quit, making her the only physician on a reservation stretching nearly 1,350 square miles.</p>
+        <cite>&mdash; Smithsonian Magazine, &ldquo;The Incredible Legacy of Susan La Flesche&rdquo;</cite>
+      </div>
+
+      <div class="photo-pair">
+        <figure>
+          <img src="picotte-hospital-walthill.webp"
+               alt="The Dr. Susan La Flesche Picotte Memorial Hospital, Walthill, Nebraska — built 1912, National Historic Landmark 1993, with Nebraska State Historical Society marker in foreground">
+          <figcaption>The Dr. Susan La Flesche Picotte Memorial Hospital, Walthill, Nebraska &mdash; built 1912 under her guidance with community funding, National Historic Landmark since 1993. Nebraska State Historical Society marker reads: &ldquo;It served both Native American and white people.&rdquo; &mdash; Nebraska State Historical Society &middot; history.nebraska.gov</figcaption>
+        </figure>
+        <figure>
+          <img src="picotte-omaha-reservation.jpg"
+               alt="Omaha Reservation, Nebraska, late 19th century — the landscape Dr. Picotte crossed by horse and buggy to reach her patients across 1,350 square miles"
+               onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\' style=\'height:280px;\'><span>★</span><span>Photo: Omaha Reservation Nebraska, c.1890s</span><span>Source: Smithsonian National Anthropological Archives</span></div>'">
+          <figcaption>The Omaha Reservation in northeastern Nebraska &mdash; the 1,350 square miles Dr. Picotte covered alone, by foot, horse, and buggy, in all weather, for over two decades. &mdash; National Anthropological Archives, Smithsonian Institution, public domain</figcaption>
+        </figure>
+      </div>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">1,244</span>
+          <div class="callout-desc">Patients she served on the reservation</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">1,350</span>
+          <div class="callout-desc">Square miles she covered alone</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">26</span>
+          <div class="callout-desc">Years of continuous service</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 04 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">Walthill,<br>1913</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>No government would build a hospital for her people. So she built one herself.</h3>
+      <p>For years, Dr. Susan La Flesche Picotte had written letters to every Commissioner of Indian Affairs she could reach, pleading the same case: her people needed a hospital. They were sick. They were dying in sod houses miles from care. A proper building, with proper equipment, staffed by proper medical personnel, could save lives that were currently being lost for no reason other than poverty and neglect.</p>
+      <p>Not one Commissioner agreed to fund it.</p>
+      <p>By the time she accepted that the government was not coming, her own health was failing. She had battled a chronic bone infection &mdash; possibly the early stages of the bone cancer that would eventually kill her &mdash; for years. She had buried her husband Henry, who died of complications from alcoholism in 1905. She had raised two sons. She had served her people for two decades while her own body slowly gave out.</p>
+      <p>She did not stop. She turned to her East Coast connections &mdash; the Quaker donors and Presbyterian women&rsquo;s groups who had helped fund her education thirty years before. She raised $9,000. In 1913, in Walthill, Nebraska, the Presbyterian Memorial Hospital opened on a hill at the north end of town. Dr. Susan La Flesche Picotte walked three blocks from her house to work there every day.</p>
+      <p>It was the first privately funded hospital ever built on a Native American reservation. No government money. No federal appropriation. Built by one woman, funded by a community that believed in her, for people the government had decided were not worth the expense.</p>
+
+      <div class="pull-quote">
+        <p>This is the first hospital that was built on any reservation. This was before women were eligible to vote, and before Native Americans were considered human beings.</p>
+        <cite>&mdash; Liz Lovejoy Brown, Executive Director, Dr. Susan La Flesche Picotte Center, Walthill, Nebraska</cite>
+      </div>
+
+      <p>She died two years later, on September 18, 1915. She was forty-nine years old. The word <em>Omaha</em> means &ldquo;against the current.&rdquo; She had been swimming against it her entire life. The hospital she built &mdash; now the Dr. Susan La Flesche Picotte Memorial Hospital &mdash; was declared a National Historic Landmark in 1993. It was restored by a volunteer organization that raised $6 million from community donors, including Nebraska physicians who gave $600 each in her honor when they finally learned her name.</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 05 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why She<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>She built the first community-funded institution on the reservation. This archive was built the same way &mdash; and exists for the same reason.</h3>
+      <p>In 1913, Dr. Susan La Flesche Picotte did something that no government would do for her people. She went around the government entirely. She built her hospital the only way left to her &mdash; by rallying the community, calling on people of conscience to invest in something that mattered, and opening the doors herself.</p>
+      <p>The Best of America&#8482; National Archive was built the same way.</p>
+
+      <!-- ARCHIVE PARALLEL BLOCK -->
+      <div class="parallel-block">
+        <div class="parallel-eyebrow">&#9733; A Founding Parallel &nbsp;&middot;&nbsp; 1913 &amp; 2026</div>
+        <p>In 1913, Dr. Picotte&rsquo;s hospital opened its doors on the Omaha Reservation &mdash; the first institution of its kind on Native American land, <strong>built not with government money, but with community support</strong>, by people who believed that the men and women of the reservation deserved care regardless of what the government had decided.</p>
+        <p>In 2026, The Best of America&#8482; Archive honors Dr. Picotte as its first Community Leader honoree &mdash; an archive itself built <strong>not with government funding, but by Local Patriot Businesses&#8482;</strong>: community members, local entrepreneurs, and Americans who believe that the heroes of this nation deserve to be remembered regardless of whether Washington has gotten around to it.</p>
+        <p>Dr. Susan La Flesche Picotte did not wait for permission. <strong>Neither does this archive.</strong> She is not just an honoree here. She is a founding principle.</p>
+      </div>
+
+      <p>She was virtually unknown outside Nebraska for most of the century after her death. The biography that finally told her full story &mdash; <em>A Warrior of the People</em> by Joe Starita &mdash; was published in 2016. A PBS documentary followed in 2020. A life-size statue was installed in Lincoln, Nebraska in 2021. Her hospital was restored by a volunteer community effort and reopened to serve tribal members again. The word is getting out &mdash; 106 years late, but it is getting out.</p>
+      <p>This archive is part of that work. Her name is here permanently, in the founding record of The Best of America&#8482;, because she is exactly who this archive exists to honor: someone who saw what needed to be done, found no one willing to do it, and did it herself &mdash; for her community, on her own terms, without waiting for anyone&rsquo;s permission.</p>
+      <p>Against the current. Always against the current.</p>
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<!-- TRIBUTE BLOCK -->
+<div class="page-body" style="padding-bottom:0; padding-top:0;">
+  <div class="tribute-block">
+    <div class="tribute-eyebrow">Archived in Permanent Honor &nbsp;&middot;&nbsp; Founding Community Leader</div>
+    <p class="tribute-text">&ldquo;She built the first community-funded hospital on the reservation because no government would. This archive was built the same way &mdash; by community, for the people no one else was honoring. Dr. Susan La Flesche Picotte is not just in this archive. She is in its foundation.&rdquo;</p>
+    <div class="tribute-name">Dr. Susan La Flesche Picotte &nbsp;&middot;&nbsp; 1865&ndash;1915 &nbsp;&middot;&nbsp; Omaha Nation &nbsp;&middot;&nbsp; America&rsquo;s First Native American Physician</div>
+  </div>
+
+  <!-- FLPB SPONSOR CTA -->
+  <div class="sponsor-credit">
+    <p>This profile has no sponsor yet &mdash; and heroes like Dr. Picotte deserve to be remembered forever.</p>
+    <p style="margin-top:10px;">
+      <a href="local-patriot-businesses.html" style="color:var(--crimson);text-decoration:none;border-bottom:1px solid rgba(179,27,27,0.35);padding-bottom:1px;font-family:'Oswald',sans-serif;letter-spacing:0.2em;text-transform:uppercase;font-size:10px;">Become a Founding Local Patriot Business&#8482; &rarr;</a>
+      &nbsp;&nbsp;&middot;&nbsp;&nbsp; Sponsor this profile and ensure no American hero is ever forgotten
+    </p>
+  </div>
+
+  <!-- ARCHIVE SEAL -->
+  <div class="archive-footer">
+    <p>Honoree Profile &middot; Community Leader Category &middot; Founding Honoree</p>
+    <p>Founding 250 Initiative &middot; America&rsquo;s 250th Anniversary &middot; July 4, 2026</p>
+    <p class="site">TheBestofAmerica.org</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America&#8482;</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Established 2003 &nbsp;&middot;&nbsp; <a href="https://web.archive.org/web/20030614000000*/http://thebestofamerica.org/" target="_blank" rel="noopener" style="color:rgba(201,168,76,0.6);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.25);">View Our Original Archive</a> &nbsp;&middot;&nbsp; Copyright &copy; 2025&ndash;2026 The Best of America&#8482; &middot; All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
