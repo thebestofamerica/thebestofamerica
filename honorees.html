@@ -370,6 +370,25 @@ perpetuity.</p>
       <p class="honoree-desc">Escaped slavery and conducted 13 missions on the Underground Railroad, freeing approximately 70 people. Served the Union Army as a spy, scout, and nurse during the Civil War &mdash; the first woman in American history to lead an armed military raid. Inducted into the National Women&rsquo;s Hall of Fame.</p>
     </div>
 
+    <!-- SIGNUP / GROWING ARCHIVE CARD — excluded from honoree count and filters -->
+    <div class="honoree-card signup-card" data-type="signup" data-no-count="true" style="background:linear-gradient(160deg,rgba(6,14,28,0.98) 0%,rgba(10,22,40,0.95) 100%);border-color:rgba(201,168,76,0.25);display:flex;flex-direction:column;justify-content:center;cursor:default;">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent);"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent);"></div>
+      <div class="honoree-corner"></div>
+      <div style="font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-block;width:24px;height:1px;background:var(--gold);"></span>
+        Growing Archive
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:10px;">New Heroes Added <em style="font-style:italic;color:var(--gold-light);">Every Week</em></div>
+      <p style="font-size:12px;line-height:1.75;color:rgba(245,240,232,0.45);margin-bottom:22px;">We are building toward America&rsquo;s 250th anniversary on July&nbsp;4,&nbsp;2026. A new honoree is added to this archive each week &mdash; veterans, first responders, community leaders, and historic places who shaped this nation.</p>
+      <p style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,168,76,0.55);margin-bottom:14px;">Get notified when new honorees are added:</p>
+      <div style="display:flex;gap:0;width:100%;" id="signup-row">
+        <input type="email" id="signup-email" placeholder="Your email address" style="flex:1;min-width:0;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.3);border-right:none;color:var(--cream);font-family:'Libre Baskerville',serif;font-size:12px;padding:11px 14px;outline:none;transition:border-color 0.3s;" onfocus="this.style.borderColor='rgba(201,168,76,0.7)'" onblur="this.style.borderColor='rgba(201,168,76,0.3)'" />
+        <button onclick="handleSignupCard()" style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--navy);border:none;padding:11px 18px;cursor:pointer;white-space:nowrap;transition:background 0.2s;" onmouseover="this.style.background='#e8c97a'" onmouseout="this.style.background='var(--gold)'">Notify Me</button>
+      </div>
+      <div id="signup-card-success" style="display:none;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);padding:12px 0 4px;">&#10003; &nbsp;You&rsquo;re on the list.</div>
+    </div>
+
   </div>
 </main>
 
@@ -426,6 +445,7 @@ function filterHonorees(type, btn) {
   const cards = document.querySelectorAll('.honoree-card');
   let count = 0;
   cards.forEach(card => {
+    if (card.dataset.noCount) { card.classList.remove('hidden'); return; }
     const matchType = type === 'all' || card.dataset.type === type || (type === 'founding' && card.dataset.founding);
     if (matchType) { card.classList.remove('hidden'); count++; }
     else card.classList.add('hidden');
@@ -433,9 +453,8 @@ function filterHonorees(type, btn) {
   document.getElementById('count').textContent = `Showing ${count} honoree${count !== 1 ? 's' : ''}`;
 }
 
-// Set accurate count on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const total = document.querySelectorAll('.honoree-card').length;
+  const total = document.querySelectorAll('.honoree-card:not([data-no-count])').length;
   document.getElementById('count').textContent = `Showing ${total} honoree${total !== 1 ? 's' : ''}`;
 });
 
@@ -444,11 +463,27 @@ function searchHonorees(query) {
   const cards = document.querySelectorAll('.honoree-card');
   let count = 0;
   cards.forEach(card => {
+    if (card.dataset.noCount) { card.classList.remove('hidden'); return; }
     const text = card.textContent.toLowerCase();
     if (text.includes(q)) { card.classList.remove('hidden'); count++; }
     else card.classList.add('hidden');
   });
   document.getElementById('count').textContent = `Showing ${count} honoree${count !== 1 ? 's' : ''}`;
+}
+
+function handleSignupCard() {
+  const email = document.getElementById('signup-email').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('signup-email').style.borderColor = 'rgba(179,27,27,0.7)';
+    return;
+  }
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ 'form-name': 'weekly-recognition', 'email': email }).toString()
+  }).catch(() => {});
+  document.getElementById('signup-row').style.display = 'none';
+  document.getElementById('signup-card-success').style.display = 'block';
 }
 </script>
 
