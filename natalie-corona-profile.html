@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Officer Natalie Corona — The Best of America™ National Archive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-navy: #060e1c;
+    --navy-mid: #112240;
+    --crimson: #b31b1b;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --text-dark: #1a1a1a;
+    --text-mid: #3a3530;
+    --text-light: #6b6058;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--warm-white); color: var(--text-dark); font-family: 'Libre Baskerville', Georgia, serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(6,14,28,0.97); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .nav-logo { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+
+  /* HERO */
+  .hero { position: relative; background: var(--navy); padding-top: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
+  .hero::before { content: '★'; font-size: 600px; color: rgba(201,168,76,0.025); position: absolute; top: 50%; left: -100px; transform: translateY(-50%); pointer-events: none; line-height: 1; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center; position: relative; }
+  .hero-content { animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+  .hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+  .hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 32px; }
+  .hero-portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-portrait { width: 100%; max-width: 280px; aspect-ratio: 3/4; object-fit: cover; object-position: center top; filter: sepia(10%) contrast(1.05); border: 1px solid rgba(201,168,76,0.25); display: block; }
+  .hero-portrait-caption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.45); text-align: center; line-height: 1.6; }
+
+  /* DIVIDER */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+  .divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+  /* BODY */
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* SERVICE BAR */
+  .service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+  .service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+  .service-item:first-child { padding-left: 0; }
+  .service-item:last-child { border-right: none; }
+  .service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+
+  /* DECORATIONS BAR */
+  .decorations-bar { background: var(--navy); border-top: 2px solid rgba(179,27,27,0.4); border-bottom: 1px solid rgba(201,168,76,0.15); margin: 0 -40px; padding: 24px 40px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .decorations-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); white-space: nowrap; padding-right: 16px; border-right: 1px solid rgba(201,168,76,0.2); }
+  .decoration-item { display: flex; align-items: flex-start; gap: 12px; }
+  .decoration-star { color: var(--gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .decoration-text { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cream); }
+  .decoration-text small { display: block; font-size: 11px; color: rgba(245,240,232,0.55); letter-spacing: 0.5px; text-transform: none; font-family: 'Libre Baskerville', serif; margin-top: 4px; font-style: italic; }
+
+  /* STORY SECTIONS */
+  .story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .section-label-col { position: sticky; top: 100px; }
+  .section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+  .section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+  .section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+  .section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+  .section-body p em { font-style: italic; color: var(--text-dark); }
+
+  /* PULL QUOTE */
+  .pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+  .pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+  .pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+
+  /* CALLOUT STATS */
+  .callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+  .callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+  .callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+  .callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+  /* INLINE PHOTO */
+  .inline-photo { margin: 40px 0; }
+  .inline-photo img { width: 100%; max-height: 480px; object-fit: cover; object-position: center top; filter: sepia(10%) contrast(1.05); display: block; border: 1px solid rgba(10,22,40,0.12); }
+  .inline-photo figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 10px 0 0; line-height: 1.6; }
+  .photo-placeholder { width: 100%; height: 320px; background: linear-gradient(160deg, rgba(10,22,40,0.06) 0%, rgba(10,22,40,0.12) 100%); border: 1px dashed rgba(10,22,40,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin: 40px 0; }
+  .photo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(10,22,40,0.3); }
+
+  /* TRIBUTE BLOCK */
+  .tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+  .tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+  .tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+
+  /* SPONSOR CTA */
+  .sponsor-credit { background: rgba(201,168,76,0.05); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 24px 40px; margin: 0 -40px; text-align: center; }
+  .sponsor-credit p { font-family: 'Oswald', sans-serif; font-size: 11px; line-height: 2; letter-spacing: 0.15em; color: var(--text-light); }
+
+  /* ARCHIVE SEAL */
+  .archive-footer { text-align: center; padding: 48px 20px 24px; border-top: 1px solid rgba(10,22,40,0.12); }
+  .archive-footer p { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--text-light); text-transform: uppercase; line-height: 2; }
+  .archive-footer .site { color: var(--crimson); font-size: 11px; letter-spacing: 2px; margin-top: 6px; }
+
+  /* FOOTER */
+  .site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+  .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+  .footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+    .hero-portrait-col { flex-direction: row; justify-content: flex-start; gap: 20px; }
+    .hero-portrait { max-width: 140px; }
+  }
+  @media (max-width: 700px) {
+    .page-body { padding: 0 24px 60px; }
+    .story-section { grid-template-columns: 1fr; gap: 16px; }
+    .section-label-col { position: static; }
+    .section-number { font-size: 48px; margin-bottom: -16px; }
+    .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+    .service-item { border-right: none; padding: 0; min-width: 120px; }
+    .decorations-bar { margin: 0 -24px; padding: 20px 24px; gap: 20px; }
+    .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+    .sponsor-credit { margin: 0 -24px; padding: 20px 24px; }
+    .pull-quote { padding: 28px 24px; }
+    .site-footer { padding: 48px 24px 32px; }
+    .footer-disc { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Seal" style="width:40px;height:40px;object-fit:contain;"/>
+    <span>The Best <span style="color:rgba(245,240,232,0.8);">of America</span>&#8482;</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="honorees.html" class="active">Honorees</a></li>
+    <li><a href="nominate.html">Nominate a Hero</a></li>
+    <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+    <li><a href="video.html">Video</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="honorees.html">Honorees</a>
+  <a href="nominate.html">Nominate a Hero</a>
+  <a href="local-patriot-businesses.html">Local Patriot Businesses</a>
+  <a href="video.html">Video</a>
+  <a href="about.html">About</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-category">&#9733; Founding 250 &nbsp;&middot;&nbsp; First Responder &nbsp;&middot;&nbsp; Davis Police Department &nbsp;&middot;&nbsp; Killed in the Line of Duty</div>
+      <h1 class="hero-name">Officer Natalie <em>Corona</em></h1>
+      <div class="hero-rank">Davis Police Department &nbsp;&middot;&nbsp; Badge No. 224 &nbsp;&middot;&nbsp; Davis, California</div>
+      <p class="hero-tagline">She had just begun the life she chose to serve. The daughter of a firefighter, raised in the shadow of the badge, she stepped into that life with her eyes wide open &mdash; and in its very first days, she honored it with everything she had.</p>
+    </div>
+    <div class="hero-portrait-col">
+      <img class="hero-portrait"
+           src="natalie-corona-hero.jpg"
+           alt="Officer Natalie Corona, Davis Police Department, taking her oath of office — Badge No. 224">
+      <div class="hero-portrait-caption">Officer Natalie Corona &nbsp;&middot;&nbsp; Badge No. 224<br>Davis Police Department &nbsp;&middot;&nbsp; Davis, California<br>Oath of Office &nbsp;&middot;&nbsp; Killed in the Line of Duty &nbsp;&middot;&nbsp; January 10, 2019<br>Photo: Davis Enterprise &nbsp;&middot;&nbsp; Public domain</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- SERVICE BAR -->
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Department</div>
+      <div class="service-value">Davis Police<br>Department</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Badge</div>
+      <div class="service-value">No. 224<br>Davis, California</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Service</div>
+      <div class="service-value">Weeks on patrol<br>at time of death</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Incident</div>
+      <div class="service-value">Routine traffic stop<br>Drexel Drive, Davis</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Born</div>
+      <div class="service-value">Davis, California<br>1996</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Killed in the Line of Duty</div>
+      <div class="service-value">January 10, 2019<br>Age 22</div>
+    </div>
+  </div>
+
+  <!-- DECORATIONS BAR -->
+  <div class="decorations-bar">
+    <div class="decorations-label">Honors</div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Medal of Ultimate Sacrifice
+        <small>Davis Police Department &mdash; posthumous &mdash; highest departmental honor</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Natalie Corona Memorial Park
+        <small>Dedicated in Davis, California &mdash; permanent community memorial</small>
+      </div>
+    </div>
+    <div class="decoration-item">
+      <div class="decoration-star">&#9733;</div>
+      <div class="decoration-text">Blue Line Run &mdash; Annual Memorial
+        <small>Law enforcement community &mdash; held annually in her honor across California</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 01 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">01</span>
+      <div class="section-title">Raised in the<br>Shadow of Service</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>She grew up in Davis knowing exactly what service looked like &mdash; it looked like her father.</h3>
+      <p>Natalie Corona was born and raised in Davis, California, a small university town in the Sacramento Valley where she became known as exactly the kind of person a community builds itself around: warm, steady, certain of her purpose, and built for others. The daughter of a firefighter, she grew up watching her father go toward danger the way other people go to work &mdash; not out of recklessness, but out of a deep, quiet conviction that somebody had to, and that he was the somebody.</p>
+      <p>She absorbed that conviction the way children absorb everything essential &mdash; not from a lesson, but from a life. By the time she chose law enforcement, it was not a career choice so much as a conclusion. She had been heading here the whole time.</p>
+      <p>She graduated from the police academy and joined the Davis Police Department in the fall of 2018. She was twenty-two years old. She was, by the account of every officer who trained alongside her, exactly the kind of recruit the department hoped for: serious about the work, gentle with the people, ready for the complexity of what the badge actually demanded.</p>
+      <p>She had been on patrol for just a few weeks when January 10, 2019 arrived.</p>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">22</span>
+          <div class="callout-desc">Years old — killed in the line of duty</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">2nd</span>
+          <div class="callout-desc">Generation California law enforcement — daughter of a firefighter</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">Weeks</span>
+          <div class="callout-desc">On patrol at the time of her death</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 02 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">02</span>
+      <div class="section-title">She Did Not<br>Hesitate</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>It was a routine call. She responded as she had been trained &mdash; calmly, professionally, without hesitation.</h3>
+      <p>On the evening of January 10, 2019, Officer Natalie Corona responded to a report of a traffic accident on Drexel Drive in Davis. It was the kind of call officers answer dozens of times in a career &mdash; a standard response, requiring a standard protocol. She arrived as she had been trained to arrive: calm, prepared, and present.</p>
+      <p>What happened next was not a standard anything. A gunman opened fire. Officer Natalie Corona was struck and killed in the line of duty. She was twenty-two years old. She had been wearing the badge for weeks.</p>
+      <p>There are no grand speeches in moments like these. No time to prepare. Only the quiet reality that service sometimes asks everything, without notice, without ceremony, on an ordinary evening on an ordinary street in the town where you grew up.</p>
+
+      <div class="pull-quote">
+        <p>She just worked like you &mdash; she was somebody&rsquo;s daughter, somebody&rsquo;s friend. She chose to wear a badge to protect people she didn&rsquo;t even know. That is who she was.</p>
+        <cite>&mdash; Davis Police Department, remembrance of Officer Natalie Corona</cite>
+      </div>
+
+      <!-- Oath of office photo used as inline section image -->
+      <figure class="inline-photo" style="max-width:400px; margin: 40px auto;">
+        <img src="natalie-corona-hero.jpg"
+             alt="Officer Natalie Corona taking her oath of office, Davis Police Department, fall 2018 — Badge No. 224">
+        <figcaption>Officer Natalie Corona takes her oath of office, Davis Police Department, fall 2018. Weeks later, she was gone. &mdash; Davis Enterprise &middot; Public domain</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 03 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">03</span>
+      <div class="section-title">A Community<br>in Grief</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>Davis had never seen anything like what happened in the days after.</h3>
+      <p>Davis is a town of 70,000 people. It is a college town, a bicycle town, a town where the police department is so community-oriented that many of its officers grew up there, as Natalie Corona had. It is not a town accustomed to this kind of loss.</p>
+      <p>In the days following her death, something remarkable happened. Thousands of people came. Not hundreds &mdash; thousands. They came on motorcycles and in squad cars and on foot. They lined the streets. They brought flowers and flags and handwritten notes. They came from departments across California and from neighboring states, because the death of a twenty-two-year-old officer in her first weeks on the job touched something in every law enforcement family in the country.</p>
+      <p>A memorial ride drew hundreds of motorcycles through Davis. A Blue Line run was organized and has been held annually in her honor ever since. The City of Davis dedicated a park in her name. Her badge number &mdash; 224 &mdash; was retired. At her funeral, the church overflowed into the parking lot and the parking lot overflowed into the street.</p>
+
+      <div class="pull-quote">
+        <p>Natalie embodied what we hope every officer will be &mdash; she was kind, she was thoughtful, she was brave. She chose this life knowing what it could ask of her. And when it asked everything, she had already given her answer.</p>
+        <cite>&mdash; Davis Police Chief Darren Pytel, memorial service, January 2019</cite>
+      </div>
+
+      <!-- Photo placeholder: memorial / community gathering -->
+      <div class="photo-placeholder">
+        <span>&#9733;</span>
+        <span>Photo: Davis community memorial, January 2019</span>
+        <span>Source: Davis Enterprise / City of Davis &mdash; public domain</span>
+        <span>Replace with: corona-memorial.jpg</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 04 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">04</span>
+      <div class="section-title">What She<br>Left Behind</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>She left behind a family, a department, a community &mdash; and a generation of recruits who became officers because of her.</h3>
+      <p>In the years since January 10, 2019, something has been quietly documented in the police academies and departments of California: young men and women who point to Natalie Corona as the reason they applied. Not in spite of what happened to her &mdash; because of who she was. The courage it takes to choose the badge knowing what it can ask is a different kind of courage than what is asked in the moment. She had chosen it. They chose it too, because she showed them what that choice looked like.</p>
+      <p>Her family has carried her memory with dignity. Her father, who spent his own career running toward danger, watched his daughter make the same choice and paid the same price. There is no word in any language adequate to that particular grief, and no archive entry that can touch it. What can be done is to make sure her name is held in permanent record &mdash; not as a statistic, not as a case number, but as the full human being she was: a daughter, a friend, a first-generation officer, a twenty-two-year-old who chose the hardest life she knew because she believed in it.</p>
+
+      <div class="pull-quote">
+        <p>She did not hesitate in choosing the badge. And she honored it fully, even in its earliest days. Some serve for decades. Some are only just beginning. Officer Natalie Corona stood at the very start of her journey &mdash; and in that beginning, she gave her life.</p>
+        <cite>&mdash; The Best of America&#8482; National Archive</cite>
+      </div>
+
+      <div class="callout-row">
+        <div class="callout-box">
+          <span class="callout-num">224</span>
+          <div class="callout-desc">Badge number — retired by Davis PD in her honor</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">1,000s</span>
+          <div class="callout-desc">Attended her memorial from across California and beyond</div>
+        </div>
+        <div class="callout-box">
+          <span class="callout-num">Annual</span>
+          <div class="callout-desc">Blue Line Run held in her memory every year</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">&#9733;</div><div class="divider-line"></div></div>
+
+  <!-- SECTION 05 -->
+  <div class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">05</span>
+      <div class="section-title">Why She<br>Belongs Here</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>This archive exists precisely for people like Natalie Corona.</h3>
+      <p>The heroes most at risk of being forgotten are not the ones who never made the news. They are the ones who made the news for a week &mdash; who were everywhere for a moment, mourned intensely and publicly, and then quietly receded as the next tragedy arrived. The names on the walls of police memorials. The badge numbers retired in small ceremonies that the national media does not cover. The annual runs and dedication plaques that her own community tends faithfully while the rest of the country moves on.</p>
+      <p>Natalie Corona is not forgotten in Davis. She will never be forgotten in Davis. But Davis is a town of 70,000 people, and the country has 330 million, and there are people reading these words who are hearing her name for the first time. This archive is for them. So that the story of a twenty-two-year-old girl from Davis, California &mdash; the firefighter&rsquo;s daughter who chose the badge, who stood at the very beginning of her life in service, and who gave that life before she had barely begun to live it &mdash; does not belong only to the people who were already there.</p>
+      <p>She belongs to all of us. That is what it means to die in the line of duty. You give yourself to the community. The least the community can do is remember you.</p>
+      <p>The Best of America&#8482; Archive records Officer Natalie Corona&rsquo;s name here, permanently, because her story is not finished. It is only just beginning to be told to the people who needed to hear it.</p>
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<!-- TRIBUTE BLOCK -->
+<div class="page-body" style="padding-bottom:0; padding-top:0;">
+  <div class="tribute-block">
+    <div class="tribute-eyebrow">Archived in Permanent Honor</div>
+    <p class="tribute-text">&ldquo;She did not hesitate in choosing the badge. And she honored it fully, even in its earliest days.&rdquo; She was twenty-two years old. She was just beginning. The Best of America&#8482; will make sure the rest of the country knows her name.</p>
+    <div class="tribute-name">Officer Natalie Corona &nbsp;&middot;&nbsp; Badge No. 224 &nbsp;&middot;&nbsp; Davis Police Department &nbsp;&middot;&nbsp; January 10, 2019</div>
+  </div>
+
+  <!-- FLPB SPONSOR CTA -->
+  <div class="sponsor-credit">
+    <p>This profile has no sponsor yet &mdash; and heroes like Officer Corona deserve to be remembered forever.</p>
+    <p style="margin-top:10px;">
+      <a href="local-patriot-businesses.html" style="color:var(--crimson);text-decoration:none;border-bottom:1px solid rgba(179,27,27,0.35);padding-bottom:1px;font-family:'Oswald',sans-serif;letter-spacing:0.2em;text-transform:uppercase;font-size:10px;">Become a Founding Local Patriot Business&#8482; &rarr;</a>
+      &nbsp;&nbsp;&middot;&nbsp;&nbsp; Sponsor this profile and ensure no American hero is ever forgotten
+    </p>
+  </div>
+
+  <!-- ARCHIVE SEAL -->
+  <div class="archive-footer">
+    <p>Honoree Profile &middot; First Responder Category &middot; Killed in the Line of Duty</p>
+    <p>Founding 250 Initiative &middot; America&rsquo;s 250th Anniversary &middot; July 4, 2026</p>
+    <p class="site">TheBestofAmerica.org</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America&#8482;</h3>
+        <p>An independent national archive dedicated to preserving 250 years of American service and strength.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="honorees.html">Honorees</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="nominate.html">Nominate a Hero</a></li>
+            <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Established 2003 &nbsp;&middot;&nbsp; <a href="https://web.archive.org/web/20030614000000*/http://thebestofamerica.org/" target="_blank" rel="noopener" style="color:rgba(201,168,76,0.6);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.25);">View Our Original Archive</a> &nbsp;&middot;&nbsp; Copyright &copy; 2025&ndash;2026 The Best of America&#8482; &middot; All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('.nav-hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
