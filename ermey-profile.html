@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R. Lee Ermey — The Best of America™</title>
+  <meta name="description" content="Ronald Lee Ermey — U.S. Marine Corps Staff Sergeant, Vietnam Veteran, Hollywood Icon, and Co-Founder of Bravery Brewing Co. Honored in the permanent national archive of The Best of America™." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Oswald:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:   #060E1C;
+      --navy2:  #0A1628;
+      --navy3:  #0F1E35;
+      --crimson:#B31B1B;
+      --gold:   #C9A84C;
+      --gold2:  #E8C96A;
+      --white:  #F4F0E8;
+      --gray:   #8A8A8A;
+      --border: rgba(201,168,76,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(6,14,28,0.97);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 64px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-brand img { width: 38px; height: 38px; object-fit: contain; }
+    .nav-brand span {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500; font-size: 12px;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .nav-brand span em { color: var(--white); font-style: normal; }
+    .nav-links { display: flex; list-style: none; gap: 32px; }
+    .nav-links a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(244,240,232,0.7); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--gold); border-radius: 2px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 64px; left: 0; right: 0;
+        background: rgba(6,14,28,0.99);
+        flex-direction: column; gap: 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li a {
+        display: block; padding: 16px 32px;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding-top: 64px;
+      min-height: 600px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(6,14,28,0.3) 0%, rgba(6,14,28,0.85) 70%, var(--navy) 100%),
+        url('images/ermey-troops-christmas.jpg') center 30% / cover no-repeat;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 900px; margin: 0 auto;
+      padding: 60px 32px 56px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 40px; height: 1px; background: var(--gold);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.0;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .hero h1 em {
+      display: block; font-style: italic;
+      color: var(--gold2); font-size: 0.65em;
+      font-weight: 400; letter-spacing: 0.02em;
+      margin-bottom: 4px;
+    }
+    .hero-subtitle {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px; font-weight: 300;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(244,240,232,0.65);
+      margin-top: 16px; margin-bottom: 32px;
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      background: var(--crimson); color: var(--white);
+      padding: 14px 28px; text-decoration: none;
+      border: 1px solid var(--crimson);
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: #9a1515; }
+    .btn-outline {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      background: transparent; color: var(--gold);
+      padding: 14px 28px; text-decoration: none;
+      border: 1px solid rgba(201,168,76,0.4);
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+    /* ── SERVICE BAR ── */
+    .service-bar {
+      background: var(--navy2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .service-bar-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 32px;
+      display: flex; flex-wrap: wrap;
+      gap: 0;
+    }
+    .service-item {
+      flex: 1; min-width: 160px;
+      padding: 20px 24px 20px 0;
+      border-right: 1px solid var(--border);
+    }
+    .service-item:last-child { border-right: none; }
+    .service-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .service-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px; font-weight: 400;
+      color: var(--white); letter-spacing: 0.05em;
+    }
+
+    /* ── DECORATIONS BAR ── */
+    .decorations-bar {
+      background: var(--navy3);
+      border-bottom: 1px solid var(--border);
+    }
+    .decorations-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 16px 32px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .dec-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); white-space: nowrap;
+      margin-right: 4px;
+    }
+    .dec-badge {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.1em;
+      color: rgba(244,240,232,0.8);
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 4px 10px;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .main-wrap {
+      max-width: 900px; margin: 0 auto;
+      padding: 64px 32px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .main-wrap { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 56px; }
+    .section:last-child { margin-bottom: 0; }
+    .section-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.7rem; font-weight: 700;
+      color: var(--white); margin-bottom: 24px;
+      line-height: 1.25;
+    }
+    .section-header {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 24px;
+    }
+    .section-accent {
+      width: 3px; min-height: 48px;
+      background: linear-gradient(to bottom, var(--crimson), var(--gold));
+      margin-top: 4px; flex-shrink: 0;
+    }
+    .prose p { margin-bottom: 20px; color: rgba(244,240,232,0.88); }
+    .prose p:last-child { margin-bottom: 0; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      margin: 36px 0;
+      padding: 20px 28px;
+      background: rgba(201,168,76,0.05);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem; font-style: italic;
+      color: var(--gold2); line-height: 1.6;
+      margin-bottom: 10px !important;
+    }
+    .pull-quote cite {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gray); font-style: normal;
+    }
+
+    /* ── CALLOUT STATS ── */
+    .callout-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    .stat-item {
+      background: var(--navy2);
+      padding: 24px 20px; text-align: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem; font-weight: 900;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(244,240,232,0.55);
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 32px; }
+
+    .sidebar-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .photo-caption {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gray); margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .sidebar-box {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .sidebar-box-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-box ul { list-style: none; }
+    .sidebar-box ul li {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 13px; color: rgba(244,240,232,0.8);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+      line-height: 1.5;
+    }
+    .sidebar-box ul li:last-child { border-bottom: none; }
+    .sidebar-box ul li strong {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 2px;
+    }
+
+    /* ── SPONSOR BLOCK ── */
+    .sponsor-block {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .sponsor-block-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 12px;
+    }
+    .sponsor-block-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .sponsor-block p {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 12px; color: rgba(244,240,232,0.65);
+      line-height: 1.6; margin-bottom: 14px;
+    }
+    .sponsor-block a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+    }
+    .sponsor-block a:hover { color: var(--gold2); }
+
+    /* ── SOURCES ── */
+    .sources-box {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      padding: 24px; margin-top: 40px;
+    }
+    .sources-box-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .sources-box ol {
+      padding-left: 20px;
+    }
+    .sources-box ol li {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 12px; color: rgba(244,240,232,0.55);
+      margin-bottom: 8px; line-height: 1.5;
+    }
+    .sources-box ol li a {
+      color: rgba(201,168,76,0.7); text-decoration: none;
+    }
+    .sources-box ol li a:hover { color: var(--gold); }
+
+    /* ── TRIBUTE BLOCK ── */
+    .tribute-block {
+      background: linear-gradient(135deg, var(--navy2) 0%, var(--navy3) 100%);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--crimson);
+      padding: 40px 32px; text-align: center;
+      margin-top: 64px;
+    }
+    .tribute-block .eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .tribute-block h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--white); margin-bottom: 14px;
+      font-style: italic;
+    }
+    .tribute-block p {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 14px; color: rgba(244,240,232,0.65);
+      max-width: 540px; margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+    .dates {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px; font-weight: 300;
+      letter-spacing: 0.25em;
+      color: var(--gold); margin-top: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #020810;
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(244,240,232,0.3);
+      line-height: 1.8;
+    }
+    footer a { color: rgba(201,168,76,0.5); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">
+      <img src="logo.png" alt="The Best of America Seal" />
+      <span>The Best <em>of America</em>™</span>
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="honorees.html">Honorees</a></li>
+      <li><a href="nominate.html">Nominate a Hero</a></li>
+      <li><a href="local-patriot-businesses.html">Local Patriot Businesses</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Veteran · Actor · Community Builder · Antelope Valley Legend</div>
+      <h1>
+        <em>Gunnery Sergeant</em>
+        R. Lee Ermey
+      </h1>
+      <p class="hero-subtitle">United States Marine Corps · Vietnam War · 1961–1972</p>
+      <div class="hero-ctas">
+        <a href="local-patriot-businesses.html" class="btn-primary">Sponsored by Bravery Brewing Co.</a>
+        <a href="honorees.html" class="btn-outline">← All Honorees</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICE BAR -->
+  <div class="service-bar">
+    <div class="service-bar-inner">
+      <div class="service-item">
+        <div class="service-label">Branch</div>
+        <div class="service-value">U.S. Marine Corps</div>
+      </div>
+      <div class="service-item">
+        <div class="service-label">Rank</div>
+        <div class="service-value">Staff Sergeant / Honorary Gunnery Sergeant</div>
+      </div>
+      <div class="service-item">
+        <div class="service-label">Service</div>
+        <div class="service-value">1961 – 1972</div>
+      </div>
+      <div class="service-item">
+        <div class="service-label">Theater</div>
+        <div class="service-value">Vietnam · Okinawa</div>
+      </div>
+      <div class="service-item">
+        <div class="service-label">Born</div>
+        <div class="service-value">March 24, 1944 · Emporia, KS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DECORATIONS BAR -->
+  <div class="decorations-bar">
+    <div class="decorations-inner">
+      <span class="dec-label">Decorations &amp; Awards</span>
+      <span class="dec-badge">Meritorious Unit Commendation</span>
+      <span class="dec-badge">Armed Forces Expeditionary Medal</span>
+      <span class="dec-badge">Vietnam Service Medal</span>
+      <span class="dec-badge">Vietnam Gallantry Cross</span>
+      <span class="dec-badge">Vietnam Campaign Medal</span>
+      <span class="dec-badge">Good Conduct Medal</span>
+      <span class="dec-badge">National Defense Service Medal</span>
+      <span class="dec-badge">Marine Corps Instructor Ribbon</span>
+      <span class="dec-badge">Honorary Promotion — Gunnery Sergeant</span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-wrap">
+
+    <!-- LEFT COLUMN -->
+    <main>
+
+      <!-- SECTION 1: THE MAN -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-accent"></div>
+          <div>
+            <div class="section-eyebrow">His Story</div>
+            <h2>A Recruit Who Became the Standard</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>Ronald Lee Ermey was not born to be a Marine. He was born in Emporia, Kansas in 1944, one of six children in a working-class family, and grew up on a farm outside Kansas City. By seventeen, he had been arrested twice for criminal mischief. A judge gave him a choice: serve time, or serve his country. He chose the Corps — and the Corps changed everything.</p>
+          <p>What began as an alternative to a cell became a calling. Ermey completed recruit training at Marine Corps Recruit Depot, San Diego, and discovered not just discipline but purpose. He would go on to serve eleven years in the United States Marine Corps, deploying to Vietnam and Okinawa, earning a chest full of commendations, and ultimately becoming a Staff Sergeant and celebrated drill instructor — the most demanding and formative role the Corps has to offer.</p>
+          <p>In 1972, a rocket ended his active service career. He was medically discharged, carrying shrapnel in his back for the rest of his life. But R. Lee Ermey never truly left the Marine Corps. The Corps never truly left him.</p>
+        </div>
+      </section>
+
+      <!-- PULL QUOTE 1 -->
+      <blockquote class="pull-quote">
+        <p>"Once a Marine, always a Marine. It is not a phrase. It is a fact of the soul."</p>
+        <cite>— R. Lee Ermey, reflecting on his service</cite>
+      </blockquote>
+
+      <!-- SECTION 2: HOLLYWOOD -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-accent"></div>
+          <div>
+            <div class="section-eyebrow">Hollywood & Legacy</div>
+            <h2>The Most Authentic Voice in Cinema</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>After leaving the Corps, Ermey relocated to the Philippines, where he studied criminology and drama at the University of Manila. His first film role came as a helicopter pilot in Francis Ford Coppola's <em>Apocalypse Now</em> (1979), where he also served as technical advisor — a combination that would define his career.</p>
+          <p>When Stanley Kubrick began production on <em>Full Metal Jacket</em> in 1987, Ermey was brought on as a technical consultant. He famously auditioned himself into the lead role of Gunnery Sergeant Hartman by delivering a relentless, unscripted tirade while crew members pelted him with tennis balls — never losing composure or repeating an insult. Kubrick hired him on the spot.</p>
+        </div>
+
+        <!-- FIELD CAP PHOTO -->
+        <div style="margin: 28px 0; display:flex; gap:20px; align-items:flex-start;">
+          <img
+            src="images/ermey-field-cap.jpg"
+            alt="R. Lee Ermey — the face America recognizes"
+            style="width:180px; height:220px; object-fit:cover; object-position:top center; border:1px solid rgba(201,168,76,0.2); flex-shrink:0;"
+          />
+          <div class="prose" style="flex:1;">
+            <p>The performance earned Ermey a Golden Globe nomination and the most widely recognized portrayal of a Marine drill instructor in the history of American cinema. His Gunnery Sergeant Hartman became shorthand for toughness, discipline, and uncompromising standards — values he had not invented for the role, but carried from real life into it.</p>
+            <p>Over a forty-year career, Ermey appeared in more than sixty film and television productions. From 2002 to 2009, he hosted <em>Mail Call</em> on the History Channel, answering viewer questions about military history with the authority of a man who had lived it. He conducted USO tours in Iraq and Afghanistan, visited recruit depots at San Diego and Parris Island, and never stopped showing up for the troops.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- CALLOUT STATS -->
+      <div class="callout-stats">
+        <div class="stat-item">
+          <div class="stat-number">11</div>
+          <div class="stat-label">Years of Active Service</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">60+</div>
+          <div class="stat-label">Film & Television Roles</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Marine Ever Honorarily Promoted to GySgt</div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: THE HONOR -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-accent"></div>
+          <div>
+            <div class="section-eyebrow">The Promotion</div>
+            <h2>The Only Marine to Ever Receive This Honor</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>In 2002, Marine Corps Commandant General James L. Jones made a decision without precedent in the history of the United States Marine Corps: he honorarily promoted R. Lee Ermey to the rank of Gunnery Sergeant. Ermey is the only Marine in history to have received this distinction.</p>
+          <p>It was not a publicity gesture. It was a recognition of something the Corps understood clearly — that Ermey had spent decades embodying, teaching, and protecting what it means to be a Marine. He had done more to convey the ethos of the Corps to the American public than almost any other living person. The promotion was overdue.</p>
+          <p>From that day forward, R. Lee Ermey was Gunnery Sergeant Ermey — not just on screen, but in reality, in the records, and in the permanent memory of the institution he served.</p>
+        </div>
+      </section>
+
+      <!-- PULL QUOTE 2 -->
+      <blockquote class="pull-quote">
+        <p>"He co-founded this brewery because he believed in the Antelope Valley, in the people who serve here, and in building something worthy of the name."</p>
+        <cite>— Brian Anderson, Co-Founder, Bravery Brewing Co.</cite>
+      </blockquote>
+
+      <!-- SECTION 4: ANTELOPE VALLEY -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-accent"></div>
+          <div>
+            <div class="section-eyebrow">His Community</div>
+            <h2>Rooted in the Antelope Valley</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>R. Lee Ermey made his home in the Antelope Valley — the high desert community that sits in the shadow of Edwards Air Force Base, where test pilots push aircraft beyond their known limits and military families build their lives. It was the right place for a man like Ermey.</p>
+          <p>He co-founded Bravery Brewing Company in Lancaster, California alongside Brian Anderson, opening the taproom's doors on July 4, 2012 — Independence Day, deliberately chosen. The brewery became a gathering place for the community he loved: veterans, first responders, families, and anyone who understood that bravery is not just a word. His uniform from <em>Full Metal Jacket</em>, including his Academy Award-nominated performance, is displayed there as a permanent reminder of who built the place.</p>
+          <p>Today, a street near Northrop Grumman's facilities bears his name — one more marker of a life that left its mark on the valley he called home.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5: HIS PASSING -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-accent"></div>
+          <div>
+            <div class="section-eyebrow">In Memoriam</div>
+            <h2>April 15, 2018</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>R. Lee Ermey passed away on April 15, 2018, from complications related to pneumonia. He was 74. His death was mourned by the military community, the film industry, and the Antelope Valley in equal measure — because he had been, in truth, all of those things at once: a warrior, an artist, a neighbor, and a builder.</p>
+          <p>He is survived by his wife Nila, whom he married in 1975, and their four children. He is buried with full military honors. The Marine Corps lost one of its finest ambassadors. The Antelope Valley lost one of its most devoted sons. But his legacy endures — in the archive, in the taproom, and in every Marine who ever watched <em>Full Metal Jacket</em> and recognized something true.</p>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- SOURCES -->
+      <div class="sources-box">
+        <div class="sources-box-title">Sources &amp; Documentation</div>
+        <ol>
+          <li>U.S. Marine Corps Historical Division — Service Record, R. Lee Ermey, Staff Sergeant, USMC (Ret.)</li>
+          <li>Defense Visual Information Distribution Service (DVIDS) — Official USMC Photography Archive</li>
+          <li>National Archives and Records Administration — Combined Military Service Digital Photographic Files</li>
+          <li>U.S. Marine Corps Public Affairs — Honorary Promotion of R. Lee Ermey to Gunnery Sergeant, 2002</li>
+          <li>Smithsonian Institution — Entertainment and Military History Collection</li>
+          <li>Lancaster, California City Records — Bravery Brewing Co. Business Registration, 2011</li>
+        </ol>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- PHOTO -->
+      <div>
+        <img
+          class="sidebar-photo"
+          src="images/ermey-dress-blues.jpg"
+          alt="R. Lee Ermey in USMC Dress Blues — Gunnery Sergeant"
+        />
+        <p class="photo-caption">GySgt R. Lee Ermey — USMC Dress Blues<br>Photo: Public Domain</p>
+      </div>
+
+      <!-- QUICK FACTS -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-title">Record of Service</div>
+        <ul>
+          <li><strong>Born</strong>March 24, 1944 · Emporia, Kansas</li>
+          <li><strong>Died</strong>April 15, 2018 · Age 74</li>
+          <li><strong>Enlisted</strong>1961 · MCRD San Diego</li>
+          <li><strong>Discharge</strong>1972 · Medical (combat injury)</li>
+          <li><strong>Highest Rank</strong>Staff Sergeant (Active)<br>Honorary Gunnery Sergeant (2002)</li>
+          <li><strong>Deployments</strong>Vietnam · Okinawa</li>
+          <li><strong>Notable Role</strong>GySgt Hartman, <em>Full Metal Jacket</em> (1987)</li>
+          <li><strong>TV Host</strong><em>Mail Call</em>, History Channel (2002–2009)</li>
+          <li><strong>AV Connection</strong>Co-Founder, Bravery Brewing Co., Lancaster, CA</li>
+        </ul>
+      </div>
+
+      <!-- SPONSOR BLOCK -->
+      <div class="sponsor-block">
+        <div class="sponsor-block-label">This Profile Sponsored By</div>
+        <div class="sponsor-block-name">Bravery Brewing Co.</div>
+        <p>Lancaster, California's veteran-owned craft brewery and taproom — co-founded by R. Lee Ermey himself, opened July 4, 2012. Proud Founding Local Patriot Business™.</p>
+        <a href="sponsor-bravery-brewing.html">View Sponsor Profile →</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- TRIBUTE BLOCK -->
+  <div style="max-width:900px; margin: 0 auto; padding: 0 32px 80px;">
+    <div class="tribute-block">
+      <div class="eyebrow">Permanently Archived · The Best of America™</div>
+      <h3>"He never stopped being a Marine."</h3>
+      <p>R. Lee Ermey served his country in uniform, then spent the rest of his life serving it in every other way he could — on screen, on stage, in the community, and at the bar he built in the desert town he loved. He is permanently honored here, in the national archive, as one of the best this country has produced.</p>
+      <div class="dates">March 24, 1944 &nbsp;·&nbsp; April 15, 2018</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 The Best of America™ &nbsp;·&nbsp; TheBestofAmerica.org &nbsp;·&nbsp;
+      <a href="about.html">About the Archive</a> &nbsp;·&nbsp;
+      <a href="nominate.html">Nominate a Hero</a> &nbsp;·&nbsp;
+      Established 2003 · <a href="#">View Our Original Archive</a>
+    </p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('hamburgerBtn');
+    const links = document.getElementById('navLinks');
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>
