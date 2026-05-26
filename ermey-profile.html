@@ -121,8 +121,10 @@
   .inline-photo figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 10px 0 0; line-height: 1.6; }
 
   .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
-  .photo-pair figure img { width: 100%; height: 280px; object-fit: cover; object-position: top; filter: sepia(15%) contrast(1.05); border: 1px solid rgba(10,22,40,0.12); }
+  .photo-pair figure img { width: 100%; height: 360px; object-fit: cover; object-position: center; filter: sepia(15%) contrast(1.05); border: 1px solid rgba(10,22,40,0.12); }
   .photo-pair figcaption { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); padding: 8px 0 0; line-height: 1.6; }
+  .footer-archive-link { color: rgba(201,168,76,0.5) !important; text-decoration: none; transition: color 0.2s; }
+  .footer-archive-link:hover { color: var(--gold) !important; }
 
   /* ── SPONSOR CREDIT ── */
   .sponsor-credit { background: rgba(201,168,76,0.05); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 20px 40px; margin: 0 -40px; text-align: center; }
@@ -443,7 +445,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Established 2003 &middot; <a href="https://web.archive.org/web/20030614000000*/thebestofamerica.org" style="color:rgba(245,240,232,0.25);text-decoration:none;">View Our Original Archive</a> &nbsp;|&nbsp; Copyright &copy; 2025&ndash;2026 The Best of America&#8482; &middot; All Rights Reserved</p>
+      <p>Established 2003 &middot; <a href="https://web.archive.org/web/20030614000000*/thebestofamerica.org" class="footer-archive-link">View Our Original Archive</a> &nbsp;|&nbsp; Copyright &copy; 2025&ndash;2026 The Best of America&#8482; &middot; All Rights Reserved</p>
       <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
     </div>
   </div>
