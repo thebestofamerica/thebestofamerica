@@ -90,6 +90,9 @@ footer{padding:60px 48px 40px;background:var(--deep-navy);border-top:1px solid r
 .footer-bottom{border-top:1px solid rgba(245,240,232,0.08);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .footer-bottom p{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.15em;color:rgba(245,240,232,0.25);}
 .footer-disc{font-size:11px;color:rgba(245,240,232,0.2);max-width:600px;line-height:1.5;text-align:right;}
+.footer-social{display:flex;justify-content:center;align-items:center;gap:1.25rem;margin-top:0.75rem;width:100%;}
+.footer-social a{color:var(--gold);opacity:0.7;transition:opacity 0.2s ease;display:flex;align-items:center;}
+.footer-social a:hover{opacity:1;}
 
 @media(max-width:900px){nav{padding:0 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}.honorees-main{padding:40px 24px 80px;}.honoree-grid{grid-template-columns:1fr 1fr;}.filter-bar{padding:16px 24px;}.filter-search{margin-left:0;width:100%;}.filter-search input{width:100%;}footer{padding:48px 24px 32px;}.footer-links{gap:32px;}}
 @media(max-width:600px){.honoree-grid{grid-template-columns:1fr;}.footer-disc{text-align:left;}}
@@ -457,22 +460,27 @@ perpetuity.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Established 2003 &nbsp;·&nbsp; <a href="https://web.archive.org/web/20030614000000*/thebestofamerica.org" target="_blank" rel="noopener" style="color:rgba(201,168,76,0.6);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.25);">View Our Original Archive</a> &nbsp;·&nbsp; Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <a href="https://www.instagram.com/thebestofamericaorg/" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(201,168,76,0.7);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(201,168,76,1)'" onmouseout="this.style.color='rgba(201,168,76,0.7)'">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+      <p>Established 2003 · <a href="https://web.archive.org/web/20030614000000*/http://thebestofamerica.org/" target="_blank" rel="noopener" style="color:rgba(201,168,76,0.6);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.25);">View Our Original Archive</a> · Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/TheBestofAmericaorg" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
         </a>
-        <a href="https://www.facebook.com/TheBestofAmericaorg/" target="_blank" rel="noopener" aria-label="Facebook" style="color:rgba(201,168,76,0.7);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(201,168,76,1)'" onmouseout="this.style.color='rgba(201,168,76,0.7)'">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        <a href="https://instagram.com/thebestofamericaorg" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
         </a>
-        <a href="https://x.com/4BestofAmerica" target="_blank" rel="noopener" aria-label="X" style="color:rgba(201,168,76,0.7);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(201,168,76,1)'" onmouseout="this.style.color='rgba(201,168,76,0.7)'">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.threads.net/@thebestofamericaorg" target="_blank" rel="noopener" aria-label="Threads" style="color:rgba(201,168,76,0.7);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(201,168,76,1)'" onmouseout="this.style.color='rgba(201,168,76,0.7)'">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.587 1.5 12.01v-.017c.024-3.574 1.207-6.322 3.516-8.17C7.327 2.029 10.18 1.5 12.01 1.5h.017c2.615.017 4.963.735 6.775 2.075 1.773 1.312 2.836 3.147 3.074 5.31l-2.067.232c-.386-3.408-3.045-5.55-7.799-5.578h-.013c-1.463 0-3.853.356-5.66 1.81C4.743 6.61 3.572 8.76 3.551 12c.021 3.234 1.192 5.378 2.784 6.644 1.807 1.453 4.198 1.81 5.66 1.81h.006c1.96-.013 3.42-.468 4.465-1.392.943-.834 1.43-2.017 1.454-3.52-.348.102-.712.19-1.09.259-1.198.222-2.47.29-3.768.196-1.827-.132-3.307-.74-4.276-1.756-.847-.888-1.267-2.047-1.215-3.354.05-1.264.548-2.363 1.444-3.1.962-.793 2.32-1.21 3.924-1.21.208 0 .418.007.629.02 1.492.093 2.713.552 3.628 1.363.765.677 1.26 1.577 1.47 2.674.13.683.163 1.384.098 2.083a7.87 7.87 0 0 1-.098.718c-.07.38-.178.734-.321 1.056.426-.07.822-.166 1.183-.286l.006-.002.338 1.99a8.7 8.7 0 0 1-2.178.492c-.47 2.367-1.844 3.694-4.22 4.07-.546.086-1.11.128-1.686.128zm.537-9.115c-.139 0-.278-.005-.416-.014-1.092-.068-1.959-.41-2.514-.989-.476-.497-.706-1.155-.68-1.906.025-.726.3-1.34.794-1.773.554-.485 1.358-.74 2.326-.74.155 0 .312.006.468.018 1.06.066 1.898.386 2.428.924.47.477.693 1.12.642 1.86-.052.759-.352 1.376-.866 1.786-.483.385-1.14.834-2.182.834z"/></svg>
+        <a href="https://x.com/4BestofAmerica" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.25 2.25h6.918l4.254 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
         </a>
       </div>
-      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
     </div>
   </div>
 </footer>
