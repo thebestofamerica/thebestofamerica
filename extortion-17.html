@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extortion 17 — The Best of America™ National Archive</title>
+<meta name="description" content="Honoring the 30 Americans, Bart the combat assault dog, and all souls lost aboard Extortion 17 on August 6, 2011 — the deadliest single day of the Afghanistan War.">
+
+<!-- Open Graph / Twitter Card -->
+<meta property="og:title" content="Extortion 17 — The Best of America™ National Archive">
+<meta property="og:description" content="Honoring the 30 Americans, Bart the combat assault dog, and all souls lost aboard Extortion 17, August 6, 2011.">
+<meta property="og:image" content="bart-hero.png">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Extortion 17 — The Best of America™ National Archive">
+<meta name="twitter:image" content="bart-hero.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#060E1C;
+    --crimson:#B31B1B;
+    --gold:#C9A84C;
+    --cream:#F7F3EA;
+    --warm-white:#FBF9F4;
+    --ink:#1C1C1C;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  body{
+    background:var(--warm-white);
+    color:var(--ink);
+    font-family:'Libre Baskerville', Georgia, serif;
+    line-height:1.7;
+  }
+
+  a{color:var(--crimson);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  h1,h2,h3{font-family:'Playfair Display', serif;}
+
+  .label{
+    font-family:'Oswald', sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    background:var(--navy);
+    color:var(--cream);
+    padding:70px 24px 60px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(ellipse at center, rgba(201,168,76,0.10) 0%, rgba(6,14,28,0.95) 70%);
+    pointer-events:none;
+  }
+  .hero-eyebrow{
+    position:relative;
+    color:var(--gold);
+    font-size:13px;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    position:relative;
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    font-weight:900;
+    letter-spacing:.01em;
+    margin-bottom:10px;
+  }
+  .hero .sub{
+    position:relative;
+    font-family:'Libre Baskerville', serif;
+    font-style:italic;
+    color:#D9D2C2;
+    font-size:1.1rem;
+    margin-bottom:34px;
+  }
+  .hero-photo{
+    position:relative;
+    max-width:340px;
+    margin:0 auto 30px;
+    border:3px solid var(--gold);
+    box-shadow:0 12px 40px rgba(0,0,0,0.5);
+  }
+  .hero-photo img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .hero-photo-caption{
+    position:relative;
+    font-family:'Oswald', sans-serif;
+    font-size:12px;
+    letter-spacing:.08em;
+    color:#B7AE96;
+    margin-top:10px;
+  }
+
+  /* CALLOUT STATS */
+  .stats-bar{
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:0;
+    margin-top:36px;
+    border-top:1px solid rgba(201,168,76,0.35);
+    border-bottom:1px solid rgba(201,168,76,0.35);
+    padding:26px 0;
+  }
+  .stat{
+    padding:0 32px;
+    text-align:center;
+    border-right:1px solid rgba(201,168,76,0.25);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:2rem;
+    color:var(--gold);
+    display:block;
+  }
+  .stat .txt{
+    font-family:'Oswald', sans-serif;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#C9C2AE;
+  }
+
+  /* SERVICE / DESIGNATIONS BAR */
+  .service-bar, .designations-bar{
+    background:var(--cream);
+    border-bottom:1px solid rgba(6,14,28,0.08);
+    padding:18px 24px;
+    text-align:center;
+    font-family:'Oswald', sans-serif;
+    font-size:13px;
+    letter-spacing:.06em;
+    color:var(--navy);
+  }
+  .service-bar strong, .designations-bar strong{color:var(--crimson);}
+  .designations-bar{background:var(--warm-white);}
+
+  /* NARRATIVE */
+  .narrative{
+    max-width:880px;
+    margin:0 auto;
+    padding:60px 24px 20px;
+  }
+  .section{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:34px;
+    margin-bottom:56px;
+  }
+  .section-label{
+    position:sticky;
+    top:24px;
+    align-self:start;
+  }
+  .section-label .roman{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:2.4rem;
+    color:var(--gold);
+    line-height:1;
+    display:block;
+  }
+  .section-label .title{
+    font-family:'Oswald', sans-serif;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--crimson);
+    margin-top:8px;
+    display:block;
+  }
+  .section-body h2{
+    font-size:1.6rem;
+    color:var(--navy);
+    margin-bottom:14px;
+  }
+  .section-body p{
+    margin-bottom:14px;
+    font-size:1.05rem;
+  }
+  .attribution-note{
+    font-family:'Oswald', sans-serif;
+    font-size:12px;
+    letter-spacing:.03em;
+    color:#6b6558;
+    font-style:italic;
+    border-left:2px solid var(--gold);
+    padding-left:12px;
+    margin-top:16px;
+  }
+
+  .pull-quote{
+    max-width:880px;
+    margin:0 auto 56px;
+    padding:0 24px;
+  }
+  .pull-quote blockquote{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--navy);
+    text-align:center;
+    padding:34px 20px;
+    border-top:1px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+  }
+  .pull-quote cite{
+    display:block;
+    font-family:'Oswald', sans-serif;
+    font-style:normal;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--crimson);
+    margin-top:14px;
+  }
+
+  /* HONOR ROLL */
+  .honor-roll{
+    max-width:880px;
+    margin:0 auto 56px;
+    padding:34px 24px;
+    background:var(--navy);
+    color:var(--cream);
+  }
+  .honor-roll h2{
+    color:var(--gold);
+    font-size:1.4rem;
+    text-align:center;
+    margin-bottom:22px;
+  }
+  .honor-roll ul{
+    list-style:none;
+    columns:2;
+    column-gap:40px;
+    font-family:'Oswald', sans-serif;
+    font-size:13.5px;
+    letter-spacing:.02em;
+  }
+  .honor-roll li{
+    padding:6px 0;
+    border-bottom:1px solid rgba(201,168,76,0.18);
+    break-inside:avoid;
+  }
+  @media (max-width:600px){ .honor-roll ul{columns:1;} }
+
+  /* SOURCES BOX */
+  .sources-box{
+    max-width:880px;
+    margin:0 auto 56px;
+    padding:24px;
+    background:var(--cream);
+    border:1px solid rgba(6,14,28,0.1);
+  }
+  .sources-box h3{
+    font-family:'Oswald', sans-serif;
+    font-size:13px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--crimson);
+    margin-bottom:12px;
+  }
+  .sources-box ul{
+    padding-left:20px;
+    font-size:14px;
+    color:#3a362c;
+  }
+  .sources-box li{margin-bottom:6px;}
+
+  /* TRIBUTE BLOCK */
+  .tribute-block{
+    max-width:880px;
+    margin:0 auto 60px;
+    padding:40px 24px;
+    text-align:center;
+    border-top:2px solid var(--gold);
+  }
+  .tribute-block h2{
+    color:var(--navy);
+    font-size:1.6rem;
+    margin-bottom:14px;
+  }
+  .tribute-block p{
+    max-width:640px;
+    margin:0 auto;
+    font-size:1.05rem;
+    color:#3a362c;
+  }
+
+  /* FLPB CTA */
+  .flpb-cta{
+    max-width:880px;
+    margin:0 auto 70px;
+    padding:26px 24px;
+    text-align:center;
+    background:var(--warm-white);
+    border:1px dashed var(--gold);
+  }
+  .flpb-cta p{
+    font-family:'Oswald', sans-serif;
+    font-size:13px;
+    letter-spacing:.03em;
+    color:#6b6558;
+  }
+  .flpb-cta a{
+    color:var(--crimson);
+    font-weight:700;
+  }
+
+  footer{
+    text-align:center;
+    padding:30px 24px 40px;
+    font-family:'Oswald', sans-serif;
+    font-size:11px;
+    letter-spacing:.08em;
+    color:#8a8368;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-eyebrow label">The Best of America™ National Archive — Honoree Profile</div>
+  <h1>Extortion 17</h1>
+  <p class="sub">Tangi Valley, Wardak Province, Afghanistan — August 6, 2011</p>
+
+  <div class="hero-photo">
+    <img src="bart-hero.png" alt="Bart, combat assault dog killed aboard Extortion 17, honored as part of Bart's Mile">
+  </div>
+  <p class="hero-photo-caption">BART — COMBAT ASSAULT DOG, NAVAL SPECIAL WARFARE DEVELOPMENT GROUP</p>
+
+  <div class="stats-bar">
+    <div class="stat"><span class="num">38</span><span class="txt">Souls Lost</span></div>
+    <div class="stat"><span class="num">30</span><span class="txt">Americans</span></div>
+    <div class="stat"><span class="num">17</span><span class="txt">Navy SEALs</span></div>
+    <div class="stat"><span class="num">1</span><span class="txt">Working Dog</span></div>
+  </div>
+</header>
+
+<div class="service-bar">
+  <strong>U.S. Army · U.S. Navy · U.S. Air Force · Naval Special Warfare Development Group</strong>
+</div>
+<div class="designations-bar">
+  Deadliest single day of the Afghanistan War · Greatest single-incident loss of life in Naval Special Warfare history
+</div>
+
+<main class="narrative">
+
+  <div class="section">
+    <div class="section-label">
+      <span class="roman">I</span>
+      <span class="title">The Mission</span>
+    </div>
+    <div class="section-body">
+      <h2>A Ranger Raid in the Tangi Valley</h2>
+      <p>On the night of August 5, 2011, a platoon of 47 U.S. Army Rangers from the 75th Ranger Regiment left a forward operating base in Logar Province, carried by two CH-47D Chinook helicopters, to capture or kill Qari Tahir, a senior Taliban commander operating out of the Tangi Valley in Wardak Province.</p>
+      <p>The raid met fierce resistance. As the firefight stretched on and enemy fighters massed against the Rangers on the ground, commanders made the call every special operations unit trains and waits for: send in reinforcements.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">
+      <span class="roman">II</span>
+      <span class="title">The Reinforcements</span>
+    </div>
+    <div class="section-body">
+      <h2>Extortion 17 Answers the Call</h2>
+      <p>A Quick Reaction Force scrambled to reinforce the Rangers — 22 Navy personnel, including 17 SEALs from Naval Special Warfare Development Group's Gold Squadron, five Army National Guard and Reserve aircrew, three Air Force personnel, seven Afghan National Army commandos, and an Afghan interpreter. They boarded a CH-47D Chinook carrying the callsign "Extortion 17" and lifted off into the dark toward the fight below.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">
+      <span class="roman">III</span>
+      <span class="title">The Shootdown</span>
+    </div>
+    <div class="section-body">
+      <h2>The Deadliest Day of the War</h2>
+      <p>As Extortion 17 closed on the landing zone at roughly 100 to 150 feet, a Taliban fighter fired a rocket-propelled grenade into the aircraft. The Chinook went down instantly, killing everyone aboard — the greatest single-incident loss of life in the history of U.S. Naval Special Warfare, and the deadliest single day of the entire Afghanistan War for American forces.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"His first reaction was to grab his dog, Bart... and protect him, best he possibly could."</blockquote>
+    <cite>Mike Sarraille, retired U.S. Navy SEAL officer, recounting John Douangdara's final act aboard Extortion 17</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-label">
+      <span class="roman">IV</span>
+      <span class="title">Bart & His Handler</span>
+    </div>
+    <div class="section-body">
+      <h2>Inseparable, in Life and in Death</h2>
+      <p>Among the fallen was Bart, a combat assault dog assigned to Naval Special Warfare Development Group. His handler, Petty Officer 1st Class John Douangdara, 26, of South Sioux City, Nebraska, had enlisted in the Navy as a teenager and risen to become the SEALs' lead dog handler. Handler and dog trained together, deployed together, and were lost together aboard Extortion 17.</p>
+      <p>Retired Navy SEAL officer Mike Sarraille has recounted that when the RPG struck the Chinook's rotor and the aircraft went into auto-rotation, Douangdara's first instinct was to reach for Bart and shield him — the same protective bond, Sarraille has said, that exists between any two brothers-in-arms. Sarraille has further recounted that the force of the crash was severe enough that recovery teams found the two fused together, a process that took roughly two hours to separate.</p>
+      <p class="attribution-note">Source note: this account comes from Mike Sarraille's own recollection — recounted on Fox News in connection with the Fox Nation documentary <em>Final Flight: The Fall of Extortion 17</em>, and in greater detail in the "Gold Shields" podcast interview <em>Navy SEAL Tier One Operator: Combat Missions & Extortion 17</em> (Feb. 2026) — not an official DoD casualty report. It is included here with direct attribution to him, as the archive's standard for verified fact.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">
+      <span class="roman">V</span>
+      <span class="title">The Legacy</span>
+    </div>
+    <div class="section-body">
+      <h2>What Reinforcement Costs</h2>
+      <p>Thirty Americans, seven Afghan commandos, an interpreter, and a working dog gave everything answering a call for help that night. More than 25 children lost a father. Fifteen years on, Extortion 17 remains a solemn reminder of what reinforcement, in its truest sense, demands — and of a loyalty, both human and canine, that never once hesitated to answer it.</p>
+    </div>
+  </div>
+
+  <div class="honor-roll">
+    <h2>The Thirty</h2>
+    <ul>
+      <li>SGT Alexander J. Bennett</li>
+      <li>SPC Spencer Duncan</li>
+      <li>CWO Bryan J. Nichols</li>
+      <li>CWO David R. Carter</li>
+      <li>SSG Patrick D. Hamburger</li>
+      <li>TSgt John W. Brown</li>
+      <li>SSgt Andrew W. Harvell</li>
+      <li>TSgt Daniel L. Zerbe</li>
+      <li>PO1 (SEAL) Darrik C. Benson</li>
+      <li>CPO (SEAL) Brian R. Bill</li>
+      <li>PO1 (SEAL) Christopher G. Campbell</li>
+      <li>PO1 Jared W. Day</li>
+      <li>MA1 John Douangdara</li>
+      <li>CPO (SEAL) John W. Faas</li>
+      <li>CPO (SEAL) Kevin A. Houston</li>
+      <li>Lt. Cmdr. (SEAL) Jonas B. Kelsall</li>
+      <li>MCPO (SEAL) Louis J. Langlais</li>
+      <li>CPO (SEAL) Matthew D. Mason</li>
+      <li>CPO (SEAL) Stephen M. Mills</li>
+      <li>CPO Nicholas H. Null</li>
+      <li>PO1 (SEAL) Jesse D. Pittman</li>
+      <li>CPO (SEAL) Heath M. Robinson</li>
+      <li>PO2 (SEAL) Nicholas P. Spehar</li>
+      <li>PO1 Michael J. Strange</li>
+      <li>PO1 (SEAL) Jon T. Tumilson</li>
+      <li>SCPO (SEAL) Thomas A. Ratzlaff</li>
+      <li>PO1 (SEAL) Robert J. Reeves</li>
+      <li>PO1 (SEAL) Aaron C. Vaughn</li>
+      <li>SCPO Kraig M. Vickers</li>
+      <li>PO1 (SEAL) Jason R. Workman</li>
+    </ul>
+  </div>
+
+  <div class="sources-box">
+    <h3>Sources</h3>
+    <ul>
+      <li>National Navy UDT-SEAL Museum — "Navy SEALs and Extortion 17"</li>
+      <li>Mike Sarraille, retired U.S. Navy SEAL officer — Fox News interview, August 2026, in connection with the Fox Nation documentary <em>Final Flight: The Fall of Extortion 17</em></li>
+      <li>Mike Sarraille — "Navy SEAL Tier One Operator: Combat Missions & Extortion 17," <em>Gold Shields</em> podcast, February 2026</li>
+      <li>Honor and Remember Nebraska — Johnny Douangdara tribute</li>
+      <li><em>The Final Mission of Extortion 17</em>, Ed Darack, Smithsonian Books, 2017</li>
+    </ul>
+  </div>
+
+  <div class="tribute-block">
+    <h2>In Their Honor</h2>
+    <p>The Best of America™ National Archive honors the 30 Americans, the Afghan partners who fought alongside them, and Bart — who answered the call the same as every soldier, sailor, airman, and Ranger aboard Extortion 17 — with gratitude that does not fade with fifteen years.</p>
+  </div>
+
+  <div class="flpb-cta">
+    <p>This profile has no sponsor yet. <a href="local-patriot-businesses.html">Become a Founding Local Patriot Business →</a></p>
+  </div>
+
+</main>
+
+<footer>
+  THE BEST OF AMERICA™ NATIONAL ARCHIVE · ESTABLISHED 2003
+</footer>
+
+</body>
+</html>
