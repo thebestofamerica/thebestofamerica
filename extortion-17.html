@@ -148,11 +148,13 @@
   .citation-source { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-light); }
 
   /* ── HONOR ROLL ── */
-  .honor-roll { background: var(--navy); padding: 40px; margin: 48px 0; }
-  .honor-roll h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); text-align: center; margin-bottom: 26px; font-weight: 600; }
-  .honor-roll ul { list-style: none; columns: 2; column-gap: 40px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.3px; }
-  .honor-roll li { padding: 7px 0; color: var(--cream); border-bottom: 1px solid rgba(201,168,76,0.15); break-inside: avoid; }
-  @media (max-width: 600px) { .honor-roll ul { columns: 1; } }
+  .honor-roll { background: var(--navy); border-top: 2px solid rgba(201,168,76,0.4); border-bottom: 2px solid rgba(201,168,76,0.4); margin: 64px -40px; padding: 56px 40px; }
+  .honor-roll-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--crimson); text-transform: uppercase; text-align: center; margin-bottom: 14px; }
+  .honor-roll h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); text-align: center; margin-bottom: 40px; font-weight: 700; }
+  .honor-roll ul { list-style: none; columns: 3; column-gap: 40px; max-width: 900px; margin: 0 auto; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.3px; }
+  .honor-roll li { padding: 9px 0; color: var(--cream); border-bottom: 1px solid rgba(201,168,76,0.15); break-inside: avoid; }
+  @media (max-width: 900px) { .honor-roll ul { columns: 2; } }
+  @media (max-width: 600px) { .honor-roll ul { columns: 1; } .honor-roll { margin: 48px -24px; padding: 40px 24px; } }
 
   /* ── SOURCES BOX ── */
   .sources-box { background: var(--cream); border: 1px solid rgba(10,22,40,0.1); padding: 28px 32px; margin: 40px 0; }
@@ -390,15 +392,9 @@
       <h3>Handler and dog trained together, deployed together, and were lost together.</h3>
       <p>His handler, Petty Officer 1st Class John Douangdara, 26, of South Sioux City, Nebraska, had enlisted in the Navy as a teenager and risen to become the SEALs' lead dog handler. Handler and dog trained together, deployed together, and were lost together aboard Extortion 17.</p>
 
-      <div class="inline-photo-pair">
-        <div class="inline-photo">
-          <img src="douangdara-bart-flag.jpg" alt="PO1 John Douangdara with Bart in front of an American flag, Afghanistan">
-          <div class="inline-photo-caption">Douangdara and Bart, Afghanistan<br>Photo: Military Working Dog Team Support Association (MWDTSA)</div>
-        </div>
-        <div class="inline-photo">
-          <img src="douangdara-bart-training.jpg" alt="PO1 John Douangdara training with Bart at night, Afghanistan">
-          <div class="inline-photo-caption">A nighttime training rep, downrange<br>Photo: Dawn Turzio, "Heroes Were Among Us"</div>
-        </div>
+      <div class="inline-photo" style="max-width:280px;margin-left:auto;margin-right:auto;">
+        <img src="douangdara-bart-flag.jpg" alt="PO1 John Douangdara with Bart in front of an American flag, Afghanistan">
+        <div class="inline-photo-caption">Douangdara and Bart, Afghanistan<br>Photo: Military Working Dog Team Support Association (MWDTSA)</div>
       </div>
 
       <p>Retired Navy SEAL officer Mike Sarraille has recounted that when the RPG struck the Chinook's rotor and the aircraft went into auto-rotation, Douangdara's first instinct was to reach for Bart and shield him — the same protective bond, Sarraille has said, that exists between any two brothers-in-arms. Sarraille has further recounted that the force of the crash was severe enough that recovery teams found the two fused together, a process that took roughly two hours to separate.</p>
@@ -409,6 +405,7 @@
       </div>
 
       <p style="font-size:13px;color:var(--text-light);font-style:italic;">Source note: this account comes from Mike Sarraille's own recollection — recounted on Fox News in connection with the Fox Nation documentary <em>Final Flight: The Fall of Extortion 17</em>, and in greater detail in the "Gold Shields" podcast interview <em>Navy SEAL Tier One Operator: Combat Missions &amp; Extortion 17</em> (Feb. 2026) — not an official DoD casualty report. It is included here with direct attribution to him, as the archive's standard for verified fact.</p>
+      <p>Theirs was one bond among many that night. Every man aboard Extortion 17 answered the same call, carried the same risk, and gave the same last full measure.</p>
     </div>
   </div>
 
@@ -431,10 +428,13 @@
       </div>
 
       <p>The Best of America™ archive records their names here because an archive that tells the story of this nation must include the men — and the dog — who gave the last full measure answering a call for help in a valley most Americans will never find on a map.</p>
+    </div>
+  </div>
 
-      <div class="honor-roll">
-        <h3>The Thirty</h3>
-        <ul>
+  <div class="honor-roll">
+    <div class="honor-roll-eyebrow">Archived in Permanent Honor</div>
+    <h3>The Thirty</h3>
+    <ul>
           <li>SGT Alexander J. Bennett</li>
           <li>SPC Spencer Duncan</li>
           <li>CWO Bryan J. Nichols</li>
@@ -466,8 +466,11 @@
           <li>SCPO Kraig M. Vickers</li>
           <li>PO1 (SEAL) Jason R. Workman</li>
         </ul>
-      </div>
+  </div>
 
+  <div class="story-section" style="margin:0 0 64px;">
+    <div class="section-label-col"></div>
+    <div class="section-body">
       <div class="sources-box">
         <h4>Sources</h4>
         <ul>
