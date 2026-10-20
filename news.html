@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archive News — The Best of America™ National Archive</title>
+<meta name="description" content="Milestones, new honorees, and announcements from The Best of America — a permanent national archive preserving the lives, service, and sacrifice that shaped the American story.">
+<!--
+  ARCHIVE NEWS PAGE — TheBestofAmerica.org
+  Upload this file to GitHub as news.html (or rename to match your convention).
+  TO ADD A NEWS ENTRY: copy one <section class="story-section"> ... </section> block,
+  paste it directly below the "<!-- LATEST NEWS FIRST -->" comment, and edit the
+  section-number, section-title, h3, and paragraphs. Newest entries go first.
+  NOTE: update the nav hrefs below to match the links on your other pages.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --deep-navy: #060e1c;
+  --navy-mid: #112240;
+  --crimson: #b31b1b;
+  --crimson-dark: #8f1515;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --cream: #f5f0e8;
+  --warm-white: #faf8f4;
+  --white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-mid: #3a3530;
+  --text-light: #6b6058;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--warm-white); color: var(--text-dark); font-family: 'Libre Baskerville', Georgia, serif; overflow-x: hidden; }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(6,14,28,0.97); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+.nav-logo { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.nav-logo img { width: 40px; height: 40px; object-fit: contain; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+.mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(6,14,28,0.99); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 199; padding: 24px 32px; flex-direction: column; gap: 20px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.75); text-decoration: none; }
+.mobile-menu a:hover { color: var(--gold); }
+@media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
+
+/* ── HERO ── */
+.hero { position: relative; background: var(--navy); padding-top: 72px; border-bottom: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
+.hero::before { content: '★'; font-size: 600px; color: rgba(201,168,76,0.025); position: absolute; top: 50%; left: -100px; transform: translateY(-50%); pointer-events: none; line-height: 1; }
+.hero-inner { max-width: 1100px; margin: 0 auto; padding: 60px 40px; position: relative; }
+.hero-inner.single { max-width: 860px; }
+.hero-content { animation: fadeUp 1.2s ease forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-category { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 11px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.hero-category::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+.hero-name { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); color: var(--warm-white); line-height: 1.05; font-weight: 700; margin-bottom: 12px; }
+.hero-name em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+.hero-rank { font-family: 'Oswald', sans-serif; color: rgba(245,240,232,0.6); font-size: 14px; letter-spacing: 3px; font-weight: 300; margin-bottom: 28px; }
+.hero-tagline { font-family: 'Libre Baskerville', serif; font-style: italic; color: rgba(245,240,232,0.75); font-size: 16px; line-height: 1.75; max-width: 580px; border-left: 3px solid var(--crimson); padding-left: 20px; margin-bottom: 8px; }
+
+/* ── DIVIDER ── */
+.divider { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+.divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.4; }
+.divider-star { color: var(--gold); font-size: 14px; opacity: 0.8; }
+
+/* ── BODY ── */
+.page-body { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+/* ── SERVICE BAR ── */
+.service-bar { background: var(--navy); margin: 0 -40px; padding: 28px 40px; display: flex; gap: 0; flex-wrap: wrap; }
+.service-item { flex: 1; min-width: 130px; padding: 0 24px; border-right: 1px solid rgba(201,168,76,0.25); }
+.service-item:first-child { padding-left: 0; }
+.service-item:last-child { border-right: none; }
+.service-label { font-family: 'Oswald', sans-serif; color: var(--gold); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+.service-value { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 14px; line-height: 1.4; }
+
+/* ── STORY SECTIONS (news entries) ── */
+.story-section { margin: 64px 0; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+.section-label-col { position: sticky; top: 100px; }
+.section-number { font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold); opacity: 0.12; line-height: 1; display: block; margin-bottom: -30px; }
+.section-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson); line-height: 1.5; }
+.section-rule { width: 40px; height: 2px; background: var(--gold); margin-top: 12px; }
+.section-body h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); font-weight: 600; margin-bottom: 20px; line-height: 1.3; }
+.section-body p { font-size: 16px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; }
+.section-body p em { font-style: italic; color: var(--text-dark); }
+.section-body a { color: var(--crimson); text-decoration: none; border-bottom: 1px solid rgba(179,27,27,0.35); }
+.section-body a:hover { color: var(--crimson-dark); }
+
+/* ── PULL QUOTE ── */
+.pull-quote { background: var(--navy); border-left: 5px solid var(--crimson); padding: 36px 40px; margin: 48px 0; position: relative; }
+.pull-quote::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: 0.15; position: absolute; top: -10px; left: 20px; line-height: 1; }
+.pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.6; color: var(--cream); position: relative; z-index: 1; }
+.pull-quote cite { display: block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--gold); font-style: normal; }
+
+/* ── CALLOUT STATS ── */
+.callout-row { display: flex; gap: 24px; margin: 40px 0; flex-wrap: wrap; }
+.callout-box { flex: 1; min-width: 140px; background: var(--cream); border-top: 3px solid var(--crimson); padding: 24px 20px; text-align: center; }
+.callout-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 700; display: block; }
+.callout-desc { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; }
+
+/* ── TRIBUTE BLOCK ── */
+.tribute-block { background: var(--navy); padding: 64px 60px; margin: 64px -40px 0; text-align: center; position: relative; overflow: hidden; }
+.tribute-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.tribute-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.tribute-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+.tribute-text { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 32px); color: var(--warm-white); line-height: 1.5; max-width: 780px; margin: 0 auto 32px; font-style: italic; }
+.tribute-name { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+.tribute-name a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4); }
+
+/* ── ARCHIVE SEAL ── */
+.archive-footer { text-align: center; padding: 48px 20px 24px; border-top: 1px solid rgba(10,22,40,0.12); margin-top: 0; }
+.archive-footer p { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--text-light); text-transform: uppercase; line-height: 2; }
+.archive-footer .site { color: var(--crimson); font-size: 11px; letter-spacing: 2px; margin-top: 6px; }
+
+/* ── FOOTER ── */
+.site-footer { padding: 60px 48px 40px; background: var(--deep-navy); border-top: 1px solid rgba(201,168,76,0.12); }
+.site-footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+.footer-brand h3 { font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+.footer-brand p { font-size: 13px; color: rgba(245,240,232,0.4); line-height: 1.7; max-width: 280px; }
+.footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+.footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a { font-size: 13px; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--cream); }
+.footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-bottom p { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: rgba(245,240,232,0.25); }
+.footer-disc { font-size: 11px; color: rgba(245,240,232,0.2); max-width: 600px; line-height: 1.5; text-align: right; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { padding: 48px 24px; }
+}
+@media (max-width: 700px) {
+  .hero-inner { padding: 40px 24px; }
+  .page-body { padding: 0 24px 60px; }
+  .story-section { grid-template-columns: 1fr; gap: 16px; }
+  .section-label-col { position: static; }
+  .section-number { font-size: 48px; margin-bottom: -16px; }
+  .service-bar { margin: 0 -24px; padding: 24px; gap: 20px; }
+  .service-item { border-right: none; padding: 0; min-width: 120px; }
+  .tribute-block { padding: 48px 28px; margin: 48px -24px 0; }
+  .pull-quote { padding: 28px 24px; }
+  .site-footer { padding: 48px 24px 32px; }
+  .footer-links { gap: 32px; }
+  .footer-disc { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<!-- Update the hrefs below to match the links on your other pages. -->
+<nav>
+  <a class="nav-logo" href="/"><img src="logo.png" alt="">The Best of America™</a>
+  <ul class="nav-links">
+    <li><a href="/honorees">Honorees</a></li>
+    <li><a href="#">Nominate a Hero</a></li>
+    <li><a href="#">Local Patriot Businesses</a></li>
+    <li><a href="#">Video</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="/news" class="active">News</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="/honorees">Honorees</a>
+  <a href="#">Nominate a Hero</a>
+  <a href="#">Local Patriot Businesses</a>
+  <a href="#">Video</a>
+  <a href="#">About</a>
+  <a href="/news">News</a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <div class="hero-inner single">
+    <div class="hero-content">
+      <div class="hero-category">★ Archive News · Milestones &amp; Announcements</div>
+      <h1 class="hero-name">Archive <em>News</em></h1>
+      <div class="hero-rank">Milestones · New Honorees · Announcements</div>
+      <p class="hero-tagline">Every addition to the permanent record, every milestone on the road to America's 250th — reported here as it happens.</p>
+    </div>
+  </div>
+</header>
+
+<div class="page-body">
+
+  <!-- ══════════ ARCHIVE AT A GLANCE ══════════ -->
+  <div class="service-bar">
+    <div class="service-item">
+      <div class="service-label">Honorees Archived</div>
+      <div class="service-value">22 and growing</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">The Goal</div>
+      <div class="service-value">30 by Veterans Day 2026</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Categories of Honor</div>
+      <div class="service-value">Veterans · First Responders · Community Leaders · Historic Places</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">Archive Established</div>
+      <div class="service-value">2003</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-star">★</div><div class="divider-line"></div></div>
+
+  <!-- ══════════ LATEST NEWS FIRST ══════════ -->
+  <!-- To add an entry: copy a <section class="story-section"> block and paste it right below this comment. -->
+
+  <section class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">11</span>
+      <div class="section-title">September · 2026</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>National September 11 Memorial &amp; Museum Enters the Permanent Record</h3>
+      <p>On the 25th anniversary of September 11, 2001, the National September 11 Memorial &amp; Museum joined the permanent record of The Best of America. Set in the footprints of the fallen Twin Towers in Lower Manhattan, the memorial honors 2,983 victims and 403 first responders — <em>the largest loss of first-responder life in a single day in American history.</em></p>
+      <p>&ldquo;No day shall erase you from the memory of time.&rdquo; — Virgil, inscribed at the Museum entrance.</p>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">30</span>
+      <div class="section-title">Veterans Day · November 11, 2026</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>The Road to 30: Eight Honorees to Go</h3>
+      <p>The archive now holds 22 honorees — and the march to 30 by Veterans Day is on. Eight profiles remain: two veterans, two first responders, two community leaders, and two historic places, <em>one joining the permanent record nearly every week</em> between now and November 11.</p>
+      <p>Nominations are always free. If you know someone whose service strengthened this country, their story belongs here.</p>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">30</span>
+      <div class="section-title">July · 2026</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>New World Headquarters: Lancaster, California</h3>
+      <p>The Best of America announced its new World Headquarters in Lancaster, in the Antelope Valley — <em>home of Edwards Air Force Base, the B-2 Spirit, and generations of test pilots and patriots.</em> From the high desert, the archive continues its mission: no hero forgotten, no story left to chance.</p>
+    </div>
+  </section>
+
+  <div class="pull-quote">
+    <p>In 2003, we started a simple archive with one belief: American heroes deserve to be remembered forever.</p>
+    <cite>The Best of America · Est. 2003</cite>
+  </div>
+
+  <section class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">250</span>
+      <div class="section-title">America 250 · 1776–2026</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>The Founding 250: A First Class for America's 250th</h3>
+      <p>As America marks 250 years, The Best of America is inducting its first class of honorees — the Founding 250. These are the veterans, leaders, and institutions whose stories are too important to leave to chance. <em>Once entered, a record is never altered, never removed.</em></p>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="section-label-col">
+      <span class="section-number">★</span>
+      <div class="section-title">Every Week</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="section-body">
+      <h3>New Heroes Added Every Week</h3>
+      <p>A new honoree joins the archive each week — veterans, first responders, community leaders, and historic places who shaped this nation. <a href="/honorees">View all honorees →</a></p>
+    </div>
+  </section>
+
+  <!-- ══════════ NOMINATE CTA ══════════ -->
+  <div class="tribute-block">
+    <div class="tribute-eyebrow">Nominations Always Free</div>
+    <p class="tribute-text">Know a hero whose story belongs in the permanent record?</p>
+    <div class="tribute-name"><a href="#">Submit a Nomination →</a></div>
+  </div>
+
+  <div class="archive-footer">
+    <p>Recorded in perpetuity · A legacy that endures</p>
+    <p class="site">TheBestofAmerica.org</p>
+  </div>
+
+</div><!-- /page-body -->
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>The Best of America™</h3>
+        <p>A permanent national archive preserving the lives, service, and sacrifice that shaped the American story.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Archive</h4>
+          <ul>
+            <li><a href="/honorees">Honorees</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="#">Video</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Participate</h4>
+          <ul>
+            <li><a href="#">Nominate a Hero</a></li>
+            <li><a href="#">Local Patriot Businesses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Established 2003 · Copyright © 2025–2026 The Best of America™ · All Rights Reserved</p>
+      <p class="footer-disc">TheBestofAmerica.org is an independent national archive and is not affiliated with any government entity.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
